@@ -7,7 +7,7 @@ export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 export const receiveCurrentUser = currentUser => ({
     type: RECEIVE_CURRENT_USER, 
-    currentUser
+    currentUser 
 })
 
 export const receiveErrors = errors => ({
@@ -21,7 +21,7 @@ export const logoutCurrentUser = () => ({
 
 export const login = user => dispatch => (
     ApiUtil.login(user)
-    .then(user => dispatch(receiveCurrentUser(user)))
+    .then(currentUser => dispatch(receiveCurrentUser(currentUser)))
 );
 
 export const logout = () => dispatch => (

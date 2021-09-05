@@ -19,7 +19,8 @@ class Signin extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.loginUser(this.state)
+        this.props.login(this.state)
+            .then(() => this.props.history.push('/'));
     };
 
     render() {
@@ -34,6 +35,8 @@ class Signin extends React.Component {
                     <input type="password" placeholder="Password" value={this.state.password} onChange={this.handleInput('password')} />
                     <p className="forgot_password">Forgot Password?</p>
                     <button onClick={this.handleSubmit} className="signin_button">Sign in</button>
+                    <p> ---------------------------- or ----------------------------</p>
+                    <button className="signin_button">Demo User</button>
                 </form>
                 <p className="join_now">New to wiredIn? Join now</p>
             </div>
