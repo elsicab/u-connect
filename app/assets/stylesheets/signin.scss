@@ -1,0 +1,30 @@
+.signin_form{
+    display: flex;
+    width: 320px;
+    box-shadow: 0 4px 12px rgba(179, 179, 179, 0.7);
+    margin: 0 auto;
+    flex-direction: column;
+    padding: 1rem;
+    line-height: 1.5;
+    font-weight: 400;
+    border-radius: 8px;
+    line-height: 1.5;
+    padding: 24px;
+    font-size: 1rem;
+}
+.signin_button{
+    padding: 0 25px;
+    height: 45px;
+    background: #0A66C3;
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bolder;
+}
+
+.join_now{
+    text-align: center;
+
+}
