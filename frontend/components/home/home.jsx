@@ -15,7 +15,17 @@ class HomePage extends React.Component {
             password: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
     };
+
+    handleDemo(e) {
+        e.preventDefault();
+        this.props.login({
+            email: 'ecaballero3@live.com',
+            password: 'password'
+        })
+            .then(() => this.props.history.push('/feed'));
+    }
 
     handleInput(type) {
         return (e) => {
@@ -57,7 +67,7 @@ class HomePage extends React.Component {
                                 <input type="password" placeholder="Password" value={this.state.password} onChange={this.handleInput('password')}/>
                                 <p>Forgot Password?</p>
                                 <button onClick={this.handleSubmit} className="login_button">Sign in</button>
-                                <button className="login_button">Demo User</button>
+                                <button onClick={this.handleDemo} className="login_button">Demo User</button>
                             </form>
                         </div>
                         <img className="hero_image" src={Hero} />

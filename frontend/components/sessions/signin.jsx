@@ -10,7 +10,17 @@ class Signin extends React.Component {
             password: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
     };
+
+    handleDemo(e) {
+        e.preventDefault();
+        this.props.login({
+            email: 'ecaballero3@live.com',
+            password: 'password'
+        })
+            .then(() => this.props.history.push('/feed'));
+    }
 
     handleInput(type) {
         return (e) => {
@@ -38,7 +48,7 @@ class Signin extends React.Component {
                     <p className="forgot_password">Forgot Password?</p>
                     <button onClick={this.handleSubmit} className="signin_button">Sign in</button>
                     <p> ---------------------------- or ----------------------------</p>
-                    <button className="signin_button">Demo User</button>
+                    <button onClick={this.handleDemo} className="signin_button">Demo User</button>
                 </form>
                 <p className="join_now">New to wiredIn? Join now</p>
             </div>

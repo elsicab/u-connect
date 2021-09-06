@@ -4,6 +4,7 @@ import { ImHome3 } from 'react-icons/im';
 import { BsBriefcaseFill } from 'react-icons/bs';
 import { AiFillMessage } from 'react-icons/ai';
 import { FaBell } from 'react-icons/fa';
+import { Route , withRouter} from 'react-router-dom';
 import { BsPeopleFill } from 'react-icons/bs';
 import { logout } from '../../actions/session_actions';
 import Logo from "../../../app/assets/images/LI-In-Bug.png";
@@ -14,12 +15,13 @@ import Logo from "../../../app/assets/images/LI-In-Bug.png";
 class Navbar extends React.Component {
     constructor(props){
         super(props)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    handleSubmit(e){
+    handleSubmit = (e) =>{
         e.preventDefault();
         this.props.logout()
-            .then(() => this.props.history.push('/'));
+            // .then(() => this.props.history.push('/'));
     };
 
     render(){
