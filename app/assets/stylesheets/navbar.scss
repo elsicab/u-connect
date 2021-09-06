@@ -8,6 +8,8 @@
     border-bottom: 0.1px solid lightgray;
     padding-top: 10px;
     padding-bottom: 5px;
+    z-index: 100;
+    background-color: white;
 
 }
 
@@ -119,7 +121,31 @@
     margin-right: 10px;
 }
 
+.main_logo{
+    object-fit: contain;
+    height: 45px;
+    margin-right: 10px;
+}
+
 .title{
     font-size: 12px;
     font-weight: 350;
+}
+
+#logout_button{
+    border: 0;
+    border: 2px solid #2867B2;
+    border-radius: 30px;
+    outline-width: 2px;
+    padding: 0 14px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition-duration: 167ms;
+    vertical-align: middle;
+    color: #2867B2;
+    margin-left: 20px;
+    padding: 0 25px;
+    height: 45px;
+    flex-direction: row;
 }

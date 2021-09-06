@@ -1,0 +1,56 @@
+.signin_banner{
+    display: flex;
+    height: 700px;
+}
+
+.hero_image, 
+.banner_form{
+    flex-basis: 100%;
+    margin: 20px;
+    padding: 20px;
+}
+
+.main_form{
+    display: flex;
+    width: 450px;
+    flex-direction: column;
+    padding: 1rem;
+    line-height: 1.5;
+    font-weight: 400;
+    border-radius: 8px;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+.login_button{
+    padding: 0 25px;
+    height: 45px;
+    background: #0A66C3;
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bolder;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.banner_form > h1{
+    font-size: 4.5rem;
+    font-weight: lighter;
+    margin-bottom: 20px;
+    color: #0A66C3;
+}
+
+.main_form > p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.main_form > input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 30px;
+    font-size: 12px;
+}
