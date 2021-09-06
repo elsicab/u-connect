@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo2 from "../../../app/assets/images/wiredIn_logo.png";
 
 
 class Signin extends React.Component {
@@ -27,6 +28,7 @@ class Signin extends React.Component {
         return (
             <div className="signin">
                     {/*<img /> logo */}
+                <img className="logo2" src={Logo2} />
         
                 <form className="signin_form">
                     <h2>Sign in</h2>

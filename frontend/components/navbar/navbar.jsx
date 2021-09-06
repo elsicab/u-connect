@@ -8,6 +8,8 @@ import { FaBell } from 'react-icons/fa';
 import { BsPeopleFill } from 'react-icons/bs';
 import SessionContainer from '../sessions/session_container';
 import { logout } from '../../actions/session_actions';
+import Logo from "../../../app/assets/images/wiredIn_logo.png";
+
 
 
 
@@ -16,7 +18,7 @@ const Navbar = () => {
         <div className="navbar"> 
             <div className="header">
                 <div className="left_nav">
-                    <img className="logo" />
+                    <img className="logo" src={Logo} />
                     <div className="nav_search">
                         <FaSearch />
                         <input type="text" placeholder="Search"></input>
@@ -30,9 +32,8 @@ const Navbar = () => {
                         <li className="navbar_icon"><AiFillMessage /></li>
                         <li className="navbar_icon"><FaBell /></li>
                         <li className="navbar_icon"><SessionContainer /></li>
-                    </ul>
-                     <button onClick={logout()}>Logout!</button>
-                    
+                    </ul>  
+                    {/* <button onClick={logout()}>Logout!</button>                   */}
                 </div>
            </div>
         </div>

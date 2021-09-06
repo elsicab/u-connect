@@ -51,9 +51,14 @@
     text-decoration: none;
 }
 
-.right_nav{
+.right_nav, 
+.left_nav{
     margin-left: auto;
     min-height: 52px;
+}
+
+.left_nav{
+    display: flex;
 }
 
 #sign_in {
@@ -76,4 +81,10 @@
     color: #2867B2;
     margin-left: 20px;
 
+}
+
+.logo{
+    object-fit: contain;
+    height: 45px;
+    margin-right: 15px;
 }

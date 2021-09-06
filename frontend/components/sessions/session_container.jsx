@@ -3,8 +3,7 @@ import Session from './session';
 import { logout } from '../../actions/session_actions';
 
 const mSTP = state => ({
-    users: state.entities.users,
-    id: state.session.id
+    currentUser: state.entities.currentUser,
 })
 
 const mDTP = dispatch => ({
