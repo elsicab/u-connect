@@ -8,6 +8,8 @@ import { withRouter } from 'react-router';
 import { BsPeopleFill } from 'react-icons/bs';
 import { logout } from '../../actions/session_actions';
 import Logo from "../../../app/assets/images/LI-In-Bug.png";
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -57,7 +59,7 @@ class Navbar extends React.Component {
                                 <li className="navbar_icon"><FaBell /></li>
                                 <li className="title">Notifications</li>
                             </li>
-                            <li className="single_icon" id="logout_button" onClick={this.props.logout}>Logout!</li>
+                            <li className="single_icon" id="logout_button" onClick={this.props.logout}><Link to='/'>Logout!</Link></li>
                         </ul>  
                         {/* <button onClick={logout()}>Logout!</button>*/}
                     </div>

@@ -47,7 +47,7 @@ class Signin extends React.Component {
                     <input type="password" placeholder="Password" value={this.state.password} onChange={this.handleInput('password')} />
                     <p className="forgot_password">Forgot Password?</p>
                     <button onClick={this.handleSubmit} className="signin_button">Sign in</button>
-                    <p> ---------------------------- or ----------------------------</p>
+                    {/* <p> ---------------------------- or ----------------------------</p> */}
                     <button onClick={this.handleDemo} className="signin_button">Demo User</button>
                 </form>
                 <p className="join_now">New to wiredIn? Join now</p>
