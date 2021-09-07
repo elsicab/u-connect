@@ -1,6 +1,6 @@
 .signin_form{
     display: flex;
-    width: 320px;
+    width: 325px;
     box-shadow: 0 4px 12px rgba(179, 179, 179, 0.7);
     margin: 0 auto;
     flex-direction: column;
@@ -11,6 +11,7 @@
     line-height: 1.5;
     padding: 24px;
     font-size: 1rem;
+    font-family: sans-serif;
 }
 .signin_button{
     padding: 0 25px;

@@ -10,6 +10,7 @@
     padding-bottom: 5px;
     z-index: 100;
     background-color: white;
+    font-family: sans-serif;
 
 }
 
@@ -47,7 +48,8 @@
     display: flex;
     flex-wrap: nowrap;
     list-style-type: none;
-    color: rgb(109, 108, 108);
+    // color: rgb(109, 108, 108);
+    color: #00000099;
     align-items: center;
      float: right;
 }
