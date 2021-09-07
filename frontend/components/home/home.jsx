@@ -46,10 +46,10 @@ class HomePage extends React.Component {
                     <div className="header">
                         <div className="left_nav">
                             <img className="main_logo" src={LogoMain} />
-                            <div className="nav_search">
+                            {/* <div className="nav_search">
                                 <FaSearch />
                                 <input type="text" placeholder="Search"></input>
-                            </div>
+                            </div> */}
                         </div>
                         <div className="right_nav">
                             <ul className="navbar_icons">

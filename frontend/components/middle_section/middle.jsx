@@ -3,12 +3,33 @@ import { HiOutlinePhotograph } from 'react-icons/hi';
 import { AiFillPlaySquare } from 'react-icons/ai'
 import { RiCalendarEventFill } from 'react-icons/ri';
 import { RiArticleLine } from 'react-icons/ri';
+import { AiOutlineClose } from 'react-icons/ai'
+// import MiddleContainer from './middle_container';
 
 const Middle = () => {
+    const postForm = () => <div className="post_modal">
+                    <div className="post_header">
+                        <h2 className="post_message">Create a post</h2>
+                        <p className="close_post"><AiOutlineClose /></p>
+                    </div>
+                    <div className="post_body">
+                        <textarea placeholder="What do you want to talk about?"></textarea>
+                    </div>
+                    <div className="create_post_icons">
+                        <ul className="attach_icons">
+                            <li className="attach_icon"><HiOutlinePhotograph /></li>
+                            <li className="attach_icon"><AiFillPlaySquare/></li>
+                            <li className="attach_icon"><RiCalendarEventFill/></li>
+                            <li className="attach_icon"><RiArticleLine/></li>
+                        </ul>
+                        {/* <button onClick={() => closeModal()}>Post</button> */}
+                    </div>
+            </div>
+
     return(
         <div className="feed">
             <div className="post_container">
-                <span class="button_text">Start a post</span>
+                {/* <span className="button_text" onClick={() => openModal()}>Start a post</span> */}
                 <button className="post_button"></button>
                 <ul className="post_icons">
                     <li className="post_icon">
@@ -29,6 +50,10 @@ const Middle = () => {
                     </li>
                 </ul>
             </div>
+            
+            {/* {postForm} if this.props.modal; */}
+            
+            {/* {this.props.modal && <div>{postForm}</div>} */}
         </div>
 
 

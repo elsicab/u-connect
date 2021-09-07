@@ -5,11 +5,13 @@ import  SignUpContainer  from "./sessions/signup_container";
 import SignInContainer from './sessions/signin_container';
 import Feed from './feed/feed';
 import HomePageContainer from './home/home_container';
+import Modal from '../components/modal/modal';
 
 
 
 const App = () => (
     <div>
+        <Modal />
         <Switch>
             {/* <Route exact path="/home" component={Home} /> */}
             <Route path="/signup" component={SignUpContainer} />

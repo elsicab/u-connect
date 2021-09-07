@@ -17,14 +17,14 @@ import { Link } from 'react-router-dom';
 class Navbar extends React.Component {
     constructor(props){
         super(props)
-        // this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    // handleSubmit(e){
-    //     e.preventDefault();
-    //     this.props.logout()
-    //         // .then(() => this.props.history.push('/'));
-    // };
+    handleSubmit(e){
+        e.preventDefault();
+        this.props.logout()
+            // .then(() => this.props.history.push('/'));
+    };
 
     render(){
         return(
@@ -40,30 +40,30 @@ class Navbar extends React.Component {
                     <div className="right_nav">
                         <ul className="navbar_icons">
                             <li className="single_icon">
-                                <li className="navbar_icon"><ImHome3 /></li>
-                                <li className="title">Home</li>
+                                <p className="navbar_icon"><ImHome3 /></p>
+                                <p className="title">Home</p>
                             </li>
                             <li className="single_icon">
-                                <li className="navbar_icon"><BsPeopleFill /></li>
-                                <li className="title">My Network</li>
+                                <p className="navbar_icon"><BsPeopleFill /></p>
+                                <p className="title">My Network</p>
                             </li>
                             <li className="single_icon">
-                                <li className="navbar_icon"><BsBriefcaseFill /></li>
-                                <li className="title">Jobs</li>
+                                <p className="navbar_icon"><BsBriefcaseFill /></p>
+                                <p className="title">Jobs</p>
                             </li>
                             <li className="single_icon">
-                                <li className="navbar_icon"><AiFillMessage /></li>
-                                <li className="title">Messaging</li>
+                                <p className="navbar_icon"><AiFillMessage /></p>
+                                <p className="title">Messaging</p>
                             </li>
                             <li className="single_icon">
-                                <li className="navbar_icon"><FaBell /></li>
-                                <li className="title">Notifications</li>
+                                <p className="navbar_icon"><FaBell /></p>
+                                <p className="title">Notifications</p>
                             </li>
-                            <li className="single_icon" id="logout_button" onClick={this.props.logout}><Link to='/'>Logout!</Link></li>
+                            <li className="single_icon" id="logout_button" onClick={this.handleSubmit}><Link to='/'>Logout!</Link></li>
                         </ul>  
                         {/* <button onClick={logout()}>Logout!</button>*/}
                     </div>
-            </div>
+                </div>
             </div>
         )
     }
