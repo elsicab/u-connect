@@ -4,7 +4,7 @@ import { ImHome3 } from 'react-icons/im';
 import { BsBriefcaseFill } from 'react-icons/bs';
 import { AiFillMessage } from 'react-icons/ai';
 import { FaBell } from 'react-icons/fa';
-import { Route , withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router';
 import { BsPeopleFill } from 'react-icons/bs';
 import { logout } from '../../actions/session_actions';
 import Logo from "../../../app/assets/images/LI-In-Bug.png";
@@ -15,14 +15,14 @@ import Logo from "../../../app/assets/images/LI-In-Bug.png";
 class Navbar extends React.Component {
     constructor(props){
         super(props)
-        this.handleSubmit = this.handleSubmit.bind(this)
+        // this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    handleSubmit = (e) =>{
-        e.preventDefault();
-        this.props.logout()
-            // .then(() => this.props.history.push('/'));
-    };
+    // handleSubmit(e){
+    //     e.preventDefault();
+    //     this.props.logout()
+    //         // .then(() => this.props.history.push('/'));
+    // };
 
     render(){
         return(
@@ -57,7 +57,7 @@ class Navbar extends React.Component {
                                 <li className="navbar_icon"><FaBell /></li>
                                 <li className="title">Notifications</li>
                             </li>
-                            <li className="single_icon" id="logout_button" onClick={this.handleSubmit}>Logout!</li>
+                            <li className="single_icon" id="logout_button" onClick={this.props.logout}>Logout!</li>
                         </ul>  
                         {/* <button onClick={logout()}>Logout!</button>*/}
                     </div>
