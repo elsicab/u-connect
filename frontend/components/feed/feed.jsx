@@ -1,13 +1,13 @@
 import React from 'react';
 import NavbarContainer from '../navbar/navbar_container';
-import MiddleContainer from '../middle_section/middle_container'
+import PostContainer from '../post_section/post_container'
 
 const Feed = () => {
 
     return(
         <div>
             <NavbarContainer />
-            <MiddleContainer />
+            <PostContainer />
         </div>
     )
 }

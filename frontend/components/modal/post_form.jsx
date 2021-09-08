@@ -6,16 +6,30 @@ import { RiCalendarEventFill } from 'react-icons/ri';
 import { RiArticleLine } from 'react-icons/ri';
 
 
-class Post extends React.Component{
+class PostForm extends React.Component{
     constructor(props){
         super(props)
         this.state = {
             body: ''
-        }
+        };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleInput = this.handleInput.bind(this);
+        this.handleModal = this.handleModal.bind(this);
     }
 
     handleSubmit(e){
+        e.preventDefault();
+        this.props.createPost(this.state)
+            // .then(() => this.props.closeModal())
+    }
+
+    handleInput(type){
+        return (e) => {
+            this.setState({ [type]: e.target.value })
+        };
+    }
+
+    handleModal(e){
         e.preventDefault();
         this.props.closeModal();
     }
@@ -25,10 +39,10 @@ class Post extends React.Component{
             <div className="post_modal">
                     <div className="post_header">
                         <h2 className="post_message">Create a post</h2>
-                        <p className="close_post" onClick={this.handleSubmit}><AiOutlineClose /></p>
+                        <p className="close_post" onClick={this.handleModal}><AiOutlineClose /></p>
                     </div>
                     <div className="post_body">
-                        <textarea placeholder="What do you want to talk about?"></textarea>
+                        <textarea value={this.state.body} onChange={this.handleInput('body')} placeholder="What do you want to talk about?" />
                     </div>
                     <div className="create_post_icons">
                         <ul className="attach_icons">
@@ -37,7 +51,7 @@ class Post extends React.Component{
                             <li className="attach_icon"><RiCalendarEventFill/></li>
                             <li className="attach_icon"><RiArticleLine/></li>
                         </ul>
-                        <button onClick={this.handleSubmit}>Post</button>
+                        <button onClick={this.handleSubmit} className="post_button">Post</button>
                     </div>
             </div>
         )
@@ -46,4 +60,4 @@ class Post extends React.Component{
 
 }
 
-export default Post;
+export default PostForm;

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import { openModal, closeModal } from '../../actions/modal_actions';
-import Middle from './middle';
+import Post from './post';
 
 const mapStateToProps = state => {
   return {
@@ -14,8 +14,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     openModal: modal => dispatch(openModal(modal)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Middle);
+export default connect(mapStateToProps, mapDispatchToProps)(Post);

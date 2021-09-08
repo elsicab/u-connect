@@ -31,10 +31,18 @@ textarea{
 
 .create_post_icons{
     display: flex;
+    justify-content: space-between;
 }
 
 .attach_icons{
     display: flex;
+    justify-content: space-evenly;
+}
+
+.attach_icon{
+    font-size: 1.5rem;
+    padding-right: 50px;
+    line-height: 40px;
 }
 
 .modal-background {
@@ -59,3 +67,16 @@ textarea{
 .create_post_icons > button{
     cursor: pointer;
 }
+
+.post_button{
+        display: flex;
+        padding: 0 25px;
+        background: #0A66C3;
+        outline: none;
+        border: none;
+        border-radius: 20px;
+        color: #fff;
+        font-size: 1rem;
+        font-weight: bolder;
+        line-height: 40px;
+    }

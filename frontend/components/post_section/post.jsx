@@ -4,9 +4,9 @@ import { AiFillPlaySquare } from 'react-icons/ai'
 import { RiCalendarEventFill } from 'react-icons/ri';
 import { RiArticleLine } from 'react-icons/ri';
 
-class Middle extends React.Component {
+class Post extends React.Component {
     constructor(props){
-        super(props)
+        super(props);
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
@@ -45,4 +45,4 @@ class Middle extends React.Component {
     }
 }
 
-export default Middle;
+export default Post;
