@@ -5,7 +5,7 @@ import  SignUpContainer  from "./sessions/signup_container";
 import SignInContainer from './sessions/signin_container';
 import FeedContainer from './feed/feed_container';
 import HomePageContainer from './home/home_container';
-import Modal from '../components/modal/modal';
+import Modal from './modal/modal';
 
 
 
