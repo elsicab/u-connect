@@ -9,5 +9,5 @@
 User.destroy_all
 
 #Users
-demo = User.create(email: 'ecaballero3@live.com', password: 'password')
+demo = User.create!(email: "ecaballero3@live.com", password: "password")
 

@@ -18,6 +18,10 @@ class HomePage extends React.Component {
         this.renderErrors = this.renderErrors.bind(this);
     };
 
+    componentWillMount() {
+        if (this.props.errors.length > 0) this.props.clearErrors()
+    }
+    
     handleDemo(e) {
         e.preventDefault();
         this.props.login({

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { login } from '../../actions/session_actions';
+import { login, clearErrors} from '../../actions/session_actions';
 import Signin from './signin';
 
 const mSTP = state => ({
@@ -7,7 +7,8 @@ const mSTP = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    login: currentUser => dispatch(login(currentUser))
+    login: currentUser => dispatch(login(currentUser)),
+    clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(mSTP, mapDispatchToProps)(Signin);

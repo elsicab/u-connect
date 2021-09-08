@@ -14,6 +14,10 @@ class Signup extends React.Component {
         this.renderErrors = this.renderErrors.bind(this);
     };
 
+    componentWillMount() {
+        if (this.props.errors.length > 0) this.props.clearErrors()
+    }
+
     handleInput(type) {
         return (e) => {
             this.setState({ [type]: e.target.value })
