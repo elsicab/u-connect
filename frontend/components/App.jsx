@@ -17,7 +17,7 @@ const App = () => (
             <AuthRoute path="/signup" component={SignUpContainer} />
             <AuthRoute path="/login" component={SignInContainer} />
             <ProtectedRoute path="/feed" component={FeedContainer} />
-            <Route path="/" component={HomePageContainer} />
+            <AuthRoute path="/" component={HomePageContainer} />
             {/* Protected Route to user page */}
             {/* Body 
             *Sidebar (left)

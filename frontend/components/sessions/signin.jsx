@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo2 from "../../../app/assets/images/wiredIn_logo.png";
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 
 
@@ -32,13 +33,27 @@ class Signin extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.login(this.state)
-            .then(() => this.props.history.push('/feed'));
+        const currentUser = Object.assign({}, this.state);
+        this.props.login(currentUser)
+        .then( () => this.props.history.push('/feed'));
     };
+
+    renderErrors() {
+        return(
+        <ul>
+            {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>
+                {error}
+            </li>
+            ))}
+        </ul>
+        );
+    }
 
     render() {
         return (
             <div className="signin">
+                 {this.renderErrors()}
                     {/*<img /> logo */}
                 <img className="logo2" src={Logo2} />
         
@@ -58,4 +73,5 @@ class Signin extends React.Component {
     };
 };
 
+// export default withRouter(Signin);
 export default Signin;

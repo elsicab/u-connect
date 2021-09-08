@@ -54,3 +54,8 @@ textarea{
   transform: translate(-50%, -50%);
   z-index: 100000;
 }
+
+.close_post, 
+.create_post_icons > button{
+    cursor: pointer;
+}

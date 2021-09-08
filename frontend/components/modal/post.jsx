@@ -26,7 +26,7 @@ class Post extends React.Component{
             <div className="post_modal">
                     <div className="post_header">
                         <h2 className="post_message">Create a post</h2>
-                        <p className="close_post"><AiOutlineClose /></p>
+                        <p className="close_post" onClick={this.handleSubmit}><AiOutlineClose /></p>
                     </div>
                     <div className="post_body">
                         <textarea placeholder="What do you want to talk about?"></textarea>

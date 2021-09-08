@@ -4,7 +4,7 @@ import SessionContainer from '../sessions/session_container';
 import LogoMain from "../../../app/assets/images/wiredIn_logo.png";
 import Hero from "../../../app/assets/images/hero.jpg";
 import BannerImage from "../../../app/assets/images/banner_image.png";
-import CreateImage from "../../../app/assets/images/createuser.jpg";
+import CreateImage from "../../../app/assets/images/createuser2.jpg";
 import { Link } from 'react-router-dom';
 
 
