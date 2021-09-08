@@ -1,8 +1,4 @@
 import React from 'react';
-import Logo2 from "../../../app/assets/images/wiredIn_logo.png";
-
-
-
 
 class Signin extends React.Component {
     constructor(props) {
@@ -54,7 +50,7 @@ class Signin extends React.Component {
         return (
             <div className="signin">
                     {/*<img /> logo */}
-                <img className="logo2" src={Logo2} />
+                <img className="logo2" src={window.logo2} />
         
                 <form className="signin_form" onSubmit={this.handleSubmit}>
                     <h2>Sign in</h2>

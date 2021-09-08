@@ -7,7 +7,6 @@ import { FaBell } from 'react-icons/fa';
 import { withRouter } from 'react-router';
 import { BsPeopleFill } from 'react-icons/bs';
 import { logout } from '../../actions/session_actions';
-import Logo from "../../../app/assets/images/LI-In-Bug.png";
 import { Link } from 'react-router-dom';
 
 
@@ -31,7 +30,7 @@ class Navbar extends React.Component {
             <div className="navbar"> 
                 <div className="header">
                     <div className="left_nav">
-                        <img className="logo" src={Logo} />
+                        <img className="logo" src={window.logo} />
                         <div className="nav_search">
                             <FaSearch />
                             <input type="text" placeholder="Search"></input>
