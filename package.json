@@ -11,12 +11,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --watch --mode=development",
     "postinstall": "webpack",
-		"build": "webpack —mode=production"
+    "build": "webpack —-mode=production"
   },
   "engines": {
-	    "node": "12.19.1",
-	    "npm": "6.14.8"
-	  },
+    "node": "12.19.1",
+    "npm": "6.14.8"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/elsicab/wiredIn.git"
