@@ -1,35 +1,43 @@
 import React from 'react';
-import MiddleContainer from '../middle_section/middle_container';
+import PostFormContainer from './post_form_container';
+import { openModal, closeModal } from '../../actions/modal_actions';
+import { connect } from 'react-redux';
 
-class Modal extends React.Component{
+function Modal({modal, closeModal}){
+    if(!modal){
+        return null
+    }
+    let component; 
+    switch(modal){
+        case 'postForm':
+            component = <PostFormContainer />
+            break;
+        default: 
+            return null;
 
-  render(){
-    if(!this.props.modal){
-          return null;
-      }
-    return(
-      <div>In Modal</div>
-    )
-  }
-  // if (!props.show) {
-  //   return null;
-  // }
-  
-  // let component;
-  // switch (action.type) {
-  //   case 'post':
-  //     component = <MiddleContainer />;
-  //     break;
-  //   default:
-  //     return null;
-  // }
-  // return (
-  //   <div className="modal-background" onClick={closeModal}>
-  //     <div className="modal-child" onClick={e => e.stopPropagation()}>
-  //       { component }
-  //     </div>
-  //   </div>
-  // );
+    }
+
+    return (
+      <div className="modal-background" onClick={closeModal}>
+        <div className="modal-child" onClick={e => e.stopPropagation()}>
+          { component }
+        </div>
+      </div>
+  );
 }
 
-export default Modal;
+const mSTP = state => {
+  return {
+    modal: state.ui.modal
+  };
+};
+
+const mDTP = dispatch => {
+  return {
+    closeModal: () => dispatch(closeModal()),
+    // openModal: modal => dispatch(openModal(modal))
+  };
+};
+
+export default connect(mSTP, mDTP)(Modal);
+

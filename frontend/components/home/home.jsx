@@ -3,6 +3,10 @@ import { FaSearch } from 'react-icons/fa';
 import SessionContainer from '../sessions/session_container';
 import LogoMain from "../../../app/assets/images/wiredIn_logo.png";
 import Hero from "../../../app/assets/images/hero.jpg";
+import BannerImage from "../../../app/assets/images/banner_image.png";
+import CreateImage from "../../../app/assets/images/createuser.jpg";
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -42,7 +46,7 @@ class HomePage extends React.Component {
     render(){
         return(
             <div className="homePage">
-                <div className="navbar"> 
+                <div className="navbar" id="home_nav"> 
                     <div className="header">
                         <div className="left_nav">
                             <img className="main_logo" src={LogoMain} />
@@ -73,13 +77,27 @@ class HomePage extends React.Component {
                         <img className="hero_image" src={Hero} />
                     </div>
                     <div className="info_banner">
-
+                            <div className="banner_text">
+                                <div className="banner_title">
+                                    <p>Conversations today could lead to opportunity tomorrow</p>
+                                </div>
+                                <div className="banner_body">
+                                    <p>Sending messages to people you know is a great way to strengthen relationships 
+                                        as you take the next step in your career</p>
+                                </div>
+                            </div>
+                            <img className="banner_image" src={BannerImage} />
                     </div>
                     <div className="signup_banner">
-
+                            <div>
+                                <p>Join your colleagues, classmates, and friends on WiredIn.</p>
+                                <button className="login_button"><Link to='/signup' >Get Started</Link></button>
+                            </div>
+                            <img className="create_image" src={CreateImage} />
                     </div>
                 </div>
             </div>
+
         )
     }
 }

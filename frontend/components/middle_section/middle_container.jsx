@@ -3,17 +3,17 @@ import React from 'react';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import Middle from './middle';
 
-const mapStateToProps = ({ errors }) => {
+const mapStateToProps = state => {
   return {
-    errors: errors.session,
-    // formType: 'post',
-    modal: state.ui.modal
+    // errors: errors.session,
+    modal: state.ui.modal, 
+    posts: state.entities.posts
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    openModal: () => dispatch(openModal()),
+    openModal: modal => dispatch(openModal(modal)),
     closeModal: () => dispatch(closeModal())
   };
 };
