@@ -3,7 +3,7 @@ import { login } from '../../actions/session_actions';
 import Signin from './signin';
 
 const mapDispatchToProps = dispatch => ({
-    login: user => dispatch(login(user))
+    login: currentUser => dispatch(login(currentUser))
 });
 
 export default connect(null, mapDispatchToProps)(Signin);

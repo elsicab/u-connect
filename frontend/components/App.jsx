@@ -3,7 +3,7 @@ import { Route, Switch  } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 import  SignUpContainer  from "./sessions/signup_container";
 import SignInContainer from './sessions/signin_container';
-import Feed from './feed/feed';
+import FeedContainer from './feed/feed_container';
 import HomePageContainer from './home/home_container';
 import Modal from '../components/modal/modal';
 
@@ -14,9 +14,9 @@ const App = () => (
         <Modal />
         <Switch>
             {/* <Route exact path="/home" component={Home} /> */}
-            <Route path="/signup" component={SignUpContainer} />
-            <Route path="/login" component={SignInContainer} />
-            <Route path="/feed" component={Feed} />
+            <AuthRoute path="/signup" component={SignUpContainer} />
+            <AuthRoute path="/login" component={SignInContainer} />
+            <ProtectedRoute path="/feed" component={FeedContainer} />
             <Route path="/" component={HomePageContainer} />
             {/* Protected Route to user page */}
             {/* Body 

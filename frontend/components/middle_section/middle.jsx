@@ -23,20 +23,20 @@ class Middle extends React.Component {
                     <button className="post_button" onClick={this.handleSubmit}></button>
                     <ul className="post_icons">
                         <li className="post_icon">
-                            <li className="photo_icon"><HiOutlinePhotograph /></li>
-                            <li>Photo</li>
+                            <p className="photo_icon"><HiOutlinePhotograph /></p>
+                            <p>Photo</p>
                         </li>
                         <li className="post_icon">
-                            <li className="video_icon"><AiFillPlaySquare/></li>
-                            <li>Video</li>
+                            <p className="video_icon"><AiFillPlaySquare/></p>
+                            <p>Video</p>
                         </li>
                         <li className="post_icon">
-                            <li className="event_icon"><RiCalendarEventFill/></li>
-                            <li>Event</li>
+                            <p className="event_icon"><RiCalendarEventFill/></p>
+                            <p>Event</p>
                         </li>
                         <li className="post_icon">
-                            <li className="article_icon"><RiArticleLine/></li>
-                            <li>Write article</li>
+                            <p className="article_icon"><RiArticleLine/></p>
+                            <p>Write article</p>
                         </li>
                     </ul>
                 </div>
