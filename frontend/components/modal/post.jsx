@@ -21,7 +21,6 @@ class Post extends React.Component{
     }
 
     render(){
-        console.log("IN MODAL");
         return(
             <div className="post_modal">
                     <div className="post_header">
