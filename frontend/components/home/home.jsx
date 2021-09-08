@@ -1,10 +1,5 @@
 import React from 'react';
-import { FaSearch } from 'react-icons/fa';
 import SessionContainer from '../sessions/session_container';
-import LogoMain from "../../../app/assets/images/wiredIn_logo.png";
-import Hero from "../../../app/assets/images/hero.jpg";
-import BannerImage from "../../../app/assets/images/banner_image.png";
-import CreateImage from "../../../app/assets/images/createuser2.jpg";
 import { Link } from 'react-router-dom';
 
 
@@ -62,7 +57,7 @@ class HomePage extends React.Component {
                 <div className="navbar" id="home_nav"> 
                     <div className="header">
                         <div className="left_nav">
-                            <img className="main_logo" src={LogoMain} />
+                            <img className="main_logo" src={window.mainlogo} />
                             {/* <div className="nav_search">
                                 <FaSearch />
                                 <input type="text" placeholder="Search"></input>
@@ -88,7 +83,7 @@ class HomePage extends React.Component {
                                 <button onClick={this.handleDemo} className="login_button">Demo User</button>
                             </form>
                         </div>
-                        <img className="hero_image" src={Hero} />
+                        <img className="hero_image" src={window.hero} />
                     </div>
                     <div className="info_banner">
                             <div className="banner_text">
@@ -100,14 +95,14 @@ class HomePage extends React.Component {
                                         as you take the next step in your career</p>
                                 </div>
                             </div>
-                            <img className="banner_image" src={BannerImage} />
+                            <img className="banner_image" src={window.bannerimage} />
                     </div>
                     <div className="signup_banner">
                             <div>
                                 <p>Join your colleagues, classmates, and friends on WiredIn.</p>
                                 <button className="login_button"><Link to='/signup' >Get Started</Link></button>
                             </div>
-                            <img className="create_image" src={CreateImage} />
+                            <img className="create_image" src={window.createimage} />
                     </div>
                 </div>
             </div>
