@@ -1,7 +1,6 @@
 import React from 'react';
 import Logo2 from "../../../app/assets/images/wiredIn_logo.png";
-import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router';
+
 
 
 
@@ -14,6 +13,7 @@ class Signin extends React.Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
     };
 
     handleDemo(e) {
@@ -27,7 +27,7 @@ class Signin extends React.Component {
 
     handleInput(type) {
         return (e) => {
-            this.setState({ [type]: e.target.value })
+            this.setState({ [type]: e.currentTarget.value })
         };
     };
 
@@ -40,9 +40,9 @@ class Signin extends React.Component {
 
     renderErrors() {
         return(
-        <ul>
+        <ul className="errors">
             {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`}>
+            <li key={`error-${i}`} className="error">
                 {error}
             </li>
             ))}
@@ -53,14 +53,14 @@ class Signin extends React.Component {
     render() {
         return (
             <div className="signin">
-                 {this.renderErrors()}
                     {/*<img /> logo */}
                 <img className="logo2" src={Logo2} />
         
-                <form className="signin_form">
+                <form className="signin_form" onSubmit={this.handleSubmit}>
                     <h2>Sign in</h2>
                     <p>Stay updated on your professional world</p>  
                     <input type="text" placeholder="Email" value={this.state.email} onChange={this.handleInput('email')} />
+                    {this.renderErrors()}
                     <input type="password" placeholder="Password" value={this.state.password} onChange={this.handleInput('password')} />
                     <p className="forgot_password">Forgot Password?</p>
                     <button onClick={this.handleSubmit} className="signin_button">Sign in</button>

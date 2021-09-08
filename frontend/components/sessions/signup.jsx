@@ -12,6 +12,7 @@ class Signup extends React.Component {
             last_name: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
     };
 
     handleInput(type) {
@@ -24,6 +25,18 @@ class Signup extends React.Component {
         e.preventDefault();
         this.props.signup(this.state)
             .then(() => this.props.history.push('/feed'));
+    };
+
+    renderErrors() {
+        return(
+        <ul className="errors">
+            {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`} className="error">
+                {error}
+            </li>
+            ))}
+        </ul>
+        );
     };
 
     render() {
@@ -43,6 +56,7 @@ class Signup extends React.Component {
                     
                     <label className="label">Password (6 or more characters)</label>
                         <input type="password" value={this.state.password} onChange={this.handleInput('password')} />
+                    {this.renderErrors()}
                     
                     <p className="fine_print">By clicking Agree & Join, you agree to the wiredIn User Agreement, Privacy Policy, and Cookie Policy</p>
                     <button onClick={this.handleSubmit} className="signup_button">Agree & Join</button>

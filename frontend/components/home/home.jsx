@@ -20,6 +20,7 @@ class HomePage extends React.Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
     };
 
     handleDemo(e) {
@@ -41,6 +42,18 @@ class HomePage extends React.Component {
         e.preventDefault();
         this.props.login(this.state)
             .then(() => this.props.history.push('/feed'));
+    };
+
+    renderErrors() {
+        return(
+        <ul className="errors_main">
+            {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`} className="error_main">
+                {error}
+            </li>
+            ))}
+        </ul>
+        );
     };
 
     render(){
@@ -67,6 +80,7 @@ class HomePage extends React.Component {
                         <div className="banner_form">
                             <h1>Welcome to your professional community</h1>
                             <form className="main_form">
+                                {this.renderErrors()}
                                 <input type="text" placeholder="Email" value={this.state.email} onChange={this.handleInput('email')} />
                                 <input type="password" placeholder="Password" value={this.state.password} onChange={this.handleInput('password')}/>
                                 <p>Forgot Password?</p>
