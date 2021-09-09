@@ -1,7 +1,7 @@
 import React from 'react';
-import { BiCommentDetail, BiZoomIn } from 'react-icons/bi';
+import { BiCommentDetail } from 'react-icons/bi';
 import { AiOutlineLike } from 'react-icons/ai';
-import { BsEyeSlashFill, BsPersonBoundingBox } from 'react-icons/bs';
+import { BsPersonBoundingBox } from 'react-icons/bs';
 import { RiShareForwardLine } from 'react-icons/ri';
 import { IoIosSend } from 'react-icons/io';
 
@@ -14,6 +14,10 @@ class PostIndex extends React.Component{
     componentDidMount() {
         this.props.fetchPosts();
     }
+
+    // componentDidUpdate(){
+    //     this.props.fetchPosts();
+    // }
 
     timepassed(date){
         let time = Date.now() - Date.parse(date)
@@ -32,9 +36,9 @@ class PostIndex extends React.Component{
                 <div className="post_info">
                     <p><BsPersonBoundingBox/></p>
                     <div className="author_info">
-                        <div class="author_name">
-                            <p>{post.author.first_name}</p>
-                            <p>{post.author.last_name}</p>
+                        <div className="author_name">
+                            <p>{post?.author?.first_name}</p>
+                            <p>{post?.author?.last_name}</p>
                         </div>
                         <div className="created">
                             <p>{this.timepassed(post.created_at)}</p>
@@ -51,9 +55,14 @@ class PostIndex extends React.Component{
                 </ul>
             </div>
             ));
-
+            
+        
         return(
-            <div>{showPosts}</div>
+
+            <div>
+                {!this.props.posts ?  null : showPosts}
+             
+            </div>
         )
 
     }
