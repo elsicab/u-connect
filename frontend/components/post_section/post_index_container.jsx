@@ -6,7 +6,7 @@ import PostIndex from './post_index';
 const mapStateToProps = state => {
   return {
     // errors: errors.session,
-    users: state.entities.users,
+    author: state.entities.posts.author,
     posts: Object.values(state.entities.posts)
   };
 };

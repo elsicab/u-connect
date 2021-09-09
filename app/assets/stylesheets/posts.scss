@@ -130,3 +130,22 @@
     max-width: 400px;
     padding: 10px;
 }
+
+.author_info{
+    font-size: 14px;
+    margin-left: 10px;
+    
+}
+
+.author_name{
+    color: #000000E6;
+    display: flex;
+}
+
+.author_name > p{
+    margin-right: 5px;
+}
+
+.created{
+    margin-top: 5px;
+}
