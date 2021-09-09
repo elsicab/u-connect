@@ -20,8 +20,8 @@ class PostIndex extends React.Component{
                 <div className="post_info">
                     <p><BsPersonBoundingBox/></p>
                 </div>
-                <div className="post_text">{post.body}</div>
                 <img className= "post_image" src={post.photoUrl} />
+                <div className="post_text">{post.body}</div>
                 <ul className="post_interactions">
                     <li><AiOutlineLike/>  Like</li>
                     <li><BiCommentDetail/>  Comment</li>

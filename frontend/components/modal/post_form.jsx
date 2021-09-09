@@ -69,12 +69,15 @@ class PostForm extends React.Component{
                     </div>
                     <div className="create_post_icons">
                         <ul className="attach_icons">
-                            <li className="attach_icon"><HiOutlinePhotograph /></li>
+                            <li>
+                                <label className="attach_icon"><HiOutlinePhotograph />
+                                    <input id = "file_input" onChange={this.handleFile} type="file"/>
+                                </label>
+                            </li>
                             <li className="attach_icon"><AiFillPlaySquare/></li>
                             <li className="attach_icon"><RiCalendarEventFill/></li>
                             <li className="attach_icon"><RiArticleLine/></li>
                         </ul>
-                        <input onChange={this.handleFile} type="file"/>
                         <button onClick={this.handleSubmit} className="post_button">Post</button>
                     </div>
             </div>
