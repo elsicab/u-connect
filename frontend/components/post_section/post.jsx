@@ -40,13 +40,13 @@ class Post extends React.Component {
 
     render(){
 
-        const showPosts = this.props.posts.map((post, i) => (
+        const showPosts = this.props.posts.reverse().map((post, i) => (
             <div key={`post-${i}`} className="single_post">
                 <div className="post_info">
                     <p><BsPersonBoundingBox/></p>
-                    {/* <p>user info</p> */}
+                    {/* <p>{post.author.email}</p> */}
                 </div>
-                <div className="post_body">{post.body}</div>
+                <div className="post_text">{post.body}</div>
                 <ul className="post_interactions">
                     <li><AiOutlineLike/>  Like</li>
                     <li><BiCommentDetail/>  Comment</li>
