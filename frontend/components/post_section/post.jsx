@@ -3,61 +3,26 @@ import { HiOutlinePhotograph } from 'react-icons/hi';
 import { AiFillPlaySquare } from 'react-icons/ai';
 import { RiCalendarEventFill } from 'react-icons/ri';
 import { RiArticleLine } from 'react-icons/ri';
-import { BiCommentDetail } from 'react-icons/bi';
-import { AiOutlineLike } from 'react-icons/ai';
-import { BsPersonBoundingBox } from 'react-icons/bs';
-import { RiShareForwardLine } from 'react-icons/ri';
-import { IoIosSend } from 'react-icons/io'
+import PostIndexContainer from './post_index_container';
 
 class Post extends React.Component {
     constructor(props){
         super(props)
         this.handleSubmit = this.handleSubmit.bind(this)
-        // this.renderPosts = this.renderPosts.bind(this)
     };
 
-    componentDidMount() {
-        this.props.fetchPosts();
-    }
+    // componentDidMount() {
+    //     this.props.fetchPosts();
+    // }
 
     handleSubmit(e){
         e.preventDefault();
         this.props.openModal('postForm')
     }
 
-    // renderPosts(){
-    //     console.log("In render!")
-    //     return(
-    //     <ul className="user_posts">
-    //         {this.props.posts.map((post, i) => (
-    //         <li key={`post-${i}`} className="single_post">
-    //             {post.body}
-    //         </li>
-    //         ))}
-    //     </ul>
-    //     );
-    // }
-
     render(){
-
-        const showPosts = this.props.posts.reverse().map((post, i) => (
-            <div key={`post-${i}`} className="single_post">
-                <div className="post_info">
-                    <p><BsPersonBoundingBox/></p>
-                    {/* <p>{post.author.email}</p> */}
-                </div>
-                <div className="post_text">{post.body}</div>
-                <ul className="post_interactions">
-                    <li><AiOutlineLike/>  Like</li>
-                    <li><BiCommentDetail/>  Comment</li>
-                    <li><RiShareForwardLine/>  Share</li>
-                    <li><IoIosSend/>  Send</li>
-                </ul>
-            </div>
-            ));
-
         return(
-            <div className="feed">
+            <div className="feed" key={this.props.posts}>
                 <div className="post_container">
                     <span className="button_text">Start a post</span>
                     <button className="post_button" onClick={this.handleSubmit}></button>
@@ -81,7 +46,7 @@ class Post extends React.Component {
                     </ul>
                 </div>
                 <div className="posts_feed">
-                    {showPosts}
+                    <PostIndexContainer />
                 </div> 
             </div>
         )

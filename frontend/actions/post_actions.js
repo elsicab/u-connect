@@ -23,7 +23,7 @@ export const fetchUserPosts = id => dispatch => (
         .then(posts => dispatch(receivePosts(posts)))
 )
 
-export const createPost = post => dispatch => (
-    ApiUtil.createPost(post)
+export const createPost = formData => dispatch => (
+    ApiUtil.createPost(formData)
         .then(post => dispatch(receivePost(post)))
 )

@@ -9,7 +9,7 @@ const mSTP = state => ({
 });
 
 const mDTP = dispatch => ({
-    createPost: post => dispatch(createPost(post)),
+    createPost: formData => dispatch(createPost(formData)),
     closeModal: () => dispatch(closeModal())
 })
 
