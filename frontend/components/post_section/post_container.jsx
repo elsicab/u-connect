@@ -7,6 +7,7 @@ import Post from './post';
 const mapStateToProps = state => {
   return {
     // errors: errors.session,
+    users: state.entities.users,
     modal: state.ui.modal, 
     posts: Object.values(state.entities.posts)
   };

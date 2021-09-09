@@ -3,6 +3,11 @@ import { HiOutlinePhotograph } from 'react-icons/hi';
 import { AiFillPlaySquare } from 'react-icons/ai';
 import { RiCalendarEventFill } from 'react-icons/ri';
 import { RiArticleLine } from 'react-icons/ri';
+import { BiCommentDetail } from 'react-icons/bi';
+import { AiOutlineLike } from 'react-icons/ai';
+import { BsPersonBoundingBox } from 'react-icons/bs';
+import { RiShareForwardLine } from 'react-icons/ri';
+import { IoIosSend } from 'react-icons/io'
 
 class Post extends React.Component {
     constructor(props){
@@ -36,9 +41,19 @@ class Post extends React.Component {
     render(){
 
         const showPosts = this.props.posts.map((post, i) => (
-            <li key={`post-${i}`} className="single_post">
-                {post.body}
-            </li>
+            <div key={`post-${i}`} className="single_post">
+                <div className="post_info">
+                    <p><BsPersonBoundingBox/></p>
+                    {/* <p>user info</p> */}
+                </div>
+                <div className="post_body">{post.body}</div>
+                <ul className="post_interactions">
+                    <li><AiOutlineLike/>  Like</li>
+                    <li><BiCommentDetail/>  Comment</li>
+                    <li><RiShareForwardLine/>  Share</li>
+                    <li><IoIosSend/>  Send</li>
+                </ul>
+            </div>
             ));
 
         return(
