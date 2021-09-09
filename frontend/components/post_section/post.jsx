@@ -1,13 +1,18 @@
 import React from 'react';
 import { HiOutlinePhotograph } from 'react-icons/hi';
-import { AiFillPlaySquare } from 'react-icons/ai'
+import { AiFillPlaySquare } from 'react-icons/ai';
 import { RiCalendarEventFill } from 'react-icons/ri';
 import { RiArticleLine } from 'react-icons/ri';
 
 class Post extends React.Component {
     constructor(props){
-        super(props);
+        super(props)
         this.handleSubmit = this.handleSubmit.bind(this)
+        // this.renderPosts = this.renderPosts.bind(this)
+    };
+
+    componentDidMount() {
+        this.props.fetchPosts();
     }
 
     handleSubmit(e){
@@ -15,7 +20,27 @@ class Post extends React.Component {
         this.props.openModal('postForm')
     }
 
+    // renderPosts(){
+    //     console.log("In render!")
+    //     return(
+    //     <ul className="user_posts">
+    //         {this.props.posts.map((post, i) => (
+    //         <li key={`post-${i}`} className="single_post">
+    //             {post.body}
+    //         </li>
+    //         ))}
+    //     </ul>
+    //     );
+    // }
+
     render(){
+
+        const showPosts = this.props.posts.map((post, i) => (
+            <li key={`post-${i}`} className="single_post">
+                {post.body}
+            </li>
+            ));
+
         return(
             <div className="feed">
                 <div className="post_container">
@@ -40,6 +65,9 @@ class Post extends React.Component {
                         </li>
                     </ul>
                 </div>
+                <div className="posts_feed">
+                    {showPosts}
+                </div> 
             </div>
         )
     }
