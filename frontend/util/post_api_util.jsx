@@ -21,3 +21,10 @@ export const createPost = (formData) => (
         processData: false
     })
 )
+
+export const deletePost = (postId) => (
+    $.ajax({
+        method: 'DELETE', 
+        url: `/api/posts/${postId}`
+    })
+)

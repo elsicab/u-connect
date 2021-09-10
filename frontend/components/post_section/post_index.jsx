@@ -4,6 +4,7 @@ import { AiOutlineLike } from 'react-icons/ai';
 import { BsPersonBoundingBox } from 'react-icons/bs';
 import { RiShareForwardLine } from 'react-icons/ri';
 import { IoIosSend } from 'react-icons/io';
+import { BiDotsHorizontalRounded } from 'react-icons/bi';
 
 class PostIndex extends React.Component{
     constructor(props){
@@ -33,6 +34,7 @@ class PostIndex extends React.Component{
     render(){
         const showPosts = this.props.posts.reverse().map((post, i) => (
             <div key={`post-${i}`} className="single_post">
+                <div className="post_menu"><BiDotsHorizontalRounded/></div>
                 <div className="post_info">
                     <p><BsPersonBoundingBox/></p>
                     <div className="author_info">

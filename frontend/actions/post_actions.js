@@ -2,6 +2,7 @@ import * as ApiUtil from '../util/post_api_util'
 
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
+export const DELETE_POST = "DELETE_POST";
 
 export const receivePosts = posts => ({
     type: RECEIVE_POSTS, 
@@ -12,6 +13,11 @@ export const receivePost = post => ({
     type: RECEIVE_POST, 
     post
 });
+
+export const deletePost = postId => ({
+    type: DELETE_POST, 
+    postId
+})
 
 export const fetchPosts= () => dispatch => (
     ApiUtil.fetchPosts()
@@ -26,4 +32,9 @@ export const fetchUserPosts = id => dispatch => (
 export const createPost = formData => dispatch => (
     ApiUtil.createPost(formData)
         .then(post => dispatch(receivePost(post)))
+)
+
+export const removePost = postId => dispatch => (
+    ApiUtil.removePost(postId)
+    .then(() => deletePost(postId))
 )
