@@ -24,7 +24,7 @@ class Post extends React.Component {
         return(
             <div className="feed" key={this.props.posts}>
                 <div className="post_container">
-                    <span className="button_text">Start a post</span>
+                    <span className="button_text" onClick={this.handleSubmit}>Start a post</span>
                     <button className="post_button" onClick={this.handleSubmit}></button>
                     <ul className="post_icons">
                         <li className="post_icon">

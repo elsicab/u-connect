@@ -22,7 +22,7 @@ export const createPost = (formData) => (
     })
 )
 
-export const deletePost = (postId) => (
+export const removePost = (postId) => (
     $.ajax({
         method: 'DELETE', 
         url: `/api/posts/${postId}`

@@ -28,6 +28,7 @@
     margin-top: 17px;
     margin-left: 30px;
     font-weight: 520;
+    cursor: pointer;
 }
 
 .post_container > button{
@@ -78,7 +79,13 @@
 
 .post_container > button:hover{
     background-color: lightgray;
-    cursor: pointer;
+}
+
+.button_text:hover{
+    background-color: lightgray;
+    .post_container > button{
+    background-color: lightgray;
+    }
 }
 
 .posts_feed{
@@ -156,3 +163,11 @@
     font-size: 1.5rem;
     padding-right: 15px;
 }
+
+// .clear{
+//     display: none;
+// }
+
+// .show-dropdown{
+//     display: block;
+// }

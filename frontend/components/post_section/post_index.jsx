@@ -9,7 +9,18 @@ import { BiDotsHorizontalRounded } from 'react-icons/bi';
 class PostIndex extends React.Component{
     constructor(props){
         super(props)
+         this.state = {
+            posts: [],
+            openMenu: false 
+        };
+        this.handleFocus = this.handleFocus.bind(this); 
         this.timepassed = this.timepassed.bind(this);
+    }
+
+
+    handleFocus(e) {
+        const newState = !this.state.openMenu 
+        this.setState({openMenu: newState})
     }
 
     componentDidMount() {
@@ -32,9 +43,16 @@ class PostIndex extends React.Component{
     }
 
     render(){
+        if(!this.props.posts) return null
         const showPosts = this.props.posts.reverse().map((post, i) => (
-            <div key={`post-${i}`} className="single_post">
-                <div className="post_menu"><BiDotsHorizontalRounded/></div>
+            <div key={`${i}`} className="single_post">
+                <div className="post_menu" >
+                    <button onFocus={this.handleFocus} onBlur={this.handleFocus}><BiDotsHorizontalRounded/>
+                    </button>
+                    <ul onClick={e => e.stopPropagation()} className={this.state.openMenu ? "show-dropdown" : "clear"}>
+                        <li onClick={() => this.props.removePost(post.id)}>Delete</li>
+                    </ul>
+                </div>
                 <div className="post_info">
                     <p><BsPersonBoundingBox/></p>
                     <div className="author_info">
@@ -47,7 +65,7 @@ class PostIndex extends React.Component{
                         </div>
                     </div>
                 </div>
-                <img className= "post_image" src={post.photoUrl} />
+                <div><img className= "post_image" src={post.photoUrl} /></div>
                 <div className="post_text">{post.body}</div>
                 <ul className="post_interactions">
                     <li><AiOutlineLike/>  Like</li>

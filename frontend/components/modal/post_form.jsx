@@ -11,7 +11,9 @@ class PostForm extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            body: ''
+            body: '',
+            photoUrl: null,
+            photoFile: null
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -42,6 +44,11 @@ class PostForm extends React.Component{
         }
         this.props.createPost(formData)
             .then(() => this.props.closeModal())
+        // this.setState({
+        //     body: '',
+        //     photoUrl: null,
+        //     photoFile: null
+        // });
     }
 
     handleInput(type){

@@ -36,5 +36,5 @@ export const createPost = formData => dispatch => (
 
 export const removePost = postId => dispatch => (
     ApiUtil.removePost(postId)
-    .then(() => deletePost(postId))
+    .then(() => dispatch(deletePost(postId)))
 )
