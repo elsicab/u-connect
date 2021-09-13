@@ -24,6 +24,11 @@ export const fetchPosts= () => dispatch => (
         .then(posts => dispatch(receivePosts(posts)))
 )
 
+export const fetchPost = (postId) => dispatch => (
+    ApiUtil.fetchPost(postId)
+        .then(post => dispatch(receivePost(post)))
+)
+
 export const fetchUserPosts = id => dispatch => (
     ApiUtil.fetchUserPosts(id)
         .then(posts => dispatch(receivePosts(posts)))

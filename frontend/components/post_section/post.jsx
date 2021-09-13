@@ -3,7 +3,7 @@ import { HiOutlinePhotograph } from 'react-icons/hi';
 import { AiFillPlaySquare } from 'react-icons/ai';
 import { RiCalendarEventFill } from 'react-icons/ri';
 import { RiArticleLine } from 'react-icons/ri';
-import PostIndexContainer from './post_index_container';
+import PostIndexContainer from './post_index';
 
 class Post extends React.Component {
     constructor(props){

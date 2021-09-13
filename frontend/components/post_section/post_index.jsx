@@ -4,20 +4,23 @@ import { AiOutlineLike } from 'react-icons/ai';
 import { BsPersonBoundingBox } from 'react-icons/bs';
 import { RiShareForwardLine } from 'react-icons/ri';
 import { IoIosSend } from 'react-icons/io';
-import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import { BiPencil } from 'react-icons/bi';
 import { FaTrashAlt } from 'react-icons/fa';
+import { connect } from 'react-redux';
+import { openModal } from '../../actions/modal_actions';
+import { removePost, fetchPosts  } from '../../actions/post_actions';
+
 
 class PostIndex extends React.Component{
     constructor(props){
         super(props)
          this.state = {
             posts: [],
-            openMenu: false 
+            openMenu: true 
         };
         this.handleFocus = this.handleFocus.bind(this); 
         this.timepassed = this.timepassed.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
 
@@ -30,10 +33,10 @@ class PostIndex extends React.Component{
         this.props.fetchPosts();
     }
     
-    handleSubmit(e){
-        e.preventDefault();
-        this.props.openModal('editForm')
-    }
+    // handleSubmit(e){
+    //     e.preventDefault();
+    //     this.props.openModal('editForm')
+    // }
     // componentDidUpdate(){
     //     this.props.fetchPosts();
     // }
@@ -54,10 +57,10 @@ class PostIndex extends React.Component{
         const showPosts = this.props.posts.reverse().map((post, i) => (
             <div key={`${i}`} className="single_post">
                 <div className="post_menu" >
-                    <button onFocus={this.handleFocus} onBlur={this.handleFocus}><BiDotsHorizontalRounded/>
-                    </button>
+                    {/* <button onFocus={this.handleFocus} onBlur={this.handleFocus}><BiDotsHorizontalRounded/>
+                    </button> */}
                     <ul onClick={e => e.stopPropagation()} className={this.state.openMenu ? "show-dropdown" : "clear"}>
-                        <li onClick={this.handleSubmit}><BiPencil/>  Edit post</li>
+                        <li onClick={() => this.props.openModal('editForm', post.id)}><BiPencil/>  Edit post</li>
                         <li onClick={() => this.props.removePost(post.id)}><FaTrashAlt/>  Delete post</li>
                     </ul>
                 </div>
@@ -96,4 +99,20 @@ class PostIndex extends React.Component{
     }
 }
 
-export default PostIndex;
+const mapStateToProps = state => {
+  return {
+    // errors: errors.session,
+    author: state.entities.posts.author,
+    posts: Object.values(state.entities.posts).reverse()
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchPosts: () => dispatch(fetchPosts()),
+    removePost: postId => dispatch(removePost(postId)),
+    openModal: (modal, id) => dispatch(openModal(modal, id))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostIndex);

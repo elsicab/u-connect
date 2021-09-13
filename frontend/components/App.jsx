@@ -6,7 +6,7 @@ import SignInContainer from './sessions/signin_container';
 import FeedContainer from './feed/feed_container';
 import HomePageContainer from './home/home_container';
 import Modal from './modal/modal';
-import UserContainer from '../components/profile/user_profile_container';
+import UserContainer from '../components/profile/user_profile';
 
 
 

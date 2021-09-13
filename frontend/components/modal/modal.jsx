@@ -1,7 +1,7 @@
 import React from 'react';
 import PostFormContainer from './post_form_container';
 import EditFormContainer from './edit_form_container'
-import EditBasicContainer from './edit_basic_container';
+import EditBasicContainer from './edit_basic_info';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 
@@ -16,7 +16,7 @@ function Modal({modal, closeModal}){
             component = <PostFormContainer />
             break;
         case 'editForm':
-            component = <EditFormContainer/>
+            component = <EditFormContainer />
             break;
         case 'editBasic':
             component = <EditBasicContainer/>
@@ -37,7 +37,8 @@ function Modal({modal, closeModal}){
 
 const mSTP = state => {
   return {
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    posts: state.entities.posts
   };
 };
 
