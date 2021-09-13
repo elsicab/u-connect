@@ -38,3 +38,8 @@ export const removePost = postId => dispatch => (
     ApiUtil.removePost(postId)
     .then(() => dispatch(deletePost(postId)))
 )
+
+export const editPost = post => dispatch => (
+    ApiUtil.editPost(post)
+        .then(post => dispatch(receivePost(post)))
+)

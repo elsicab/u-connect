@@ -5,6 +5,8 @@ import { BsPersonBoundingBox } from 'react-icons/bs';
 import { RiShareForwardLine } from 'react-icons/ri';
 import { IoIosSend } from 'react-icons/io';
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
+import { BiPencil } from 'react-icons/bi';
+import { FaTrashAlt } from 'react-icons/fa';
 
 class PostIndex extends React.Component{
     constructor(props){
@@ -15,6 +17,7 @@ class PostIndex extends React.Component{
         };
         this.handleFocus = this.handleFocus.bind(this); 
         this.timepassed = this.timepassed.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
 
@@ -26,7 +29,11 @@ class PostIndex extends React.Component{
     componentDidMount() {
         this.props.fetchPosts();
     }
-
+    
+    handleSubmit(e){
+        e.preventDefault();
+        this.props.openModal('editForm')
+    }
     // componentDidUpdate(){
     //     this.props.fetchPosts();
     // }
@@ -50,7 +57,8 @@ class PostIndex extends React.Component{
                     <button onFocus={this.handleFocus} onBlur={this.handleFocus}><BiDotsHorizontalRounded/>
                     </button>
                     <ul onClick={e => e.stopPropagation()} className={this.state.openMenu ? "show-dropdown" : "clear"}>
-                        <li onClick={() => this.props.removePost(post.id)}>Delete</li>
+                        <li onClick={this.handleSubmit}><BiPencil/>  Edit post</li>
+                        <li onClick={() => this.props.removePost(post.id)}><FaTrashAlt/>  Delete post</li>
                     </ul>
                 </div>
                 <div className="post_info">

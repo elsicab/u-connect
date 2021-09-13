@@ -1,5 +1,6 @@
 import React from 'react';
 import PostFormContainer from './post_form_container';
+import EditFormContainer from './edit_form_container'
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 
@@ -12,6 +13,9 @@ function Modal({modal, closeModal}){
     switch(modal){
         case 'postForm':
             component = <PostFormContainer />
+            break;
+        case 'editForm':
+            component = <EditFormContainer/>
             break;
         default: 
             return null;

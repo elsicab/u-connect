@@ -6,7 +6,7 @@ import { RiCalendarEventFill } from 'react-icons/ri';
 import { RiArticleLine } from 'react-icons/ri';
 
 
-class PostForm extends React.Component{
+class EditForm extends React.Component{
     constructor(props){
         super(props)
         this.state = {
@@ -66,7 +66,7 @@ class PostForm extends React.Component{
         return(
             <div className="post_modal">
                     <div className="post_header">
-                        <h2 className="post_message">Create a post</h2>
+                        <h2 className="post_message">Edit post</h2>
                         <p className="close_post" onClick={this.handleModal}><AiOutlineClose /></p>
                     </div>
                     <div className="post_body">
@@ -84,7 +84,7 @@ class PostForm extends React.Component{
                             <li className="attach_icon"><RiCalendarEventFill/></li>
                             <li className="attach_icon"><RiArticleLine/></li>
                         </ul>
-                        <button onClick={this.handleSubmit} className="post_button">Post</button>
+                        <button onClick={this.handleSubmit} className="post_button">Save</button>
                     </div>
             </div>
         )
@@ -93,4 +93,4 @@ class PostForm extends React.Component{
 
 }
 
-export default PostForm;
+export default EditForm;

@@ -51,7 +51,7 @@
     // color: rgb(109, 108, 108);
     color: #00000099;
     align-items: center;
-     float: right;
+    float: right;
 }
 
 .navbar_icon{
@@ -152,4 +152,38 @@
     padding: 0 25px;
     height: 45px;
     flex-direction: row;
+}
+
+.dropdown_menu{
+    background: white;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-left: 20px;
+    color: gray;
+    font-size: 12px;
+    font-weight: 350;
+}
+
+.view_profile{
+    background-color: white;
+    color: #0A66C2;
+    border-radius: 15px;
+    border: 2px solid #0A66C2;
+    font-style: bold;
+    padding: 5px;
+    width: 200px;
+    text-align: center;
+}
+
+.view_profile:hover{
+    background-color: rgb(207, 226, 232);
+    border: 3px solid #0A66C2;
+}
+
+.show_dropdown{
+    display: block;
+}
+
+.clear{
+    display: none;
 }

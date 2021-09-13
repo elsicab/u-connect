@@ -8,6 +8,7 @@ import { withRouter } from 'react-router';
 import { BsPeopleFill } from 'react-icons/bs';
 import { logout } from '../../actions/session_actions';
 import { Link } from 'react-router-dom';
+import { BsPersonBoundingBox } from 'react-icons/bs'
 
 
 
@@ -16,6 +17,10 @@ import { Link } from 'react-router-dom';
 class Navbar extends React.Component {
     constructor(props){
         super(props)
+         this.state = {
+            dropdown: false 
+        }
+        this.handleDropdown = this.handleDropdown.bind(this); 
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
@@ -24,6 +29,11 @@ class Navbar extends React.Component {
         this.props.logout()
             // .then(() => this.props.history.push('/'));
     };
+
+    handleDropdown(e) {
+        const newState = !this.state.dropdown 
+        this.setState({dropdown: newState})
+    }
 
     render(){
         return(
@@ -58,9 +68,17 @@ class Navbar extends React.Component {
                                 <p className="navbar_icon"><FaBell /></p>
                                 <p className="title">Notifications</p>
                             </li>
-                            <li className="single_icon" id="logout_button" onClick={this.handleSubmit}><Link to='/'>Logout!</Link></li>
+                            {/* <li className="single_icon" id="logout_button" onClick={this.handleSubmit}><Link to='/'>Logout!</Link></li> */}
+                            <li className="dropdown_menu">
+                                <div onClick={this.handleDropdown} ><BsPersonBoundingBox/><p>Me</p>
+                                </div>
+                                <ul onClick={e => e.stopPropagation()} className={this.state.dropdown ? "show_dropdown" : "clear"}>
+                                    <li className="view_profile">
+                                        <Link to='/profile'>View profile</Link></li>
+                                    <li className="sign_out" onClick={this.handleSubmit}>Sign Out</li>
+                                </ul>
+                            </li>
                         </ul>  
-                        {/* <button onClick={logout()}>Logout!</button>*/}
                     </div>
                 </div>
             </div>

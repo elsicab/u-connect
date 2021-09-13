@@ -6,6 +6,7 @@ import SignInContainer from './sessions/signin_container';
 import FeedContainer from './feed/feed_container';
 import HomePageContainer from './home/home_container';
 import Modal from './modal/modal';
+import UserContainer from '../components/profile/user_profile_container';
 
 
 
@@ -14,10 +15,12 @@ const App = () => (
         <Modal />
         <Switch>
             {/* <Route exact path="/home" component={Home} /> */}
+            <ProtectedRoute path="/profile" component={UserContainer} />
             <AuthRoute path="/signup" component={SignUpContainer} />
             <AuthRoute path="/login" component={SignInContainer} />
             <ProtectedRoute path="/feed" component={FeedContainer} />
             <AuthRoute path="/" component={HomePageContainer} />
+
             {/* Protected Route to user page */}
             {/* Body 
             *Sidebar (left)

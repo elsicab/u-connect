@@ -3,7 +3,8 @@ import Navbar from './navbar';
 import { logout } from '../../actions/session_actions'
 
 const mSTP = state => ({
-    currentUser: state.entities.users
+    session: state.session,
+    currentuser: state.entities.users[state.session.id]
 });
 
 const mDTP = dispatch => ({

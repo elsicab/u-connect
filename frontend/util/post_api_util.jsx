@@ -28,3 +28,13 @@ export const removePost = (postId) => (
         url: `/api/posts/${postId}`
     })
 )
+
+export const editPost = (formData) => (
+     $.ajax({
+        method: 'PATCH',
+        url: `/api/posts/${formData.get('post[id]')}`,
+        data: formData,
+        contentType: false,
+        processData: false
+    })
+)
