@@ -1,0 +1,1 @@
+json.extract! @profile, :id, :pronouns, :headline, :country, :postal_code, :location, :industry
