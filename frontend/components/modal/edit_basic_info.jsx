@@ -5,36 +5,37 @@ import { closeModal } from '../../actions/modal_actions';
 import { AiOutlineClose } from 'react-icons/ai';
 
 
-class EditBasicInfo extends React.Component{
+class EditBasic extends React.Component{
     constructor(props){
-        this.state = {
-
-        }
+        super(props)
     }
 
     render(){
         return (
             <div className="edit_modal">
                 <div className="edit_header">
-                    <h2>Edit Intro</h2>
-                    <AiOutlineClose/>
+                    <h2>Edit intro</h2>
+                    <p className="exit_edit"><AiOutlineClose/></p>
                 </div>
-                <div>
-                    <label>First Name *
+                <div className="name_input">
+                    <div className="first_name_input">
+                        <label>First Name *</label>
                         <input type="text" />
-                    </label>
-                    <label>Last Name *
+                    </div>
+                    <div className="last_name_input">
+                        <label>Last Name *</label>
                         <input type="text" />
-                    </label>
+                    </div>
                 </div>
-                <div>
+                <div className="pronouns">
                     <label>Pronouns</label>
-                    <select name="cars" id="cars">
-                         <option value="she/her">Please Select</option>
+                    <select>
+                         <option>Please Select</option>
                         <option value="she/her">She/Her</option>
                         <option value="he/him">He/Him</option>
                         <option value="they/them">They/Them</option>
                     </select>
+                    <p>Let others know how to refer to you.</p>
                 </div>
                 <div>
                     <label>Headline
@@ -74,3 +75,5 @@ class EditBasicInfo extends React.Component{
         )
     }
 }
+
+export default EditBasic;

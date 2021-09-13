@@ -1,6 +1,7 @@
 import React from 'react';
 import PostFormContainer from './post_form_container';
 import EditFormContainer from './edit_form_container'
+import EditBasicContainer from './edit_basic_container';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 
@@ -17,6 +18,9 @@ function Modal({modal, closeModal}){
         case 'editForm':
             component = <EditFormContainer/>
             break;
+        case 'editBasic':
+            component = <EditBasicContainer/>
+            break
         default: 
             return null;
 

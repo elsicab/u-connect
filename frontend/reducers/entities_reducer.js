@@ -1,11 +1,13 @@
 import { combineReducers } from "redux";
 import postReducer from "./posts_reducer";
+import profileReducer from "../reducers/profiles_reduce";
 
 import usersReducer from "./users_reducer";
 
 const entitiesReducer = combineReducers({
     users: usersReducer,
-    posts: postReducer
+    posts: postReducer,
+    profile: profileReducer
 });
 
 export default entitiesReducer;

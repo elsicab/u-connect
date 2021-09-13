@@ -14,12 +14,10 @@ class UserProfile extends React.Component{
 
     handleEdit(e){
         e.preventDefault();
-        this.props.openModal('editBasicInfo')
+        this.props.openModal('editBasic')
     }
 
     render(){
-
-
         return(
             <div className = "profile">
                 <NavbarContainer/>
