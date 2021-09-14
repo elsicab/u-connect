@@ -10,7 +10,8 @@ const mapStateToProps = state => {
     author: state.entities.posts.author,
     users: state.entities.users,
     modal: state.ui.modal, 
-    posts: Object.values(state.entities.posts)
+    posts: Object.values(state.entities.posts),
+    currentUser: state.entities.users[state.session.currentUser]
   };
 };
 
