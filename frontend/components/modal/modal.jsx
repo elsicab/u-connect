@@ -9,17 +9,15 @@ import { connect } from 'react-redux';
 
 function Modal({modal, closeModal, id}){
   
-    if(!modal.modal){
+    if(!modal){
         return null
     }
     let component; 
-    debugger
     switch(modal.modal){
         case 'postForm':
             component = <PostFormContainer />
             break;
         case 'editForm':
-            debugger
             component = <EditFormContainer postId={modal.id}/>
             break;
         case 'editBasic':
@@ -32,7 +30,6 @@ function Modal({modal, closeModal, id}){
             component = <AddExperienceContainer/>
             break;
         default: 
-            debugger
             return null;
 
     }

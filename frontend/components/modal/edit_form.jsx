@@ -10,9 +10,9 @@ class EditForm extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            body: '',
-            photoUrl: null,
-            photoFile: null
+            body: this.props.post.body,
+            photoUrl: this.props.post.photoUrl,
+            photoFile: this.props.post.photoFile
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,9 +21,9 @@ class EditForm extends React.Component{
         this.handleFile = this.handleFile.bind(this);
     }
 
-    componentDidMount(){
-         this.props.fetchPost(post.id);
-    }
+    // componentDidMount(){
+    //      this.props.fetchPost(this.props.postId);
+    // }
 
     handleFile(e){
         const reader = new FileReader();
@@ -42,6 +42,7 @@ class EditForm extends React.Component{
         e.preventDefault();
         const formData = new FormData();
         formData.append('post[body]', this.state.body);
+        formData.append('post[id]', this.props.postId)
         if (this.state.photoFile) {
             formData.append('post[photo]', this.state.photoFile);
         }
@@ -66,7 +67,6 @@ class EditForm extends React.Component{
     }
 
     render(){   
-        debugger
         const preview = this.state.photoUrl ? <img className= "image_preview" src={this.state.photoUrl} /> : null;
         return(
             <div className="post_modal">
