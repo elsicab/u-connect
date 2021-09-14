@@ -4,6 +4,7 @@ import EditFormContainer from './edit_form_container'
 import EditBasicContainer from './edit_basic_info';
 import AddEducationContainer from './education_form';
 import AddExperienceContainer from './experience_form';
+import AddAvatarContainer from './add_avatar';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 
@@ -28,6 +29,9 @@ function Modal({modal, closeModal, id}){
             break;
         case 'addExperience':
             component = <AddExperienceContainer/>
+            break;
+        case 'addAvatar':
+            component = <AddAvatarContainer/>
             break;
         default: 
             return null;

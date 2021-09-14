@@ -12,3 +12,8 @@ export const fetchUser = (id) => dispatch => (
     ApiUtil.fetchUser(id)
         .then( user => dispatch(receiveUser(user)))
 )
+
+export const editUser = user => dispatch => (
+    ApiUtil.editUser(user)
+        .then(user => dispatch(receiveUser(user)))
+)

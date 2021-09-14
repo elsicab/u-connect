@@ -21,6 +21,7 @@ class UserProfile extends React.Component{
         this.handleEdit = this.handleEdit.bind(this)
         this.handleEducation = this.handleEducation.bind(this)
         this.handleExperience = this.handleExperience.bind(this)
+        this.handleAvatar = this.handleAvatar.bind(this)
 
     }
 
@@ -32,6 +33,11 @@ class UserProfile extends React.Component{
     handleEdit(e){
         e.preventDefault();
         this.props.openModal('editBasic')
+    }
+
+    handleAvatar(e){
+        e.preventDefault();
+        this.props.openModal('addAvatar')
     }
 
     handleEducation(e){
@@ -52,8 +58,11 @@ class UserProfile extends React.Component{
    
 
     render(){
-        console.log(this.props.profiles)
-        const avatar = this.props.currentUser.avatarUrl ? <img className= "avatar_photo" src={this.state.currentUser.avatarUrl} /> : <img className="avatar" src={window.avatar} />
+        debugger
+        if(!this.props.currentUser){
+            return null
+        }
+        const avatar = this.props.currentUser.avatarUrl ? <img className= "avatar" src={this.props.currentUser.avatarUrl} /> : <img className="avatar" src={window.avatar} />
         return(
             <div className = "profile">
                 <NavbarContainer/>
@@ -62,11 +71,11 @@ class UserProfile extends React.Component{
                     <div className = "basic_info">
                         <div className="banner">
                             <img className="banner_photo" src={window.banner} />
-                            <div className="avatar">{avatar}</div>
+                            {/* <div className="avatar" onClick={this.handleAvatar}>{avatar}</div> */}
                             {/* <div className="add_banner_photo"><AiFillCamera/></div> */}
                         </div>
                         <div>
-                            {/* <div className="avatar">{avatar}</div> */}
+                            <div className="avatar">{avatar}</div>
                             <div onClick={this.handleEdit} className="edit_basic_info"><BiPencil/></div>
                         </div>
                         <div className="info_section">
