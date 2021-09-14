@@ -71,11 +71,11 @@ class UserProfile extends React.Component{
                     <div className = "basic_info">
                         <div className="banner">
                             <img className="banner_photo" src={window.banner} />
-                            {/* <div className="avatar" onClick={this.handleAvatar}>{avatar}</div> */}
+                            <div className="avatar" onClick={this.handleAvatar}>{avatar}</div>
                             {/* <div className="add_banner_photo"><AiFillCamera/></div> */}
                         </div>
                         <div>
-                            <div className="avatar">{avatar}</div>
+                            {/* <div className="avatar">{avatar}</div> */}
                             <div onClick={this.handleEdit} className="edit_basic_info"><BiPencil/></div>
                         </div>
                         <div className="info_section">

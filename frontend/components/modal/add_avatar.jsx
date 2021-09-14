@@ -56,24 +56,28 @@ class AddAvatar extends React.Component{
     }
 
     render(){   
-        const preview = this.state.avatarUrl ? <img className= "image_preview" src={this.state.avatarUrl} /> : null;
+        const preview = this.state.avatarUrl ? <img className= "avatar_preview" src={this.state.avatarUrl} /> : null;
         return(
             <div className="avatar_modal">
                 <div className="avatar_header">
                     <h2>Profile photo</h2>
-                    <p className="close_post" onClick={this.handleModal}><AiOutlineClose /></p>
+                    <p className="close_avatar" onClick={this.handleModal}><AiOutlineClose /></p>
                 </div>
-                {preview}
-                <div className="create_post_icons">
-                        <ul className="attach_icons">
+                <div className="preview_container">{preview}</div>
+                <div className="avatar_options">
+                        <ul className="avatar_icons">
                             <li>
-                                <label className="attach_icon"><AiFillCamera />
-                                    <input id = "file_input" onChange={this.handleFile} type="file"/>
+                                <label className="avatar_icon">
+                                    <div className="add_avatar"><AiFillCamera /><input id = "file_input" onChange={this.handleFile} type="file"/></div>
+                                    <p>Add photo</p>
                                 </label>
                             </li>
-                            <li className="attach_icon"><FaTrashAlt/></li>
+                            <li className="avatar_icon">
+                                <div><FaTrashAlt/></div>
+                                <p>Delete</p>
+                            </li>
                         </ul>
-                        <button onClick={this.handleSubmit} className="post_button">Upload</button>
+                        <button onClick={this.handleSubmit} className="avatar_button">Upload</button>
                     </div>
             </div>
             
