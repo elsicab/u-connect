@@ -66,6 +66,7 @@ class EditForm extends React.Component{
     }
 
     render(){   
+        debugger
         const preview = this.state.photoUrl ? <img className= "image_preview" src={this.state.photoUrl} /> : null;
         return(
             <div className="post_modal">

@@ -14,7 +14,7 @@ export const receiveEducations = educations => ({
     educations
 })
 
-export const deleteEducations = educationId => ({
+export const removeEducation = educationId => ({
     type: REMOVE_EDUCATION, 
     educationId
 })
@@ -31,7 +31,7 @@ export const createEducation = education => dispatch => {
 
 export const deleteEducation = educationId => dispatch => {
     ApiUtil.deleteEducation(educationId)
-        .then(() => dispatch(deleteEducation(educationId)))
+        .then(() => dispatch(removeEducation(educationId)))
 }
 
 export const editEducation = education => dispatch => {

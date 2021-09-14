@@ -5,6 +5,21 @@ export const openModal = (modal, id = null) => ({
     type: OPEN_MODAL, 
     modal, 
     id
+
+    // if(id){
+    //     const id = id;
+    //     return{
+    //         type: OPEN_MODAL, 
+    //         modal, 
+    //         id
+    //     }
+    // }else{
+    //     return{
+    //         type: OPEN_MODAL, 
+    //         modal, 
+    //         id
+    //     }
+    // }
 })
 
 export const closeModal = () => ({

@@ -51,7 +51,7 @@ class EditBasic extends React.Component{
                 <div className="name_input">
                     <div className="first_name_input">
                         <label>First Name *</label>
-                        <input value={this.props.currentUser.first_name}type="text" />
+                        <input value={this.props.currentUser.first_name} type="text" />
                     </div>
                     <div className="last_name_input">
                         <label>Last Name *</label>

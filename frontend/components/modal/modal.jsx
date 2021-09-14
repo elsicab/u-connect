@@ -3,21 +3,24 @@ import PostFormContainer from './post_form_container';
 import EditFormContainer from './edit_form_container'
 import EditBasicContainer from './edit_basic_info';
 import AddEducationContainer from './education_form';
+import AddExperienceContainer from './experience_form';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 
-function Modal({modal, closeModal}){
+function Modal({modal, closeModal, id}){
   
-    if(!modal){
+    if(!modal.modal){
         return null
     }
     let component; 
-    switch(modal){
+    debugger
+    switch(modal.modal){
         case 'postForm':
             component = <PostFormContainer />
             break;
         case 'editForm':
-            component = <EditFormContainer />
+            debugger
+            component = <EditFormContainer postId={modal.id}/>
             break;
         case 'editBasic':
             component = <EditBasicContainer/>
@@ -25,7 +28,11 @@ function Modal({modal, closeModal}){
         case 'addEducation':
             component = <AddEducationContainer/>
             break;
+        case 'addExperience':
+            component = <AddExperienceContainer/>
+            break;
         default: 
+            debugger
             return null;
 
     }

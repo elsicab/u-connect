@@ -20,6 +20,7 @@ class UserProfile extends React.Component{
         }
         this.handleEdit = this.handleEdit.bind(this)
         this.handleEducation = this.handleEducation.bind(this)
+        this.handleExperience = this.handleExperience.bind(this)
 
     }
 
@@ -33,9 +34,14 @@ class UserProfile extends React.Component{
         this.props.openModal('editBasic')
     }
 
-     handleEducation(e){
+    handleEducation(e){
         e.preventDefault();
         this.props.openModal('addEducation')
+    }
+
+    handleExperience(e){
+        e.preventDefault();
+        this.props.openModal('addExperience')
     }
 
     //  handleExperience(e){
@@ -82,7 +88,7 @@ class UserProfile extends React.Component{
                     <div className="edu_exp_sec">
                         <div className = "experience">
                             <h3>Experience</h3>
-                            <div className="add_exp"><AiOutlinePlus/></div>
+                            <div onClick={this.handleExperience} className="add_exp"><AiOutlinePlus/></div>
                         
                         </div>
                         <div className = "education">
