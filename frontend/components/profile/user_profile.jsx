@@ -8,6 +8,7 @@ import { openModal } from '../../actions/modal_actions';
 import { fetchUser } from '../../actions/user_actions'
 import { fetchProfile, fetchProfiles } from '../../actions/profile_actions'
 import { RiContactsBookLine } from 'react-icons/ri';
+import { AiOutlinePlus } from 'react-icons/ai'
 
 
 
@@ -18,6 +19,8 @@ class UserProfile extends React.Component{
             // profile: this.props.profiles.filter(profile => profile.user_id === this.props.currentUser.id)
         }
         this.handleEdit = this.handleEdit.bind(this)
+        this.handleEducation = this.handleEducation.bind(this)
+
     }
 
     componentDidMount(){
@@ -29,6 +32,16 @@ class UserProfile extends React.Component{
         e.preventDefault();
         this.props.openModal('editBasic')
     }
+
+     handleEducation(e){
+        e.preventDefault();
+        this.props.openModal('addEducation')
+    }
+
+    //  handleExperience(e){
+    //     e.preventDefault();
+    //     this.props.openModal('editBasic')
+    // }
 
    
 
@@ -66,13 +79,18 @@ class UserProfile extends React.Component{
                             <div className="num_connections"></div>
                         </div>
                     </div>
-                    <div className = "experience">
-                    
-                    </div>
-                    <div className = "education">
-
-                    
-                    </div>     
+                    <div className="edu_exp_sec">
+                        <div className = "experience">
+                            <h3>Experience</h3>
+                            <div className="add_exp"><AiOutlinePlus/></div>
+                        
+                        </div>
+                        <div className = "education">
+                            <h3>Education</h3>
+                            <div onClick={this.handleEducation} className="add_edu"><AiOutlinePlus/></div>
+                        
+                        </div>    
+                    </div> 
                 </div>
                 </div>
             </div>

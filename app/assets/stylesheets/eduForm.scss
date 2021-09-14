@@ -1,0 +1,54 @@
+.edu_modal{
+    background-color:  white;
+    color: #00000099;
+    width: 650px;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: .5px solid lightgray;
+    font-family: sans-serif;
+}
+
+.edu_header{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    color: black;
+    padding-bottom: 24px;
+    border-bottom: 0.2px solid lightgray;
+    padding: 24px;
+}
+
+.exit_edit{
+    color:  #00000099;
+}
+
+.school_input, 
+.degree, 
+.field_study, 
+.start, 
+.end,
+.gpa,
+.activities, 
+.description{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.description{
+    border-bottom: 0.2px solid lightgray;
+
+}
+
+.save_button{
+    display: flex;
+    justify-content: right;
+    margin: 15px 15px;
+    color: white;
+    border-radius: 20px;
+    background-color: #0A66C2;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: 1px solid white;
+}
+

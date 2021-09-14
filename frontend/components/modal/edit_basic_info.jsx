@@ -72,35 +72,34 @@ class EditBasic extends React.Component{
                     <label>Headline *</label>
                     <textarea value={this.props.headline} onChange={this.handleInput('headline')} name="" id="" cols="78" rows="2"></textarea>
                 </div>
-                <div>
-                    <label>Current Position
-                        <input type="text" />
-                    </label>
+                <div className="position">
+                    <label>Current Position</label>
+                    <input type="text" />
                 </div>
-                <div>
-                    <label>Education
-                        <input type="text" />
-                    </label>
+                <div className="pick_edu">
+                    <label>Education</label>
+                    <input type="text" />
                 </div>
-                <div>
-                    <label>Country/Region *
-                        <input value={this.props.country} onChange={this.handleInput('country')}type="text" />
-                    </label>
+                <div className="country">
+                    <label>Country/Region *</label>
+                    <input value={this.props.country} onChange={this.handleInput('country')}type="text" />
                 </div>
-                <div>
-                    <label>Postal Code
+                <div className="postal_sec">
+                    <div className="postal_code">
+                        <label>Postal Code</label>
                         <input value={this.props.postal_code} onChange={this.handleInput('postal_code')} type="text" />
-                    </label>
-                    <label>Location
+                    </div>
+                    <div className="location">
+                        <label>Location</label>
                         <input value={this.props.location} onChange={this.handleInput('location')} type="text" />
-                    </label>
+                    </div>
                 </div>
-                <div>
-                    <label>Industry *
-                        <input value={this.state.industry} onChange={this.handleInput('industry')} type="text" />
-                    </label>
+                <div className="industry">
+                    <label>Industry *</label>
+                    <input value={this.state.industry} onChange={this.handleInput('industry')} type="text" />
+
                 </div>
-                <button onClick={this.handleSubmit}>Save</button>     
+                <button className="save_button" onClick={this.handleSubmit}>Save</button>     
             </div>
         )
     }
