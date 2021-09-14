@@ -11,7 +11,7 @@ class Api::EducationsController < ApplicationController{
 
     def create
         @education = Education.new(education_params)
-        @education.author_id = current_user.id
+        @education.user_id = current_user.id
 
         if @education.save!
             render 'api/educations/show'

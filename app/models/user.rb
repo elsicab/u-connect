@@ -11,6 +11,10 @@ class User < ApplicationRecord
         foreign_key: :user_id, 
         class_name: :Education
 
+    has_many :experiences,
+        foreign_key: :user_id, 
+        class_name: :Experience
+
     has_one :profile,
         foreign_key: :user_id, 
         class_name: :Profile
