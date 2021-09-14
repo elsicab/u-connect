@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_13_014412) do
+ActiveRecord::Schema.define(version: 2021_09_14_005610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,33 @@ ActiveRecord::Schema.define(version: 2021_09_13_014412) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "educations", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "school", null: false
+    t.string "degree"
+    t.string "field"
+    t.string "start"
+    t.string "end"
+    t.text "activities"
+    t.float "gpa"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "experiences", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "title", null: false
+    t.string "company", null: false
+    t.string "location"
+    t.string "start", null: false
+    t.string "end", null: false
+    t.string "industry"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_experiences_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|

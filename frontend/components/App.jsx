@@ -15,7 +15,7 @@ const App = () => (
         <Modal />
         <Switch>
             {/* <Route exact path="/home" component={Home} /> */}
-            <ProtectedRoute path="/profile" component={UserContainer} />
+            <ProtectedRoute path="/users/:userId" component={UserContainer} />
             <AuthRoute path="/signup" component={SignUpContainer} />
             <AuthRoute path="/login" component={SignInContainer} />
             <ProtectedRoute path="/feed" component={FeedContainer} />

@@ -1,0 +1,16 @@
+class CreateExperiences < ActiveRecord::Migration[6.1]
+  def change
+    create_table :experiences do |t|
+      t.integer :user_id, null:false
+      t.string :title, null:false
+      t.string :company, null:false
+      t.string :location
+      t.string :start, null:false
+      t.string :end, null:false
+      t.string :industry
+      t.text :description
+      t.timestamps
+    end
+    add_index :experiences, :user_id
+  end
+end

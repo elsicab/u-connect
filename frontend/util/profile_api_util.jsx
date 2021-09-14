@@ -1,7 +1,7 @@
-export const fetchProfile = (id) => (
+export const fetchProfile = (userId) => (
     $.ajax({
-        method: 'Get',
-        url: `/api/profiles/${id}`
+        method: 'GET',
+        url: `/api/profiles/${userId}`
     })
 )
 
@@ -18,5 +18,12 @@ export const editProfile = (profile) => (
         method: 'PATCH',
         url: `/api/profiles/${profile.id}`,
         data: profile
+    })
+)
+
+export const fetchProfiles = () => (
+    $.ajax({
+        method: 'GET', 
+        url: "/api/profiles"
     })
 )

@@ -6,20 +6,34 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import { openModal } from '../../actions/modal_actions';
 import { fetchUser } from '../../actions/user_actions'
+import { fetchProfile, fetchProfiles } from '../../actions/profile_actions'
+import { RiContactsBookLine } from 'react-icons/ri';
+
 
 
 class UserProfile extends React.Component{
     constructor(props){
-        super(props)
+        super(props)        
+        this.state = {
+            // profile: this.props.profiles.filter(profile => profile.user_id === this.props.currentUser.id)
+        }
         this.handleEdit = this.handleEdit.bind(this)
     }
+
+    componentDidMount(){
+        this.props.fetchProfiles()
+    }
+
 
     handleEdit(e){
         e.preventDefault();
         this.props.openModal('editBasic')
     }
 
+   
+
     render(){
+        console.log(this.props.profiles)
         const avatar = this.props.currentUser.avatarUrl ? <img className= "avatar_photo" src={this.state.currentUser.avatarUrl} /> : <img className="avatar" src={window.avatar} />
         return(
             <div className = "profile">
@@ -67,13 +81,16 @@ class UserProfile extends React.Component{
 }
 
 
-const mSTP = state => ({
+const mSTP = (state, ownProps) => ({
     currentUser: state.entities.users[state.session.currentUser],
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    profiles: Object.values(state.entities.profile)
 })
 
 const mDTP = dispatch => ({
     openModal: modal => dispatch(openModal(modal)),
+    fetchProfile: userId => dispatch(fetchProfile(userId)), 
+    fetchProfiles: () => dispatch(fetchProfiles())
 
 })
 

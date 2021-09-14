@@ -1,4 +1,9 @@
 class Api::ProfilesController < ApplicationController
+    def index
+        @profiles = Profile.all
+        render :index
+    end
+
     def show
         @profile = Profile.find(params[:id])
         render 'api/profiles/show'

@@ -25,7 +25,8 @@
 }
 
 .banner_photo{
-    width: 100%;
+    width: 750px;
+    height: 180px;
 }
 
 .add_banner_photo{
@@ -40,10 +41,26 @@
     width: 152px;
     height: 152px;
     border-radius: 50%;
-    padding-top: -20px;
-    position: relative;
+    margin-top: -45px;
+    border: 2px solid white;
+    margin-left: 10px;
 }
 
 .edit_basic_info{
     cursor: pointer;
+    float: right;
+    margin-top: -90px;
+    color: #00000099;
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.name{
+    padding-left: 30px;
+}
+
+.username{
+    font-size: 25px;
+    font-weight: 550;
+    margin-top: -20px;
 }

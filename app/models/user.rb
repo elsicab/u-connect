@@ -7,6 +7,10 @@ class User < ApplicationRecord
         foreign_key: :author_id, 
         class_name: :Post
 
+    has_many :schools, 
+        foreign_key: :user_id, 
+        class_name: :Education
+
     has_one :profile,
         foreign_key: :user_id, 
         class_name: :Profile
