@@ -52,6 +52,8 @@
     color: #00000099;
     align-items: center;
     float: right;
+    padding: 5px 20px;
+    font-size: 1.5rem;
 }
 
 .navbar_icon{
@@ -182,8 +184,34 @@
 
 .show_dropdown{
     display: block;
+    background-color: white;
+    position: absolute;
+    width: 270px;
+    top: 75px;
+    right: 50px;
+    font-size: 15px;
+
 }
 
 .clear{
     display: none;
+}
+
+.view_profile{
+    margin: 0 auto;
+}
+
+.view_profile, 
+.sign_out{
+    margin-top: 15px;
+}
+
+.view_btn{
+    text-decoration: none;
+    color: #0A66C2;
+}
+
+.sign_out{
+    border-top: 0.2px solid lightgray;
+    padding: 15px;
 }

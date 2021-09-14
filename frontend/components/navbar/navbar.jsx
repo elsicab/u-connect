@@ -74,7 +74,7 @@ class Navbar extends React.Component {
                                 </div>
                                 <ul onClick={e => e.stopPropagation()} className={this.state.dropdown ? "show_dropdown" : "clear"}>
                                     <li className="view_profile">
-                                        <Link to={`/users/${this.props.currentUser.id}`}>View profile</Link></li>
+                                        <Link className="view_btn" to={`/users/${this.props.currentUser.id}`}>View profile</Link></li>
                                     <li className="sign_out" onClick={this.handleSubmit}>Sign Out</li>
                                 </ul>
                             </li>
