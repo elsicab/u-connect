@@ -18,9 +18,7 @@ class UserProfile extends React.Component{
     constructor(props){
         super(props)        
         this.state = {
-            currentProfile: this.props.profiles.filter(
-                profile => profile.user_id == this.props.userId
-            )
+            // currentProfile: this.props.profile
         }
         this.handleEdit = this.handleEdit.bind(this)
         this.handleEducation = this.handleEducation.bind(this)
@@ -57,9 +55,8 @@ class UserProfile extends React.Component{
     render(){
         if(!this.props.currentUser){
             return null
-        }    
-        console.log(this.props.profiles)
-        console.log(this.state.currentProfile)
+        } 
+ 
         const avatar = this.props.currentUser.avatarUrl ? <img className= "avatar" src={this.props.currentUser.avatarUrl} /> : 
         <img className="avatar" src={window.avatar} />
         return(
@@ -117,16 +114,20 @@ class UserProfile extends React.Component{
 }
 
 
-const mSTP = (state, ownProps) => ({
+const mSTP = (state, ownProps) => {
+    return{
     currentUser: state.entities.users[state.session.currentUser],
     modal: state.ui.modal,
-    profiles: Object.values(state.entities.profiles), 
-    userId: ownProps.userId
-})
+    // profile: state.entities.profiles[ownProps.match.params.userId],
+    // userId: ownProps.userId, 
+    // profile: Object.values(state.entities.profiles).filter(
+    //     profile => profile.user_id === ownProps.match.params.userId
+    // )[0]
+    }
+}
 
 const mDTP = dispatch => ({
     openModal: modal => dispatch(openModal(modal)),
-    fetchProfile: userId => dispatch(fetchProfile(userId)), 
     fetchProfiles: () => dispatch(fetchProfiles())
 
 })
