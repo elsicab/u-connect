@@ -1,5 +1,5 @@
 class Experience < ApplicationRecord
-    validates :title, :company, :user_id, :start, :end
+    validates :title, :company, :user_id, :start, :end, presence:true
 
     belongs_to :user, 
         foreign_key: :user_id, 

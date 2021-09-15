@@ -8,9 +8,9 @@ import experienceReducer from "./experience_reducer";
 const entitiesReducer = combineReducers({
     users: usersReducer,
     posts: postReducer,
-    profile: profileReducer,
-    education: educationReducer, 
-    experience: experienceReducer
+    profiles: profileReducer,
+    educations: educationReducer, 
+    experiences: experienceReducer
 });
 
 export default entitiesReducer;

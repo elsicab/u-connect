@@ -1,5 +1,6 @@
 import React from 'react';
 import NavbarContainer from '../navbar/navbar_container';
+import ExperienceIndexContainer from './experience'
 import { BiPencil } from 'react-icons/bi';
 import { AiFillCamera } from 'react-icons/ai';
 import { connect } from 'react-redux';
@@ -16,7 +17,6 @@ class UserProfile extends React.Component{
     constructor(props){
         super(props)        
         this.state = {
-            // profile: this.props.profiles.filter(profile => profile.user_id === this.props.currentUser.id)
         }
         this.handleEdit = this.handleEdit.bind(this)
         this.handleEducation = this.handleEducation.bind(this)
@@ -60,7 +60,7 @@ class UserProfile extends React.Component{
     render(){
         if(!this.props.currentUser){
             return null
-        }
+        }    
         const avatar = this.props.currentUser.avatarUrl ? <img className= "avatar" src={this.props.currentUser.avatarUrl} /> : <img className="avatar" src={window.avatar} />
         return(
             <div className = "profile">
@@ -97,12 +97,13 @@ class UserProfile extends React.Component{
                         <div className = "experience">
                             <h3>Experience</h3>
                             <div onClick={this.handleExperience} className="add_exp"><AiOutlinePlus/></div>
-                        
+                        </div>
+                        <div className= "education_list">
+                            <ExperienceIndexContainer/>
                         </div>
                         <div className = "education">
                             <h3>Education</h3>
                             <div onClick={this.handleEducation} className="add_edu"><AiOutlinePlus/></div>
-                        
                         </div>    
                     </div> 
                 </div>
@@ -116,7 +117,7 @@ class UserProfile extends React.Component{
 const mSTP = (state, ownProps) => ({
     currentUser: state.entities.users[state.session.currentUser],
     modal: state.ui.modal,
-    profiles: Object.values(state.entities.profile)
+    profiles: Object.values(state.entities.profiles)
 })
 
 const mDTP = dispatch => ({

@@ -1,0 +1,42 @@
+.single_experience{
+    font-family: sans-serif;
+    border-bottom: 0.5px solid lightgray;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.singleExperience{
+    display: flex;
+    flex-direction: row;
+}
+
+.experience_image{
+    padding-right: 25px;
+}
+
+.avatar_experience{
+    height: 60px;
+    width: 50px;
+}
+
+.experience_info > h2{
+    font-size: 16px;
+    font-weight: 600;
+    padding-bottom: 5px;
+    color: #000000E6;
+    width: 650px;
+}
+
+.experience_info > p{
+    font-size: 14px;
+    font-weight: 400;
+    padding-bottom: 5px;
+    color: #000000E6;
+}
+
+.edit_experience{
+    color: #00000099;
+    font-size: 20px;
+    cursor: pointer;
+    float: right;
+}

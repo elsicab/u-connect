@@ -4,10 +4,10 @@ const experienceReducer = (state = {}, action) => {
     Object.freeze(state)
     let newState = Object.assign({}, state)
     switch(action.type){
-        case RECEIVE_EXPERIENCE:
-            return action.experiences
         case RECEIVE_EXPERIENCES:
-            return bject.assign({}, state, action.experience)
+            return action.experiences
+        case RECEIVE_EXPERIENCE:
+            return Object.assign({}, state, action.experience)
         case REMOVE_EXPERIENCE:
             delete newState[action.experienceId]
             return newState

@@ -7,7 +7,7 @@ const educationReducer = (state = {}, action) => {
         case RECEIVE_EDUCATION:
             return action.educations
         case RECEIVE_EDUCATIONS:
-            return bject.assign({}, state, action.education)
+            return Object.assign({}, state, action.education)
         case REMOVE_EDUCATION:
             delete newState[action.educationId]
             return newState

@@ -71,7 +71,7 @@ class Navbar extends React.Component {
                             </li>
                             {/* <li className="single_icon" id="logout_button" onClick={this.handleSubmit}><Link to='/'>Logout!</Link></li> */}
                             <li className="dropdown_menu">
-                                <div onClick={this.handleDropdown} >
+                                <div className="avatar_dropdown" onClick={this.handleDropdown} >
                                     <div>{menuAvatar}</div>
                                     <p>Me</p>
                                 </div>

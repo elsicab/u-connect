@@ -1,4 +1,4 @@
-class Api::ExperiencesController < ApplicationController {
+class Api::ExperiencesController < ApplicationController 
     def index
         @experiences = Experience.all
         render :index
@@ -36,8 +36,8 @@ class Api::ExperiencesController < ApplicationController {
 
     private 
     def experience_params
-        params.require(:experience).permit(:title, :company, :location, :start, :end, :industry, :description)
+        params.permit(:title, :company, :location, :start, :end, :industry, :description)
     end
 
 
-}
+end
