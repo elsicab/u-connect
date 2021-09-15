@@ -83,11 +83,27 @@ textarea{
         cursor: pointer;
     }
 
-    .image_preview{
-        max-height: 100px;
-        padding: 10px;
-    }
+.image_preview{
+    max-height: 100px;
+    padding: 10px;
+}
 
-    #file_input{
-        display: none;
-    }
+#file_input{
+    display: none;
+}
+
+.avatar_post{
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+}
+
+.post_user_header{
+    display: flex;
+    padding: 15px;
+}
+
+.create_post_user{
+    color: rgba(0, 0, 0, 0.735);
+    font-size: 18px;
+}

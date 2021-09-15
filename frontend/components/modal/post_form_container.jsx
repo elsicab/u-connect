@@ -5,7 +5,9 @@ import { closeModal } from '../../actions/modal_actions';
 import { createPost } from '../../actions/post_actions';
 
 const mSTP = state => ({
-    posts: state.entities.posts
+    posts: state.entities.posts,
+    currentUser: state.entities.users[state.session.currentUser]
+    
 });
 
 const mDTP = dispatch => ({

@@ -53,7 +53,8 @@
     align-items: center;
     float: right;
     padding: 5px 20px;
-    font-size: 1.5rem;
+    // font-size: 1.5rem;
+    font-size: 28px;
 }
 
 .navbar_icon{
@@ -214,4 +215,16 @@
 .sign_out{
     border-top: 0.2px solid lightgray;
     padding: 15px;
+}
+
+.menu_avatar{
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+}
+
+.avatar_dropdown{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
