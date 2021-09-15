@@ -11,8 +11,8 @@
     padding-top: 30px;
     justify-content: space-evenly;
     font-family: sans-serif;
-    padding-left: 70px;
-    padding-right: 70px;
+    padding-left: 180px;
+    padding-right: 180px;
 }
 
 .post_container{
@@ -34,13 +34,16 @@
     cursor: pointer;
 }
 
-.post_container > button{
+.posting_button{
     margin-bottom: 15px;
-    width: 100%;
+    width: 420px;
     height: 50px;
     border: .5px solid rgb(186, 186, 186);
     border-radius: 40px;
     background-color: white;
+    margin-left: 15px;
+    cursor: pointer;
+    
 }
 
 .post_icons{
@@ -80,7 +83,7 @@
     color: rgb(252, 146, 149);
 }
 
-.post_container > button:hover{
+.posting_button:hover{
     background-color: lightgray;
 }
 
@@ -207,4 +210,87 @@
     display: flex;
     justify-content: center;
     // padding-left: 30px;
+}
+
+.posting_header{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+}
+
+.posting_avatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.courses, 
+.news{
+    width: 300px;
+    background-color: white;
+    border: .5px solid lightgray;
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 15px;
+}
+
+.extra_sec_header{
+    padding-bottom: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#news_list li::before{
+    content: "\2022";  
+    color: rgba(0, 0, 0, 0.6); 
+    font-weight: bold; 
+    padding-right: 10px;
+    font-size: 20px;
+}
+
+#news_list li{
+    font-size: 14px;
+    font-weight: bolder;
+    color: rgba(0, 0, 0, 0.9);
+    padding-bottom: 10px;
+
+}
+
+#news_list li p{
+    font-size: 12px;
+    font-weight: 100;
+    color: #00000099;
+    padding-top: 5px;
+    padding-left: 15px;
+
+}
+
+#course_list{
+    list-style-type: decimal;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: bold;
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+#course_list li{
+    font-size: 14px;
+    font-weight: bolder;
+    color: rgba(0, 0, 0, 0.9);
+    padding-bottom: 10px;
+
+}
+
+#course_list li p{
+    font-size: 12px;
+    font-weight: 100;
+    color: #00000099;
+    padding-top: 8px;
+}
+
+.courses h2{
+    color: #00000099;
+    font-weight: 600;
+    padding-top: 15px;
+    cursor: pointer;
 }

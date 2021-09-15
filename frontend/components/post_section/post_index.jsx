@@ -54,6 +54,8 @@ class PostIndex extends React.Component{
 
     render(){
         if(!this.props.posts) return null
+        const avatar = this.props.currentUser.avatarUrl ? <img className= "avatar_profile" src={this.props.currentUser.avatarUrl} /> : <img className="avatar_profile" src={window.avatar} />
+
         const showPosts = this.props.posts.reverse().map((post, i) => (
             <div key={`${i}`} className="single_post">
                 <div className="post_menu" >
@@ -103,7 +105,8 @@ const mapStateToProps = state => {
   return {
     // errors: errors.session,
     author: state.entities.posts.author,
-    posts: Object.values(state.entities.posts).reverse()
+    posts: Object.values(state.entities.posts),
+    currentUser: state.entities.users[state.session.currentUser]
   };
 };
 

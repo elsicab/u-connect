@@ -22,6 +22,8 @@ class Post extends React.Component {
 
     render(){
         const avatar = this.props.currentUser.avatarUrl ? <img className= "avatar_profile" src={this.props.currentUser.avatarUrl} /> : <img className="avatar_profile" src={window.avatar} />
+        const postingAvatar = this.props.currentUser.avatarUrl ? <img className= "posting_avatar" src={this.props.currentUser.avatarUrl} /> : <img className="posting_avatar" src={window.avatar} />
+
         return(
             <div className="feed" key={this.props.posts}>
                 <div className="currentUser">
@@ -48,8 +50,15 @@ class Post extends React.Component {
                 </div>
                   <div>    
                     <div className="post_container">
-                        <span className="button_text" onClick={this.handleSubmit}>Start a post</span>
-                        <button className="post_button" onClick={this.handleSubmit}></button>
+                        <div className="posting_header">
+                            <div className="post_avatar">
+                                <div className="posting_avatar">{postingAvatar}</div>
+                            </div>
+                            <div className="posting_sec">
+                                <span className="button_text" onClick={this.handleSubmit}>Start a post</span>
+                                <button className="posting_button" onClick={this.handleSubmit}></button>
+                            </div>
+                        </div>
                         <ul className="post_icons">
                             <li className="post_icon">
                                 <p className="photo_icon"><HiOutlinePhotograph /></p>
@@ -73,27 +82,42 @@ class Post extends React.Component {
                         <PostIndexContainer />
                     </div> 
                 </div>  
-                <div className="currentUser">
-                        <div className="feed_banner">
-                            <img className="profile_banner" src={window.banner} />
-                            <div className="avatar_sec">{avatar}</div>
-                            {/* <div className="add_banner_photo"><AiFillCamera/></div> */}
-                        </div>
-                        <div className="info_avatar">
-                            <div className="currentUser_info">
-                                <div className="profile_name">
-                                    <h2 className="username"><strong>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</strong></h2>
-                                    <p className="pronouns"></p>
-                                </div>
-                                <div className="school">
-                                    <img src="" alt="" />
-                                    <h4 className="school_name"></h4>
-                                </div>
-                            </div>
-                            <div className="headline"></div>
-                            <div className="location"></div>
-                            <div className="num_connections"></div>
-                        </div>
+                <div className="right_side">
+                    <div className="news">
+                        <div className="extra_sec_header">WiredIn News</div>
+                        <ul id="news_list">
+                            <li>NYC bets big on Broadway's comeback
+                                <p>11h ago  2,476 readers</p>
+                            </li>
+                            <li>Dread turns to fear for commuters
+                                <p>13h ago   13,654 readers</p>
+                            </li>
+                            <li>Craft beer's moment of reckoning
+                                <p>7h ago   13,654 readers</p>
+                            </li>
+                            <li>Apple's latest product reveal
+                                <p>8h ago   38,552 readers</p>
+                            </li>
+                            <li>Homes, sweet... where are the homes?
+                                <p>2h ago   1,038 readers</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="courses">
+                        <div className="extra_sec_header">Today’s top courses</div>
+                        <ol id="course_list">
+                            <li>Customer Experience Leadership
+                                <p>Brad Cleveland</p>
+                            </li>
+                            <li>How to Be an Inclusive Leader
+                                <p>getAbstract</p>
+                            </li>
+                            <li>Unconscious Bias
+                                <p>Stacey Gordon</p>
+                            </li>
+                        </ol>
+                        <h2>Show more on WiredIn Learning</h2>
+                    </div>
                 </div>
             </div>
         )
