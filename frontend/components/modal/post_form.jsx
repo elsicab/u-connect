@@ -63,7 +63,7 @@ class PostForm extends React.Component{
 
     render(){   
         const preview = this.state.photoUrl ? <img className= "image_preview" src={this.state.photoUrl} /> : null;
-        const avatarPost = this.props.currentUser.avatarUrl ? <img className= "avatar_post" src={this.props.currentUser.avatarUrl} /> : null;
+        const avatarPost = this.props.currentUser.avatarUrl ? <img className= "avatar_post" src={this.props.currentUser.avatarUrl} /> : <img className="avatar_post" src={window.avatar} />;
 
         return(
             <div className="post_modal">

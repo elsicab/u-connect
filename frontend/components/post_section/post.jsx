@@ -60,22 +60,22 @@ class Post extends React.Component {
                             </div>
                         </div>
                         <ul className="post_icons">
-                            <li className="post_icon">
+                            <li className="post_icon" onClick={this.handleSubmit}>
                                 <p className="photo_icon"><HiOutlinePhotograph /></p>
                                 <p>Photo</p>
                             </li>
-                            <li className="post_icon">
+                            <li className="post_icon" onClick={this.handleSubmit}>
                                 <p className="video_icon"><AiFillPlaySquare/></p>
                                 <p>Video</p>
                             </li>
-                            <li className="post_icon">
+                            {/* <li className="post_icon">
                                 <p className="event_icon"><RiCalendarEventFill/></p>
                                 <p>Event</p>
                             </li>
                             <li className="post_icon">
                                 <p className="article_icon"><RiArticleLine/></p>
                                 <p>Write article</p>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                     <div className="posts_feed">

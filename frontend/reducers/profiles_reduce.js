@@ -2,9 +2,11 @@ import { RECEIVE_PROFILE, RECEIVE_ALL_PROFILES } from "../actions/profile_action
 
 const profileReducer = (state = {}, action) => {
     Object.freeze(state)
+    let newState = Object.assign({}, state)
     switch(action.type){
         case RECEIVE_PROFILE:
-            return Object.assign({}, state, action.profile)
+            newState[action.profile.id] = action.profile;
+            return newState;
         case RECEIVE_ALL_PROFILES:
             return action.profiles
         default: 

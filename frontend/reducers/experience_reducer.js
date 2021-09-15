@@ -7,7 +7,8 @@ const experienceReducer = (state = {}, action) => {
         case RECEIVE_EXPERIENCES:
             return action.experiences
         case RECEIVE_EXPERIENCE:
-            return Object.assign({}, state, action.experience)
+            newState[action.experience.id] = action.experience;
+            return newState;
         case REMOVE_EXPERIENCE:
             delete newState[action.experienceId]
             return newState

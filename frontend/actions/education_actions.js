@@ -19,22 +19,22 @@ export const removeEducation = educationId => ({
     educationId
 })
 
-export const fetchEducations = () => dispatch => {
+export const fetchEducations = () => dispatch => (
     ApiUtil.fetchEducations()
         .then(educations => dispatch(receiveEducations(educations)))
-}
+)
 
-export const createEducation = education => dispatch => {
+export const createEducation = education => dispatch => (
     ApiUtil.createEducation(education)
         .then(education => dispatch(receiveEducation(education)))
-}
+)
 
-export const deleteEducation = educationId => dispatch => {
+export const deleteEducation = educationId => dispatch => (
     ApiUtil.deleteEducation(educationId)
         .then(() => dispatch(removeEducation(educationId)))
-}
+)
 
-export const editEducation = education => dispatch => {
+export const editEducation = education => dispatch => (
     ApiUtil.editEducation(education)
         .then(education => dispatch(receiveEducation(education)))
-}
+)

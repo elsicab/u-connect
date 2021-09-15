@@ -50,14 +50,16 @@ class Navbar extends React.Component {
                     <div className="right_nav">
                         <ul className="navbar_icons">
                             <li className="single_icon">
-                                <p className="navbar_icon"><ImHome3 /></p>
-                                <p className="title">Home</p>
+                                <Link id="single_icon"to='/feed'>
+                                    <p className="navbar_icon"><ImHome3 /></p>
+                                    <p className="title">Home</p>
+                                </Link>
                             </li>
                             <li className="single_icon">
                                 <p className="navbar_icon"><BsPeopleFill /></p>
                                 <p className="title">My Network</p>
                             </li>
-                            <li className="single_icon">
+                            {/* <li className="single_icon">
                                 <p className="navbar_icon"><BsBriefcaseFill /></p>
                                 <p className="title">Jobs</p>
                             </li>
@@ -68,7 +70,7 @@ class Navbar extends React.Component {
                             <li className="single_icon">
                                 <p className="navbar_icon"><FaBell /></p>
                                 <p className="title">Notifications</p>
-                            </li>
+                            </li> */}
                             {/* <li className="single_icon" id="logout_button" onClick={this.handleSubmit}><Link to='/'>Logout!</Link></li> */}
                             <li className="dropdown_menu">
                                 <div className="avatar_dropdown" onClick={this.handleDropdown} >

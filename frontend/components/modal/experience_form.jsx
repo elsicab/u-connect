@@ -56,31 +56,31 @@ class ExpBasic extends React.Component{
                 </div>
                 <div className="school_input">
                     <label>Title*</label>
-                    <input value={this.props.title} onChange={this.handleInput('title')} type="text" />
+                    <input value={this.state.title} onChange={this.handleInput('title')} type="text" />
                 </div>
                 <div className="school_input">
                     <label>Company name*</label>
-                    <input value={this.props.company} onChange={this.handleInput('company')} type="text" />
+                    <input value={this.state.company} onChange={this.handleInput('company')} type="text" />
                 </div>
                 <div className="school_input">
                     <label>Location</label>
-                    <input value={this.props.location} onChange={this.handleInput('location')} type="text" />
+                    <input value={this.state.location} onChange={this.handleInput('location')} type="text" />
                 </div>
                 <div className="start">
                     <label>Start date* </label>
-                    <input value={this.props.start} onChange={this.handleInput('start')} type="text" />
+                    <input value={this.state.start} onChange={this.handleInput('start')} type="text" />
                 </div>
                 <div className="end">
                     <label>End date*</label>
-                    <input value={this.props.end} onChange={this.handleInput('end')} type="text" />
+                    <input value={this.state.end} onChange={this.handleInput('end')} type="text" />
                 </div>
                 <div className="degree">
                     <label>Industry*</label>
-                    <input value={this.props.industry} onChange={this.handleInput('industry')} type="text" />
+                    <input value={this.state.industry} onChange={this.handleInput('industry')} type="text" />
                 </div>
                 <div className="activities">
                     <label>Description</label>
-                    <textarea value={this.props.description} onChange={this.handleInput('description')} name="" id="" cols="10" rows="3"></textarea>
+                    <textarea value={this.state.description} onChange={this.handleInput('description')} name="" id="" cols="10" rows="3"></textarea>
                 </div>
                 <button className="save_button" onClick={this.handleSubmit}>Save</button>     
             </div>
@@ -89,7 +89,8 @@ class ExpBasic extends React.Component{
 }
 
 const mSTP = state => ({
-    currentUser: state.entities.users[state.session.currentUser]
+    currentUser: state.entities.users[state.session.currentUser],
+    
 });
 
 const mDTP = dispatch => ({

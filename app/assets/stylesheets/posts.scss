@@ -178,13 +178,7 @@
     height: 400px;
 
 }
-// .clear{
-//     display: none;
-// }
 
-// .show-dropdown{
-//     display: block;
-// }
 .avatar_profile{
     width: 100px;
     height: 100px;
@@ -293,4 +287,38 @@
     font-weight: 600;
     padding-top: 15px;
     cursor: pointer;
+}
+
+#post_dropdown > li{
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    
+}
+
+.dropdown_button{
+    cursor: pointer;
+    float: right;
+}
+
+.dropdown_button:hover{
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: rgb(205, 203, 203);
+    width: 25px;
+    padding-bottom: 1px 1px;;
+}
+
+.dropdown_post{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.show-dropdown{
+    display: block;
+}
+
+.clear{
+    display: none;
 }

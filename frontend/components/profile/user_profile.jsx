@@ -1,6 +1,7 @@
 import React from 'react';
 import NavbarContainer from '../navbar/navbar_container';
 import ExperienceIndexContainer from './experience'
+import EducationIndexContainer from './education'
 import { BiPencil } from 'react-icons/bi';
 import { AiFillCamera } from 'react-icons/ai';
 import { connect } from 'react-redux';
@@ -17,6 +18,9 @@ class UserProfile extends React.Component{
     constructor(props){
         super(props)        
         this.state = {
+            currentProfile: this.props.profiles.filter(
+                profile => profile.user_id == this.props.userId
+            )
         }
         this.handleEdit = this.handleEdit.bind(this)
         this.handleEducation = this.handleEducation.bind(this)
@@ -50,18 +54,14 @@ class UserProfile extends React.Component{
         this.props.openModal('addExperience')
     }
 
-    //  handleExperience(e){
-    //     e.preventDefault();
-    //     this.props.openModal('editBasic')
-    // }
-
-   
-
     render(){
         if(!this.props.currentUser){
             return null
         }    
-        const avatar = this.props.currentUser.avatarUrl ? <img className= "avatar" src={this.props.currentUser.avatarUrl} /> : <img className="avatar" src={window.avatar} />
+        console.log(this.props.profiles)
+        console.log(this.state.currentProfile)
+        const avatar = this.props.currentUser.avatarUrl ? <img className= "avatar" src={this.props.currentUser.avatarUrl} /> : 
+        <img className="avatar" src={window.avatar} />
         return(
             <div className = "profile">
                 <NavbarContainer/>
@@ -104,6 +104,9 @@ class UserProfile extends React.Component{
                         <div className = "education">
                             <h3>Education</h3>
                             <div onClick={this.handleEducation} className="add_edu"><AiOutlinePlus/></div>
+                        </div>
+                        <div className= "education_list">
+                            <EducationIndexContainer/>
                         </div>    
                     </div> 
                 </div>
@@ -117,7 +120,8 @@ class UserProfile extends React.Component{
 const mSTP = (state, ownProps) => ({
     currentUser: state.entities.users[state.session.currentUser],
     modal: state.ui.modal,
-    profiles: Object.values(state.entities.profiles)
+    profiles: Object.values(state.entities.profiles), 
+    userId: ownProps.userId
 })
 
 const mDTP = dispatch => ({

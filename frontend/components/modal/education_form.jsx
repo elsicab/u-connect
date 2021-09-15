@@ -67,21 +67,16 @@ class EduBasic extends React.Component{
                 </div>
                 <div className="end">
                     <label>End date (or expected)</label>
-                    <input type="text" />
+                    <input value={this.props.end} onChange={this.handleInput('end')} type="text" />
                 </div>
                 <div className="gpa">
                     <label>Grade </label>
-                    <input type="text" />
+                    <input value={this.props.gpa} onChange={this.handleInput('gpa')} type="text" />
                 </div>
                 <div className="activities">
                     <label>Activities and societies</label>
-                    <textarea name="" id="" cols="10" rows="3"></textarea>
-                </div>
-                <div className="description">
-                    <label>Description</label>
-                    <textarea name="" id="" cols="10" rows="3"></textarea>
-                </div>
-                
+                    <textarea value={this.props.activities} onChange={this.handleInput('activities')} name="" id="" cols="10" rows="3"></textarea>
+                </div>                
                 <button className="save_button" onClick={this.handleSubmit}>Save</button>     
             </div>
         )

@@ -1,4 +1,4 @@
-class Api::EducationsController < ApplicationController{
+class Api::EducationsController < ApplicationController
     def index
         @educations = Education.all
         render :index
@@ -36,6 +36,6 @@ class Api::EducationsController < ApplicationController{
 
     private 
     def education_params
-        params.require(:education).permit(:school, :degree, :field, :start, :end, :activities, :gpa)
+        params.permit(:school, :degree, :field, :start, :end, :activities, :gpa)
     end
-}
+end

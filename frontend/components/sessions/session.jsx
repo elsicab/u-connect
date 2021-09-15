@@ -13,8 +13,8 @@ const Session = ({currentUser, logout}) => {
     }else{
           result = <div>
              <ul className="navbar_icons">
-                 <li className="navbar_icon" id="join"><Link to='/signup' >Join Now</Link></li>
-                 <li className="navbar_icon" id="sign_in"><Link to='/login' >Sign in</Link></li>
+                 <li className="navbar_icon"><Link id="join" to='/signup' >Join Now</Link></li>
+                 <li className="navbar_icon"><Link id="sign_in" to='/login' >Sign in</Link></li>
             </ul>
         </div>
     }

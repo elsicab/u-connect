@@ -19,22 +19,22 @@ export const removeExperience = experienceId => ({
     experienceId
 })
 
-export const fetchExperiences = () => dispatch => {
+export const fetchExperiences = () => dispatch => (
     ApiUtil.fetchExperiences()
         .then(experiences => dispatch(receiveExperiences(experiences)))
-}
+)
 
-export const createExperience = experience => dispatch => {
+export const createExperience = experience => dispatch => (
     ApiUtil.createExperience(experience)
         .then(experience => dispatch(receiveExperience(experience)))
-}
+)
 
-export const deleteExperience = experienceId => dispatch => {
+export const deleteExperience = experienceId => dispatch => (
     ApiUtil.deleteExperience(experienceId)
         .then(() => dispatch(removeExperience(experienceId)))
-}
+)
 
-export const editExperience = experience => dispatch => {
+export const editExperience = experience => dispatch => (
     ApiUtil.editExperience(experience)
         .then(experience => dispatch(receiveExperience(experience)))
-}
+)

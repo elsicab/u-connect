@@ -82,7 +82,7 @@ class HomePage extends React.Component {
                                 {this.renderErrors()}
                                 <input type="text" placeholder="Email" value={this.state.email} onChange={this.handleInput('email')} />
                                 <input type="password" placeholder="Password" value={this.state.password} onChange={this.handleInput('password')}/>
-                                <p>Forgot Password?</p>
+                                {/* <p>Forgot Password?</p> */}
                                 <button onClick={this.handleSubmit} className="login_button">Sign in</button>
                                 <button onClick={this.handleDemo} className="login_button">Demo User</button>
                             </form>
@@ -104,7 +104,7 @@ class HomePage extends React.Component {
                     <div className="signup_banner">
                             <div>
                                 <p>Join your colleagues, classmates, and friends on WiredIn.</p>
-                                <button className="login_button"><Link to='/signup' >Get Started</Link></button>
+                                <button className="login_button"><Link id="get_started_link" to='/signup' >Get Started</Link></button>
                             </div>
                             <img className="create_image" src={window.createimage} />
                     </div>

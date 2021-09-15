@@ -8,45 +8,43 @@ import { BiPencil } from 'react-icons/bi';
 import { FaTrashAlt } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
-import { fetchExperiences  } from '../../actions/experience_actions';
+import { fetchEducations  } from '../../actions/education_actions';
 
 
 
-class ExperienceIndex extends React.Component{
+class EducationIndex extends React.Component{
     constructor(props){
         super(props)
          this.state = {
-            experiences: this.props.experiences
+            educations: this.props.educations
         };
-        // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
-        this.props.fetchExperiences();
+        this.props.fetchEducations();
     }
 
     componentDidUpdate(prevProps){
-        if(prevProps.experiences.length !== this.props.experiences.length){
+        if(prevProps.educations.length !== this.props.educations.length){
             this.setState({
-                experiences: this.props.experiences
+                educations: this.props.educations
             })
         }
     }
     
     render(){
-        if(!this.props.experiences) return null
-
-        const showExperiences= this.state.experiences.map((experience, i) => (
+        if(!this.props.educations) return null
+        const showEducations= this.state.educations.map((education, i) => (
             <div key={`${i}`} className="single_experience">
                 <div className="singleExperience">
                     <div className="experience_image">
                         <img className="avatar_experience" src={window.experience} />
                     </div>
                     <div className="experience_info">
-                        <h2>{experience.title}</h2>
-                        <p>{experience.company}</p>
-                        <p>{experience.start} - {experience.end}</p> 
-                        <p>{experience.description}</p>
+                        <h2>{education.school}</h2>
+                        <p>{education.degree}</p>
+                        <p>{education.field} - {education.end}</p> 
+                        <p>{education.end}</p>
                     </div>
                     <div className="edit_experience"><BiPencil/></div>
                 </div>
@@ -57,7 +55,7 @@ class ExperienceIndex extends React.Component{
         return(
 
             <div>
-                {!this.props.experiences ?  null : showExperiences}
+                {!this.props.educations ?  null : showEducations}
             </div>
         )
 
@@ -67,16 +65,16 @@ class ExperienceIndex extends React.Component{
 const mapStateToProps = state => {
   return {
     // errors: errors.session,
-    experiences: Object.values(state.entities.experiences),
+    educations: Object.values(state.entities.educations),
     currentUser: state.entities.users[state.session.currentUser]
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchExperiences: () => dispatch(fetchExperiences()),
+    fetchEducations: () => dispatch(fetchEducations()),
     openModal: (modal, id) => dispatch(openModal(modal, id))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ExperienceIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(EducationIndex);

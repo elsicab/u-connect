@@ -6,9 +6,11 @@ import { RiShareForwardLine } from 'react-icons/ri';
 import { IoIosSend } from 'react-icons/io';
 import { BiPencil } from 'react-icons/bi';
 import { FaTrashAlt } from 'react-icons/fa';
+import { BiDotsHorizontalRounded } from 'react-icons/bi'
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 import { removePost, fetchPosts  } from '../../actions/post_actions';
+import Dropdown from './post_dropdown';
 
 
 class PostIndex extends React.Component{
@@ -54,19 +56,27 @@ class PostIndex extends React.Component{
 
     render(){
         if(!this.props.posts) return null
-        const avatar = this.props.currentUser.avatarUrl ? <img className= "avatar_profile" src={this.props.currentUser.avatarUrl} /> : <img className="avatar_profile" src={window.avatar} />
-
-        const showPosts = this.props.posts.reverse().map((post, i) => (
+        const avatar = this.props.currentUser.avatarUrl ? <img className= "avatar_profile" 
+            src={this.props.currentUser.avatarUrl} /> : <img className="avatar_profile" src={window.avatar} />
+        
+        const showPosts = this.props.posts.reverse().map((post, i) => {
+            // const postAvatar = post.author.avatar.avatarUrl ? <img className= "avatar_profile" 
+            //     src={post.author.avatarUrl} /> : <img className="avatar_profile" src={window.avatar} />
+            //     console.log(post.author.avatarUrl)
+            return(
             <div key={`${i}`} className="single_post">
                 <div className="post_menu" >
-                    {/* <button onFocus={this.handleFocus} onBlur={this.handleFocus}><BiDotsHorizontalRounded/>
-                    </button> */}
-                    <ul onClick={e => e.stopPropagation()} className={this.state.openMenu ? "show-dropdown" : "clear"}>
+                    {/* <button className="dropdown_btn"><BiDotsHorizontalRounded/>
+                    </button>
+                    <ul className="show_dropdown">
                         <li onClick={() => this.props.openModal('editForm', post.id)}><BiPencil/>  Edit post</li>
                         <li onClick={() => this.props.removePost(post.id)}><FaTrashAlt/>  Delete post</li>
-                    </ul>
+                    </ul> */}
+                    <Dropdown post={post}/>
                 </div>
+                
                 <div className="post_info">
+                    {/* {postAvatar} */}
                     <p><BsPersonBoundingBox/></p>
                     <div className="author_info">
                         <div className="author_name">
@@ -87,17 +97,15 @@ class PostIndex extends React.Component{
                     <li><IoIosSend/>  Send</li>
                 </ul>
             </div>
-            ));
+        )});
             
         
         return(
-
             <div>
                 {!this.props.posts ?  null : showPosts}
              
             </div>
         )
-
     }
 }
 

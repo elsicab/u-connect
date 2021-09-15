@@ -93,33 +93,27 @@
 
 #sign_in {
     border: 0;
-    border: 2px solid #2867B2;
+    border: 1px solid #0A66C2;
     border-radius: 30px;
-    // box-sizing: border-box;
-    // display: inline-block;
-    // font-size: 1.6rem;
-    // height: 32px;
-    // line-height: 32px;
     overflow: hidden;
     outline-width: 2px;
-    padding: 0 14px;
     position: relative;
     text-align: center;
     text-decoration: none;
-    transition-duration: 167ms;
-    vertical-align: middle;
-    color: #2867B2;
+    color: #0A66C2;
     margin-left: 20px;
-    padding: 0 25px;
-    height: 45px;
-    // outline: none;
-    // border: none;
-    // border-radius: 30px;
-    // color: #fff;
-    // font-size: 1rem;
-    // font-weight: bolder;
-    // text-decoration: none;
-    // text-align: center;
+    padding: 0 16px;
+    line-height: 32px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#join{
+    line-height: 32px;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 500;
+    color: #00000099;
 }
 
 .logo{
@@ -227,4 +221,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#single_icon{
+    text-decoration: none;
+    color: gray;
 }
