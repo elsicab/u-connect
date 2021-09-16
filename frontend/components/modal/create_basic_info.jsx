@@ -7,7 +7,7 @@ import { createProfile } from '../../actions/profile_actions';
 
 
 
-class EditBasic extends React.Component{
+class CreateBasic extends React.Component{
     constructor(props){
         super(props)
         this.state = {
@@ -60,7 +60,7 @@ class EditBasic extends React.Component{
                 </div>
                 <div className="pronouns">
                     <label>Pronouns</label>
-                    <select value={this.props.value} onChange={this.handleInput('pronouns')}>
+                    <select value={this.state.value} onChange={this.handleInput('pronouns')}>
                          <option>Please Select</option>
                         <option value="She/Her">She/Her</option>
                         <option value="He/Him">He/Him</option>
@@ -70,28 +70,28 @@ class EditBasic extends React.Component{
                 </div>
                 <div className="headline">
                     <label>Headline *</label>
-                    <textarea value={this.props.headline} onChange={this.handleInput('headline')} name="" id="" cols="78" rows="2"></textarea>
+                    <textarea value={this.state.headline} onChange={this.handleInput('headline')} name="" id="" cols="78" rows="2"></textarea>
                 </div>
-                <div className="position">
+                {/* <div className="position">
                     <label>Current Position</label>
                     <input type="text" />
                 </div>
                 <div className="pick_edu">
                     <label>Education</label>
                     <input type="text" />
-                </div>
+                </div> */}
                 <div className="country">
                     <label>Country/Region *</label>
-                    <input value={this.props.country} onChange={this.handleInput('country')}type="text" />
+                    <input value={this.state.country} onChange={this.handleInput('country')}type="text" />
                 </div>
                 <div className="postal_sec">
                     <div className="postal_code">
                         <label>Postal Code</label>
-                        <input value={this.props.postal_code} onChange={this.handleInput('postal_code')} type="text" />
+                        <input value={this.state.postal_code} onChange={this.handleInput('postal_code')} type="text" />
                     </div>
                     <div className="location">
                         <label>Location</label>
-                        <input value={this.props.location} onChange={this.handleInput('location')} type="text" />
+                        <input value={this.state.location} onChange={this.handleInput('location')} type="text" />
                     </div>
                 </div>
                 <div className="industry">
@@ -114,4 +114,4 @@ const mDTP = dispatch => ({
     closeModal: () => dispatch(closeModal())
 })
 
-export default connect(mSTP, mDTP)(EditBasic);
+export default connect(mSTP, mDTP)(CreateBasic);

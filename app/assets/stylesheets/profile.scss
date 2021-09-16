@@ -61,12 +61,20 @@
 
 .name{
     padding-left: 30px;
+    display: flex;
+    flex-direction: row;
+    margin-top: -20px;
+    font-size: 25px;
 }
 
 .username{
-    font-size: 25px;
-    font-weight: 550;
-    margin-top: -20px;
+    font-weight: 500;
+    // margin-top: -20px;
+}
+.pronoun{
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 350;
 }
 
 .edu_exp_sec{
@@ -93,4 +101,10 @@
 
 .avatar:hover{
     cursor: pointer;
+}
+
+.headline_sec, 
+.location{
+    margin-left: 20px;
+    padding-top: -20px;
 }

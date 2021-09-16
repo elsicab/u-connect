@@ -10,7 +10,7 @@ import { openModal } from '../../actions/modal_actions';
 import { fetchUser } from '../../actions/user_actions'
 import { fetchProfile, fetchProfiles } from '../../actions/profile_actions'
 import { RiContactsBookLine } from 'react-icons/ri';
-import { AiOutlinePlus } from 'react-icons/ai'
+import { AiOutlinePlus } from 'react-icons/ai';
 
 
 
@@ -20,7 +20,9 @@ class UserProfile extends React.Component{
         this.state = {
             // currentProfile: this.props.profile
         }
-        this.handleEdit = this.handleEdit.bind(this)
+
+        this.handleCreate = this.handleCreate.bind(this)
+        // this.handleEdit = this.handleEdit.bind(this)
         this.handleEducation = this.handleEducation.bind(this)
         this.handleExperience = this.handleExperience.bind(this)
         this.handleAvatar = this.handleAvatar.bind(this)
@@ -32,9 +34,9 @@ class UserProfile extends React.Component{
     }
 
 
-    handleEdit(e){
+    handleCreate(e){
         e.preventDefault();
-        this.props.openModal('editBasic')
+        this.props.openModal('createBasic')
     }
 
     handleAvatar(e){
@@ -57,16 +59,20 @@ class UserProfile extends React.Component{
             return null
         } 
         console.log(this.props.profile)
-        let profileInfo =  this.props.profile ? <div className="info_section">
+
+        let createUpdate = this.props.profile ? <div onClick={() => this.props.openModal('editBasic', this.props.profile.id)} className="edit_basic_info"><BiPencil/></div> : <div onClick={this.handleCreate} className="edit_basic_info"><BiPencil/></div>
+
+        let profileInfo =  this.props.profile ? 
+                        <div className="info_section">
                             <div className="currentUser_info">
                                 <div className="name">
-                                    <h2 className="username"><strong>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</strong></h2>
-                                    <p className="pronouns">{this.props.profile.pronouns}</p>
+                                    <h2 className="username">{this.props.currentUser.first_name} {this.props.currentUser.last_name}</h2>
+                                    <p className="pronoun">({this.props.profile.pronouns})</p>
                                 </div>
                             </div>
-                            <div className="headline">{this.props.profile.headline}</div>
-                            <div className="location"></div>
-                            <div className="num_connections"></div>
+                            <div className="headline_sec">{this.props.profile.headline}</div>
+                            <div className="location">{this.props.profile.location}, {this.props.profile.country}</div>
+                            {/* <div className="num_connections"></div> */}
                         </div> : null
         
         // debugger
@@ -87,7 +93,7 @@ class UserProfile extends React.Component{
                         </div>
                         <div>
                             {/* <div className="avatar">{avatar}</div> */}
-                            <div onClick={this.handleEdit} className="edit_basic_info"><BiPencil/></div>
+                            {createUpdate}
                         </div>
                         <div className="info_section">
                             {profileInfo}
@@ -134,7 +140,7 @@ const mSTP = (state, ownProps) => {
 }
 
 const mDTP = dispatch => ({
-    openModal: modal => dispatch(openModal(modal)),
+    openModal: (modal, id) => dispatch(openModal(modal, id)),
     fetchProfiles: () => dispatch(fetchProfiles())
 
 })

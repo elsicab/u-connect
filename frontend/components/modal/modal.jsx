@@ -1,7 +1,8 @@
 import React from 'react';
 import PostFormContainer from './post_form_container';
-import EditFormContainer from './edit_form_container'
-import EditBasicContainer from './edit_basic_info';
+import EditFormContainer from './edit_form_container';
+import EditBasicContainer from './edit_basic_container';
+import CreateBasicContainer from './create_basic_info';
 import AddEducationContainer from './education_form';
 import AddExperienceContainer from './experience_form';
 import AddAvatarContainer from './add_avatar';
@@ -22,7 +23,10 @@ function Modal({modal, closeModal, id}){
             component = <EditFormContainer postId={modal.id}/>
             break;
         case 'editBasic':
-            component = <EditBasicContainer/>
+            component = <EditBasicContainer profileId={modal.id}/>
+            break;
+        case 'createBasic':
+            component = <CreateBasicContainer/>
             break;
         case 'addEducation':
             component = <AddEducationContainer/>
