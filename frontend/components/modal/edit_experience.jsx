@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions'; 
 import { AiOutlineClose } from 'react-icons/ai';
 import { editExperience } from '../../actions/experience_actions';
-import { fetchExperiences } from '../../actions/experience_actions';
+import { fetchExperiences, deleteExperience } from '../../actions/experience_actions';
 
 
 
@@ -24,6 +24,7 @@ class ExpEdit extends React.Component{
         this.handleInput = this.handleInput.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleModal = this.handleModal.bind(this);
+        this.handleDelete = this.handleDelete.bind(this)
 
     }
 
@@ -34,6 +35,12 @@ class ExpEdit extends React.Component{
     handleModal(e){
         e.preventDefault();
         this.props.closeModal();
+    }
+
+    handleDelete(e){
+        e.preventDefault
+        this.props.deleteExperience(this.props.experience.id)
+            .then(this.props.closeModal())
     }
 
     handleInput(type){
@@ -83,7 +90,10 @@ class ExpEdit extends React.Component{
                     <label>Description</label>
                     <textarea value={this.state.description} onChange={this.handleInput('description')} name="" id="" cols="10" rows="3"></textarea>
                 </div>
-                <button className="save_button" onClick={this.handleSubmit}>Save</button>     
+                <div className="profile_buttons">
+                    <button className="delete_btn" onClick={this.handleDelete}>Delete</button>
+                    <button className="save_button" onClick={this.handleSubmit}>Save</button>   
+                </div>  
             </div>
         )
     }
@@ -99,7 +109,9 @@ const mSTP = (state, ownProps) => ({
 const mDTP = dispatch => ({
     editExperience: experience => dispatch(editExperience(experience)),
     closeModal: () => dispatch(closeModal()), 
-    fetchExperiences: () => dispatch(fetchExperiences())
+    fetchExperiences: () => dispatch(fetchExperiences()),
+    deleteExperience: expId => dispatch(deleteExperience(expId))
+
 })
 
 export default connect(mSTP, mDTP)(ExpEdit);

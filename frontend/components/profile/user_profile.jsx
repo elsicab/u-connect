@@ -11,6 +11,7 @@ import { fetchUser } from '../../actions/user_actions'
 import { fetchProfile, fetchProfiles } from '../../actions/profile_actions'
 import { RiContactsBookLine } from 'react-icons/ri';
 import { AiOutlinePlus } from 'react-icons/ai';
+import { fetchUsers } from '../../actions/user_actions';
 
 
 
@@ -30,7 +31,8 @@ class UserProfile extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchProfiles()
+        this.props.fetchProfiles();
+        this.props.fetchUsers();
     }
 
 
@@ -66,7 +68,7 @@ class UserProfile extends React.Component{
                         <div className="info_section">
                             <div className="currentUser_info">
                                 <div className="name">
-                                    <h2 className="username">{this.props.currentUser.first_name} {this.props.currentUser.last_name}</h2>
+                                    <h2 className="username">{this.props.profileUser.first_name} {this.props.profileUser.last_name}</h2>
                                     <p className="pronoun">({this.props.profile.pronouns})</p>
                                 </div>
                             </div>
@@ -75,10 +77,7 @@ class UserProfile extends React.Component{
                             {/* <div className="num_connections"></div> */}
                         </div> : null
         
-        // debugger
-        console.log(profileInfo)
- 
-        const avatar = this.props.currentUser.avatarUrl ? <img className= "avatar" src={this.props.currentUser.avatarUrl} /> : 
+        const avatar = this.props.profileUser.avatarUrl ? <img className= "avatar" src={this.props.profileUser.avatarUrl} /> : 
         <img className="avatar" src={window.avatar} />
         return(
             <div className = "profile">
@@ -129,6 +128,7 @@ const mSTP = (state, ownProps) => {
         currentUser: state.entities.users[state.session.currentUser],
         modal: state.ui.modal,
         // profile: state.entities.profiles[ownProps.match.params.userId],
+        profileUser: state.entities.users[ownProps.match.params.userId],
         userId: ownProps.userId, 
         profile: Object.values(state.entities.profiles).filter(
             profile => {
@@ -141,7 +141,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => ({
     openModal: (modal, id) => dispatch(openModal(modal, id)),
-    fetchProfiles: () => dispatch(fetchProfiles())
+    fetchProfiles: () => dispatch(fetchProfiles()),
+    fetchUsers: () => dispatch(fetchUsers()),
 
 })
 

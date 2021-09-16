@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions'; 
 import { AiOutlineClose } from 'react-icons/ai';
-import { editEducation } from '../../actions/education_actions';
+import { editEducation, deleteEducation } from '../../actions/education_actions';
 
 
 
@@ -23,7 +23,14 @@ class EduEdit extends React.Component{
         this.handleInput = this.handleInput.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleModal = this.handleModal.bind(this);
+        this.handleDelete = this.handleDelete.bind(this)
 
+    }
+
+    handleDelete(e){
+        e.preventDefault
+        this.props.deleteEducation(this.props.education.id)
+            .then(this.props.closeModal())
     }
 
     handleModal(e){
@@ -78,7 +85,10 @@ class EduEdit extends React.Component{
                     <label>Activities and societies</label>
                     <textarea value={this.state.activities} onChange={this.handleInput('activities')} name="" id="" cols="10" rows="3"></textarea>
                 </div>                
-                <button className="save_button" onClick={this.handleSubmit}>Save</button>     
+                <div className="profile_buttons">
+                     <button className="delete_btn" onClick={this.handleDelete}>Delete</button>
+                    <button className="save_button" onClick={this.handleSubmit}>Save</button>  
+                </div>   
             </div>
         )
     }
@@ -92,7 +102,8 @@ const mSTP = (state, ownProps) => ({
 
 const mDTP = dispatch => ({
     editEducation: education => dispatch(editEducation(education)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    deleteEducation: eduId => dispatch(deleteEducation(eduId))
 })
 
 export default connect(mSTP, mDTP)(EduEdit);

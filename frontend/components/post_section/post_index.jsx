@@ -59,10 +59,10 @@ class PostIndex extends React.Component{
         const avatar = this.props.currentUser.avatarUrl ? <img className= "avatar_profile" 
             src={this.props.currentUser.avatarUrl} /> : <img className="avatar_profile" src={window.avatar} />
         
+        
+        
         const showPosts = this.props.posts.reverse().map((post, i) => {
-            // const postAvatar = post.author.avatar.avatarUrl ? <img className= "avatar_profile" 
-            //     src={post.author.avatarUrl} /> : <img className="avatar_profile" src={window.avatar} />
-            //     console.log(post.author.avatarUrl)
+            const dropdown = this.props.currentUser.id == post.author_id ? <Dropdown post={post}/> : null
             return(
             <div key={`${i}`} className="single_post">
                 <div className="post_menu" >
@@ -72,7 +72,7 @@ class PostIndex extends React.Component{
                         <li onClick={() => this.props.openModal('editForm', post.id)}><BiPencil/>  Edit post</li>
                         <li onClick={() => this.props.removePost(post.id)}><FaTrashAlt/>  Delete post</li>
                     </ul> */}
-                    <Dropdown post={post}/>
+                    {dropdown}
                 </div>
                 
                 <div className="post_info">

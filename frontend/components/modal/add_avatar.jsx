@@ -14,8 +14,8 @@ class AddAvatar extends React.Component{
     constructor(props){
         super(props)
         this.state={
-            avatarUrl: null,
-            avatarFile: null
+            avatarUrl: this.props.currentUser.avatarUrl,
+            avatarFile: this.props.currentUser.avatarFile
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleModal = this.handleModal.bind(this);
@@ -25,6 +25,8 @@ class AddAvatar extends React.Component{
     componentWillUnmount(){
         this.props.fetchUser(this.props.currentUser.id);
     }
+
+    
 
     handleFile(e){
         const reader = new FileReader();
