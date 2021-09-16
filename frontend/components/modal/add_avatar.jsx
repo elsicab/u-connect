@@ -5,6 +5,8 @@ import { FaTrashAlt } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import { editUser } from '../../actions/user_actions';
+import { fetchUser } from '../../actions/user_actions'
+
 
 
 
@@ -18,6 +20,10 @@ class AddAvatar extends React.Component{
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleModal = this.handleModal.bind(this);
         this.handleFile = this.handleFile.bind(this);
+    }
+
+    componentWillUnmount(){
+        this.props.fetchUser(this.props.currentUser.id);
     }
 
     handleFile(e){
@@ -36,9 +42,9 @@ class AddAvatar extends React.Component{
     handleSubmit(e){
         e.preventDefault();
         const formData = new FormData();
-        formData.append('currentUser[id]', this.props.currentUser.id)
+        formData.append('user[id]', this.props.currentUser.id)
         if (this.state.avatarFile) {
-            formData.append('currentUser[avatar]', this.state.avatarFile);
+            formData.append('user[avatar]', this.state.avatarFile);
         }
         this.props.editUser(formData)
             .then(() => this.props.closeModal())
@@ -87,13 +93,18 @@ class AddAvatar extends React.Component{
 
 }
 
-const mSTP = state => ({
-    currentUser: state.entities.users[state.session.currentUser]
-});
+const mSTP = state => {
+    debugger
+    return{
+        currentUser: state.entities.users[state.session.currentUser]
+    }
+};
 
 const mDTP = dispatch => ({
     editUser: userId => dispatch(editUser(userId)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()), 
+    fetchUser: (userId) => dispatch(fetchUser(userId))
+  
 })
 
 export default connect(mSTP, mDTP)(AddAvatar);

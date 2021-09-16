@@ -42,9 +42,9 @@ class EducationIndex extends React.Component{
                     </div>
                     <div className="experience_info">
                         <h2>{education.school}</h2>
-                        <p>{education.degree}</p>
-                        <p>{education.field} - {education.end}</p> 
-                        <p>{education.end}</p>
+                        <p>{education.degree} in {education.field}</p>
+                        <p>{education.start} - {education.end}</p> 
+                        {/* <p>{education.end}</p> */}
                     </div>
                     <div className="edit_experience"><BiPencil/></div>
                 </div>

@@ -56,6 +56,21 @@ class UserProfile extends React.Component{
         if(!this.props.currentUser){
             return null
         } 
+        console.log(this.props.profile)
+        let profileInfo =  this.props.profile ? <div className="info_section">
+                            <div className="currentUser_info">
+                                <div className="name">
+                                    <h2 className="username"><strong>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</strong></h2>
+                                    <p className="pronouns">{this.props.profile.pronouns}</p>
+                                </div>
+                            </div>
+                            <div className="headline">{this.props.profile.headline}</div>
+                            <div className="location"></div>
+                            <div className="num_connections"></div>
+                        </div> : null
+        
+        // debugger
+        console.log(profileInfo)
  
         const avatar = this.props.currentUser.avatarUrl ? <img className= "avatar" src={this.props.currentUser.avatarUrl} /> : 
         <img className="avatar" src={window.avatar} />
@@ -75,19 +90,7 @@ class UserProfile extends React.Component{
                             <div onClick={this.handleEdit} className="edit_basic_info"><BiPencil/></div>
                         </div>
                         <div className="info_section">
-                            <div className="currentUser_info">
-                                <div className="name">
-                                    <h2 className="username"><strong>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</strong></h2>
-                                    <p className="pronouns"></p>
-                                </div>
-                                <div className="school">
-                                    <img src="" alt="" />
-                                    <h4 className="school_name"></h4>
-                                </div>
-                            </div>
-                            <div className="headline"></div>
-                            <div className="location"></div>
-                            <div className="num_connections"></div>
+                            {profileInfo}
                         </div>
                     </div>
                     <div className="edu_exp_sec">
@@ -115,15 +118,19 @@ class UserProfile extends React.Component{
 
 
 const mSTP = (state, ownProps) => {
+    // debugger
     return{
-    currentUser: state.entities.users[state.session.currentUser],
-    modal: state.ui.modal,
-    // profile: state.entities.profiles[ownProps.match.params.userId],
-    // userId: ownProps.userId, 
-    // profile: Object.values(state.entities.profiles).filter(
-    //     profile => profile.user_id === ownProps.match.params.userId
-    // )[0]
+        currentUser: state.entities.users[state.session.currentUser],
+        modal: state.ui.modal,
+        // profile: state.entities.profiles[ownProps.match.params.userId],
+        userId: ownProps.userId, 
+        profile: Object.values(state.entities.profiles).filter(
+            profile => {
+                // debugger
+                return profile.user_id == ownProps.match.params.userId}
+        )[0],
     }
+   
 }
 
 const mDTP = dispatch => ({
