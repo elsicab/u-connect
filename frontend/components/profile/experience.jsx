@@ -36,7 +36,7 @@ class ExperienceIndex extends React.Component{
     render(){
         if(!this.props.experiences) return null
 
-        const showExperiences= this.props.experiences.map((experience, i) => (
+        const showExperiences= this.props.experiences.reverse().map((experience, i) => (
             <div key={`${i}`} className="single_experience">
                 <div className="singleExperience">
                     <div className="experience_image">

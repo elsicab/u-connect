@@ -3,21 +3,22 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions'; 
 import { AiOutlineClose } from 'react-icons/ai';
-import { createEducation } from '../../actions/education_actions';
+import { editEducation } from '../../actions/education_actions';
 
 
 
-class EduBasic extends React.Component{
+class EduEdit extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            school: '',
-            degree: '',
-            field: '',
-            start: '',
-            end: '',
-            activities: '', 
-            gpa: ''
+            school: this.props.education.school,
+            degree: this.props.education.degree,
+            field: this.props.education.field,
+            start: this.props.education.start,
+            end: this.props.education.end,
+            activities: this.props.education.activities, 
+            gpa: this.props.education.gpa, 
+            id: this.props.education.id 
         }
         this.handleInput = this.handleInput.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -38,7 +39,7 @@ class EduBasic extends React.Component{
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.createEducation(this.state)
+        this.props.editEducation(this.state)
             .then(() => this.props.closeModal())
     }
 
@@ -83,13 +84,15 @@ class EduBasic extends React.Component{
     }
 }
 
-const mSTP = state => ({
-    currentUser: state.entities.users[state.session.currentUser]
+const mSTP = (state, ownProps) => ({
+    currentUser: state.entities.users[state.session.currentUser], 
+    eduId: ownProps.eduId,
+    education: state.entities.educations[ownProps.eduId]
 });
 
 const mDTP = dispatch => ({
-    createEducation: education => dispatch(createEducation(education)),
+    editEducation: education => dispatch(editEducation(education)),
     closeModal: () => dispatch(closeModal())
 })
 
-export default connect(mSTP, mDTP)(EduBasic);
+export default connect(mSTP, mDTP)(EduEdit);

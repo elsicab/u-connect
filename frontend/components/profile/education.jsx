@@ -34,7 +34,7 @@ class EducationIndex extends React.Component{
     
     render(){
         if(!this.props.educations) return null
-        const showEducations= this.state.educations.map((education, i) => (
+        const showEducations= this.props.educations.reverse().map((education, i) => (
             <div key={`${i}`} className="single_experience">
                 <div className="singleExperience">
                     <div className="experience_image">
@@ -46,7 +46,7 @@ class EducationIndex extends React.Component{
                         <p>{education.start} - {education.end}</p> 
                         {/* <p>{education.end}</p> */}
                     </div>
-                    <div className="edit_experience"><BiPencil/></div>
+                    <div className="edit_experience" onClick={() => this.props.openModal('editEducation', education.id)}><BiPencil/></div>
                 </div>
             </div>
             ));
