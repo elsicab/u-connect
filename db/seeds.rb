@@ -40,13 +40,20 @@ post8 = Post.create!(body: "Believe you can and you’re halfway there. ", autho
 
 #Profiles
 profile1 = Profile.create!(user_id: demo.id, pronouns: "She/Her", headline: "Creator of WiredIn ", country: "United States", postal_code: "33183", location: "Miami, FL", industry: "Software Development")
+profile2 = Profile.create!(user_id: user1.id, pronouns: "He/Him", headline: "Anyone hiring?", country: "United States", postal_code: "33183", location: "Miami, FL", industry: "Finance")
+profile3 = Profile.create!(user_id: user2.id, pronouns: "He/Him", headline: "It's a dogs world ", country: "United States", postal_code: "33183", location: "Miami, FL", industry: "Sleeping")
+
+
 
 #Educations
 education1 = Education.create!(user_id: demo.id, school: "App Academy", degree: "Certificate", field: "Software Development", start: "June 2021", end: "October 2021", activities: "", gpa: "")
 education2 = Education.create!(user_id: demo.id, school: "Florida International University", degree: "Bachelor's", field: "Computer Science", start: "May 2018", end: "August 2020", activities: "", gpa: "")
 education3 = Education.create!(user_id: demo.id, school: "Florida International University", degree: "Bachelor's", field: "Biology", start: "August 2010", end: "August 2015", activities: "", gpa: "")
+education4 = Education.create!(user_id: user1.id, school: "Florida International University", degree: "Bachelor's", field: "Finance", start: "August 2010", end: "August 2013", activities: "", gpa: "")
 
 #Experiences
 experience1 = Experience.create!(user_id: demo.id, title: "Public Adjuster", company: "Ademar, TPAF", location: "Miami, FL", start: "January 2019", end: "current", industry: "Legal/ Insurance", description: "Professional claims handler/claims who advocates for the insured/policyholder in assisting and negotiating that insured's insurance claim. 5+ years of experience on the field.")
 experience2 = Experience.create!(user_id: demo.id, title: "Public Adjuster Assistant", company: "Ademar, TPAF", location: "Miami, FL", start: "September 2017", end: "January 2019", industry: "Legal/ Insurance", description: "")
 experience3 = Experience.create!(user_id: demo.id, title: "Front Desk", company: "Miami Medical", location: "Miami, FL ", start: "August 2014", end: "June 2017", industry: "Medical", description: "")
+experience4 = Experience.create!(user_id: user1.id, title: "Home Health Administrator", company: "Daily Home Health", location: "Miami, FL", start: "February 2015", end: "current", industry: "Medical", description: "")
+experience5 = Experience.create!(user_id: user1.id, title: "Public Adjuster", company: "Citizens Claims", location: "Miami, FL ", start: "May 2020", end: "June 2021", industry: "Insurance", description: "")
