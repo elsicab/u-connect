@@ -48,7 +48,8 @@ class ExperienceIndex extends React.Component{
                     <div className="experience_info">
                         <h2>{experience.title}</h2>
                         <p>{experience.company}</p>
-                        <p>{experience.start} - {experience.end}</p> 
+                        <p className="year_loc" >{experience.start} - {experience.end}</p> 
+                        <p className="year_loc">{experience.location}</p>
                         <p>{experience.description}</p>
                     </div>
                     {editbutton}

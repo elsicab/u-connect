@@ -98,8 +98,11 @@ class CreateBasic extends React.Component{
                     <label>Industry *</label>
                     <input value={this.state.industry} onChange={this.handleInput('industry')} type="text" />
 
+                </div >
+                <div className="btn_container">
+                    <button className="save_button" onClick={this.handleSubmit}>Save</button>  
                 </div>
-                <button className="save_button" onClick={this.handleSubmit}>Save</button>     
+                       
             </div>
         )
     }

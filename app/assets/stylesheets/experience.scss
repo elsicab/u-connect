@@ -3,6 +3,7 @@
     border-bottom: 0.2px solid rgb(211, 211, 211);
     padding-bottom: 15px;
     padding-top: 15px;
+    color: #000000E6;
 }
 
 .singleExperience{
@@ -22,16 +23,14 @@
 .experience_info > h2{
     font-size: 16px;
     font-weight: 600;
-    padding-bottom: 5px;
-    color: #000000E6;
+    padding-bottom: 6px;
     width: 650px;
 }
 
 .experience_info > p{
     font-size: 14px;
     font-weight: 400;
-    padding-bottom: 5px;
-    color: #000000E6;
+    padding-bottom: 6px;
 }
 
 .edit_experience{
@@ -39,4 +38,9 @@
     font-size: 20px;
     cursor: pointer;
     float: right;
+}
+
+.year_loc{
+    color: #00000099;
+    font-weight: lighter;
 }

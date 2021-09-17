@@ -227,3 +227,29 @@
     text-decoration: none;
     color: gray;
 }
+
+#single_icon:hover{
+    color: black;
+}
+
+.dropdown_pic{
+    display: flex;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.dropdown_name{
+    padding-left: 10px;
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-top: 30px;
+}
+
+.dropdown_avatar{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}

@@ -7,6 +7,7 @@
     border-radius: 10px;
     border: .5px solid lightgray;
     font-family: sans-serif;
+
 }
 
 .edu_header{
@@ -53,3 +54,33 @@
     border: 1px solid white;
 }
 
+input{
+    height: 20px;
+}
+
+.btn_container{
+    margin: 0 auto;
+}
+
+.delete_btn{
+    display: flex;
+    justify-content: right;
+    margin: 15px 15px;
+    color: #00000099;
+    border-radius: 20px;
+    background-color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: 1px solid #00000099;
+    cursor: pointer;
+}
+
+.profile_buttons{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.save_button{
+    cursor: pointer;
+}

@@ -86,8 +86,8 @@ class EduEdit extends React.Component{
                     <textarea value={this.state.activities} onChange={this.handleInput('activities')} name="" id="" cols="10" rows="3"></textarea>
                 </div>                
                 <div className="profile_buttons">
-                     <button className="delete_btn" onClick={this.handleDelete}>Delete</button>
-                    <button className="save_button" onClick={this.handleSubmit}>Save</button>  
+                     <button className="delete_btn" onClick={this.handleDelete}>Delete education</button>
+                     <button className="save_button" onClick={this.handleSubmit}>Save</button>  
                 </div>   
             </div>
         )

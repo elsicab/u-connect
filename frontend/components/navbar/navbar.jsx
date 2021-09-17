@@ -37,6 +37,8 @@ class Navbar extends React.Component {
 
     render(){
         const menuAvatar = this.props.currentUser.avatarUrl ? <img className= "menu_avatar" src={this.props.currentUser.avatarUrl} /> : <img className="menu_avatar" src={window.avatar} />
+        const dropdownAvatar = this.props.currentUser.avatarUrl ? <img className= "dropdown_avatar" src={this.props.currentUser.avatarUrl} /> : <img className="dropdown_avatar" src={window.avatar} />
+
         return(
             <div className="navbar"> 
                 <div className="header">
@@ -78,6 +80,10 @@ class Navbar extends React.Component {
                                     <p>Me</p>
                                 </div>
                                 <ul onClick={e => e.stopPropagation()} className={this.state.dropdown ? "show_dropdown" : "clear"}>
+                                    <li className="dropdown_pic">
+                                        <p >{dropdownAvatar}</p>
+                                        <p className="dropdown_name">{this.props.currentUser.first_name} {this.props.currentUser.last_name}</p>
+                                    </li>
                                     <li className="view_profile">
                                         <Link className="view_btn" to={`/users/${this.props.currentUser.id}`}>View profile</Link></li>
                                     <li className="sign_out" onClick={this.handleSubmit}>Sign Out</li>
