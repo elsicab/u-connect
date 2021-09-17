@@ -132,7 +132,6 @@ class UserProfile extends React.Component{
 
 
 const mSTP = (state, ownProps) => {
-    // debugger
     return{
         currentUser: state.entities.users[state.session.currentUser],
         modal: state.ui.modal,
@@ -140,7 +139,6 @@ const mSTP = (state, ownProps) => {
         userId: ownProps.match.params.userId, 
         profile: Object.values(state.entities.profiles).filter(
             profile => {
-                // debugger
                 return profile.user_id == ownProps.match.params.userId}
         )[0],
     }   

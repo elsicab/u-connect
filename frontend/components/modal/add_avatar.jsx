@@ -96,7 +96,6 @@ class AddAvatar extends React.Component{
 }
 
 const mSTP = state => {
-    debugger
     return{
         currentUser: state.entities.users[state.session.currentUser]
     }

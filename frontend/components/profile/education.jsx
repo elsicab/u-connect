@@ -75,7 +75,6 @@ const mapStateToProps = (state, ownProps) => {
     currentUser: state.entities.users[state.session.currentUser],
     educations: Object.values(state.entities.educations).filter(
             education => {
-                // debugger
                 return education.user_id == ownProps.match.params.userId}
         )
   };
