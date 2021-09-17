@@ -2,6 +2,8 @@
     display: flex;
     height: 700px;
     font-family: sans-serif;
+    padding-left: 200px;
+    padding-right: 200px;
 }
 
 .hero_image, 
@@ -37,8 +39,21 @@
     cursor: pointer;
 }
 
+.login_demo_button{
+    padding: 0 25px;
+    height: 45px;
+    border: 1px solid rgba(0,0,0,0.6);;
+    border-radius: 30px;
+    color: rgba(0,0,0,0.6);;
+    font-size: 1rem;
+    font-weight: bolder;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: white;
+}
+
 .banner_form > h1{
-    font-size: 4.5rem;
+    font-size: 52px;
     font-weight: lighter;
     margin-bottom: 20px;
     color: #0A66C3;
@@ -52,7 +67,7 @@
 .main_form > input{
     margin-top: 10px;
     margin-bottom: 10px;
-    height: 30px;
+    height: 44px;
     font-size: 12px;
 }
 
@@ -116,6 +131,7 @@
 
 #home_nav{
     position: relative;
+    border: none;
 }
 
 
@@ -131,4 +147,9 @@
 #get_started_link{
     text-decoration: none;
     color: white;
+}
+
+#header_home{
+    padding-right: 200px;
+    padding-left: 200px;
 }

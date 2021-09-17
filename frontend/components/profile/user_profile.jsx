@@ -32,7 +32,7 @@ class UserProfile extends React.Component{
 
     componentDidMount(){
         this.props.fetchProfiles();
-        this.props.fetchUsers();
+        // this.props.fetchUsers();
     }
 
 
@@ -111,7 +111,7 @@ class UserProfile extends React.Component{
                             <div onClick={this.handleEducation} className="add_edu"><AiOutlinePlus/></div>
                         </div>
                         <div className= "education_list">
-                            <EducationIndexContainer/>
+                            <EducationIndexContainer userId={this.props.userId}/>
                         </div>    
                     </div> 
                 </div>
@@ -129,13 +129,13 @@ const mSTP = (state, ownProps) => {
         modal: state.ui.modal,
         // profile: state.entities.profiles[ownProps.match.params.userId],
         profileUser: state.entities.users[ownProps.match.params.userId],
-        userId: ownProps.userId, 
+        userId: ownProps.match.params.userId, 
         profile: Object.values(state.entities.profiles).filter(
             profile => {
                 // debugger
                 return profile.user_id == ownProps.match.params.userId}
         )[0],
-    }
+    }   
    
 }
 

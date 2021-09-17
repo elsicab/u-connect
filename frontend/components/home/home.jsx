@@ -59,7 +59,7 @@ class HomePage extends React.Component {
         return(
             <div className="homePage">
                 <div className="navbar" id="home_nav"> 
-                    <div className="header">
+                    <div className="header" id="header_home">
                         <div className="left_nav">
                             <img className="main_logo" src={window.mainlogo} />
                             {/* <div className="nav_search">
@@ -80,11 +80,11 @@ class HomePage extends React.Component {
                             <h1>Welcome to your professional community</h1>
                             <form className="main_form">
                                 {this.renderErrors()}
-                                <input type="text" placeholder="Email" value={this.state.email} onChange={this.handleInput('email')} />
-                                <input type="password" placeholder="Password" value={this.state.password} onChange={this.handleInput('password')}/>
+                                <input className="home_input" type="text" placeholder="Email" value={this.state.email} onChange={this.handleInput('email')} />
+                                <input className="home_input" type="password" placeholder="Password" value={this.state.password} onChange={this.handleInput('password')}/>
                                 {/* <p>Forgot Password?</p> */}
                                 <button onClick={this.handleSubmit} className="login_button">Sign in</button>
-                                <button onClick={this.handleDemo} className="login_button">Demo User</button>
+                                <button onClick={this.handleDemo} className="login_demo_button">Demo User</button>
                             </form>
                         </div>
                         <img className="hero_image" src={window.hero} />

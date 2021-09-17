@@ -28,7 +28,9 @@
 }
 
 .join_now{
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 
 }
 
@@ -63,4 +65,15 @@
 .error{
     color: #d11124;
     font-weight: 500;
+}
+
+#link_signup{
+    padding-left: 5px;
+    text-decoration: none;
+    color:  #0A66C2;
+    font-weight: bolder;
+}
+
+.signin{
+    font-family: sans-serif;
 }

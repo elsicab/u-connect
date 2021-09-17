@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Signin extends React.Component {
     constructor(props) {
@@ -54,7 +55,7 @@ class Signin extends React.Component {
         return (
             <div className="signin">
                     {/*<img /> logo */}
-                <img className="logo2" src={window.logo2} />
+                <Link to="/"><img className="logo2" src={window.logo2} /></Link>
         
                 <form className="signin_form" onSubmit={this.handleSubmit}>
                     <h2>Sign in</h2>
@@ -65,9 +66,12 @@ class Signin extends React.Component {
                     <p className="forgot_password">Forgot Password?</p>
                     <button onClick={this.handleSubmit} className="signin_button">Sign in</button>
                     {/* <p> ---------------------------- or ----------------------------</p> */}
-                    <button onClick={this.handleDemo} className="signin_button">Demo User</button>
+                    <button className="login_demo_button" onClick={this.handleDemo} >Demo User</button>
                 </form>
-                <p className="join_now">New to wiredIn? Join now</p>
+                <div className="join_now">
+                    <p>New to wiredIn?</p>
+                    <Link id="link_signup" to="/signup" >Join now</Link>
+                </div>
             </div>
         )
     };

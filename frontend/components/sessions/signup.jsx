@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 
 class Signup extends React.Component {
@@ -45,20 +47,20 @@ class Signup extends React.Component {
     render() {
         return (
             <div className="signup">
-                <img className="logo3" src={window.logo3} />
+                <Link to='/'><img className="logo3" src={window.logo3} /></Link>
                 <h2 className="banner">Make the most of your professional life</h2>
                 <form className="signup_form">
                     <label className="label">First Name</label>
-                        <input type="text" value={this.state.first_name} onChange={this.handleInput('first_name')} />
+                        <input className="signup_input" type="text" value={this.state.first_name} onChange={this.handleInput('first_name')} />
                     
                     <label className="label">Last Name</label>
-                        <input type="text" value={this.state.last_name} onChange={this.handleInput('last_name')} />
+                        <input className="signup_input" type="text" value={this.state.last_name} onChange={this.handleInput('last_name')} />
                     
                     <label className="label">Email</label>
-                        <input type="text" value={this.state.email} onChange={this.handleInput('email')} />
+                        <input className="signup_input" type="text" value={this.state.email} onChange={this.handleInput('email')} />
                     
                     <label className="label">Password (6 or more characters)</label>
-                        <input type="password" value={this.state.password} onChange={this.handleInput('password')} />
+                        <input className="signup_input" type="password" value={this.state.password} onChange={this.handleInput('password')} />
                     {this.renderErrors()}
                     
                     <p className="fine_print">By clicking Agree & Join, you agree to the wiredIn User Agreement, Privacy Policy, and Cookie Policy</p>
