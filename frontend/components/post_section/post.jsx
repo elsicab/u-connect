@@ -4,6 +4,7 @@ import { AiFillPlaySquare } from 'react-icons/ai';
 import { RiCalendarEventFill } from 'react-icons/ri';
 import { RiArticleLine } from 'react-icons/ri';
 import PostIndexContainer from './post_index';
+import { fetchProfiles } from '../../actions/profile_actions';
 
 class Post extends React.Component {
     constructor(props){
@@ -11,9 +12,9 @@ class Post extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     };
 
-    // componentDidMount() {
-    //     this.props.fetchPosts();
-    // }
+    componentDidMount() {
+        this.props.fetchProfiles();
+    }
 
     handleSubmit(e){
         e.preventDefault();
@@ -23,6 +24,22 @@ class Post extends React.Component {
     render(){
         const avatar = this.props.currentUser.avatarUrl ? <img className= "avatar_profile" src={this.props.currentUser.avatarUrl} /> : <img className="avatar_profile" src={window.avatar} />
         const postingAvatar = this.props.currentUser.avatarUrl ? <img className= "posting_avatar" src={this.props.currentUser.avatarUrl} /> : <img className="posting_avatar" src={window.avatar} />
+        const profile = this.props.profile ? 
+                        <div className="info_section">
+                            <div className="currentUser_info">
+                                <div className="profile_name">
+                                    <h2 className="feed_name"><strong>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</strong></h2>                                
+                                </div>
+                            </div>
+                            <div id="headline_feed">{this.props.profile.headline}</div>
+                        </div> : 
+                        <div className="info_section">
+                            <div className="currentUser_info">
+                                <div className="profile_name">
+                                    <h2 className="feed_name"><strong>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</strong></h2>
+                                </div>
+                            </div>
+                        </div>
 
         return(
             <div className="feed" key={this.props.posts}>
@@ -32,21 +49,7 @@ class Post extends React.Component {
                             <div className="avatar_sec">{avatar}</div>
                             {/* <div className="add_banner_photo"><AiFillCamera/></div> */}
                         </div>
-                        <div className="info_section">
-                            <div className="currentUser_info">
-                                <div className="profile_name">
-                                    <h2 className="username"><strong>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</strong></h2>
-                                    <p className="pronouns"></p>
-                                </div>
-                                <div className="school">
-                                    <img src="" alt="" />
-                                    <h4 className="school_name"></h4>
-                                </div>
-                            </div>
-                            <div className="headline"></div>
-                            <div className="location"></div>
-                            <div className="num_connections"></div>
-                        </div>
+                        {profile}
                 </div>
                   <div>    
                     <div className="post_container">

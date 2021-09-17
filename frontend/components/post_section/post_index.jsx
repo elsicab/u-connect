@@ -63,6 +63,8 @@ class PostIndex extends React.Component{
         
         const showPosts = this.props.posts.reverse().map((post, i) => {
             const dropdown = this.props.currentUser.id == post.author_id ? <Dropdown post={post}/> : null
+            const avatarPost = post?.author?.avatarUrl ? <img className= "avatar_index" src={post.author.avatarUrl} /> : 
+            <img className="avatar_index" src={window.avatar} />
             return(
             <div key={`${i}`} className="single_post">
                 <div className="post_menu" >
@@ -77,7 +79,7 @@ class PostIndex extends React.Component{
                 
                 <div className="post_info">
                     {/* {postAvatar} */}
-                    <p><BsPersonBoundingBox/></p>
+                    <p>{avatarPost}</p>
                     <div className="author_info">
                         <div className="author_name">
                             <p>{post?.author?.first_name}</p>

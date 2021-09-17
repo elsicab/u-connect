@@ -58,7 +58,7 @@ class UserProfile extends React.Component{
     }
 
     render(){
-        if(!this.props.currentUser){
+        if(!this.props.profileUser){
             return null
         } 
 
