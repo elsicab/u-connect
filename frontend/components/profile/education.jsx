@@ -9,6 +9,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 import { fetchEducations  } from '../../actions/education_actions';
+import { withRouter } from 'react-router';
 
 
 
@@ -62,13 +63,18 @@ class EducationIndex extends React.Component{
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
     // errors: errors.session,
-    educations: Object.values(state.entities.educations),
-    currentUser: state.entities.users[state.session.currentUser]
+    // educations: Object.values(state.entities.educations),
+    currentUser: state.entities.users[state.session.currentUser],
+    educations: Object.values(state.entities.educations).filter(
+            education => {
+                // debugger
+                return education.user_id == ownProps.match.params.userId}
+        )
   };
-};
+}; 
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -77,4 +83,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EducationIndex);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EducationIndex));

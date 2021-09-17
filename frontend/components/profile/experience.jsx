@@ -9,7 +9,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 import { fetchExperiences  } from '../../actions/experience_actions';
-
+import { withRouter } from 'react-router';
 
 
 class ExperienceIndex extends React.Component{
@@ -64,11 +64,16 @@ class ExperienceIndex extends React.Component{
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
     // errors: errors.session,
-    experiences: Object.values(state.entities.experiences),
-    currentUser: state.entities.users[state.session.currentUser]
+    
+    currentUser: state.entities.users[state.session.currentUser],
+    experiences: Object.values(state.entities.experiences).filter(
+            experience => {
+                // debugger
+                return experience.user_id == ownProps.match.params.userId}
+        )
   };
 };
 
@@ -79,4 +84,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ExperienceIndex);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ExperienceIndex));

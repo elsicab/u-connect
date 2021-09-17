@@ -3,6 +3,7 @@ import React from 'react';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { fetchPosts  } from '../../actions/post_actions';
 import Post from './post';
+import { withRouter } from 'react-router';
 
 const mapStateToProps = state => {
   return {
@@ -11,7 +12,7 @@ const mapStateToProps = state => {
     users: state.entities.users,
     modal: state.ui.modal, 
     posts: Object.values(state.entities.posts),
-    currentUser: state.entities.users[state.session.currentUser]
+    currentUser: state.entities.users[state.session.currentUser], 
   };
 };
 
