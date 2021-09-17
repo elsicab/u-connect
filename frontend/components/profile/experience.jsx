@@ -36,7 +36,10 @@ class ExperienceIndex extends React.Component{
     render(){
         if(!this.props.experiences) return null
 
-        const showExperiences= this.props.experiences.reverse().map((experience, i) => (
+        const showExperiences= this.props.experiences.reverse().map((experience, i) => {
+            let editbutton = this.props.currentUser.id === experience.user_id ? 
+                    <div className="edit_experience" onClick={() => this.props.openModal('editExperience', experience.id)}><BiPencil/></div> : null
+            return(
             <div key={`${i}`} className="single_experience">
                 <div className="singleExperience">
                     <div className="experience_image">
@@ -48,10 +51,11 @@ class ExperienceIndex extends React.Component{
                         <p>{experience.start} - {experience.end}</p> 
                         <p>{experience.description}</p>
                     </div>
-                    <div className="edit_experience" onClick={() => this.props.openModal('editExperience', experience.id)}><BiPencil/></div>
+                    {editbutton}
                 </div>
             </div>
-            ));
+            )
+        });
             
         
         return(

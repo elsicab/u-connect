@@ -61,10 +61,9 @@ class UserProfile extends React.Component{
         if(!this.props.currentUser){
             return null
         } 
-        console.log(this.props.profile)
 
         let createUpdate = this.props.profile ? <div onClick={() => this.props.openModal('editBasic', this.props.profile.id)} className="edit_basic_info"><BiPencil/></div> : <div onClick={this.handleCreate} className="edit_basic_info"><BiPencil/></div>
-
+        let renderCreate = this.props.profileUser.id == this.props.currentUser.id ? createUpdate : null
         let profileInfo =  this.props.profile ? 
                         <div className="info_section">
                             <div className="currentUser_info">
@@ -86,6 +85,9 @@ class UserProfile extends React.Component{
         
         const avatar = this.props.profileUser.avatarUrl ? <img className= "avatar" src={this.props.profileUser.avatarUrl} /> : 
         <img className="avatar" src={window.avatar} />
+
+        const addEducation = this.props.profileUser.id == this.props.currentUser.id ? <div onClick={this.handleEducation} className="add_edu"><AiOutlinePlus/></div> : null
+        const addExperience = this.props.profileUser.id == this.props.currentUser.id ? <div onClick={this.handleExperience} className="add_exp"><AiOutlinePlus/></div> : null
         return(
             <div className = "profile">
                 <NavbarContainer/>
@@ -99,7 +101,7 @@ class UserProfile extends React.Component{
                         </div>
                         <div>
                             {/* <div className="avatar">{avatar}</div> */}
-                            {createUpdate}
+                            {renderCreate}
                         </div>
                         <div className="info_section">
                             {profileInfo}
@@ -108,14 +110,14 @@ class UserProfile extends React.Component{
                     <div className="edu_exp_sec">
                         <div className = "experience">
                             <h3 id="sec_title">Experience</h3>
-                            <div onClick={this.handleExperience} className="add_exp"><AiOutlinePlus/></div>
+                            {addExperience}
                         </div>
                         <div className= "education_list">
                             <ExperienceIndexContainer/>
                         </div>
                         <div className = "education">
                             <h3 id="sec_title">Education</h3>
-                            <div onClick={this.handleEducation} className="add_edu"><AiOutlinePlus/></div>
+                            {addEducation}
                         </div>
                         <div className= "education_list">
                             <EducationIndexContainer userId={this.props.userId}/>
