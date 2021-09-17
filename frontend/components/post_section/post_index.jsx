@@ -95,8 +95,8 @@ class PostIndex extends React.Component{
                 <ul className="post_interactions">
                     <li><AiOutlineLike/>  Like</li>
                     <li><BiCommentDetail/>  Comment</li>
-                    <li><RiShareForwardLine/>  Share</li>
-                    <li><IoIosSend/>  Send</li>
+                    {/* <li><RiShareForwardLine/>  Share</li> */}
+                    {/* <li><IoIosSend/>  Send</li> */}
                 </ul>
             </div>
         )});
