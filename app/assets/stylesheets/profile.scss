@@ -67,12 +67,15 @@
     font-size: 25px;
 }
 
-.username{
-    font-weight: 500;
+.username_profile{
+    font-weight: bold;
+    font-size: 24px;
+    color: #000000E6;
     // margin-top: -20px;
 }
 .pronoun{
-    padding: 10px;
+    padding-left: 5px;
+    padding-top: 5px;
     font-size: 14px;
     font-weight: 350;
 }
@@ -92,6 +95,7 @@
     margin: 10px 0;
     display: flex;
     justify-content: space-between;
+    // width: 100%;
 }
 
 .add_edu, 
@@ -103,8 +107,24 @@
     cursor: pointer;
 }
 
-.headline_sec, 
+.headline_sec{
+    padding-left: 30px;
+    padding-top: 7px;
+    font-size: 16px;
+    color: #000000E6;
+}
+
 .location{
-    margin-left: 20px;
-    padding-top: -20px;
+    padding-left: 30px;
+    padding-top: 7px;
+    color: #00000099;
+}
+
+.profile{
+    font-family: sans-serif;
+}
+
+#sec_title{
+    padding-top: 20px;
+    padding-bottom: 30px;
 }

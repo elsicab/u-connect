@@ -39,7 +39,7 @@ class EducationIndex extends React.Component{
             <div key={`${i}`} className="single_experience">
                 <div className="singleExperience">
                     <div className="experience_image">
-                        <img className="avatar_experience" src={window.experience} />
+                        <img className="avatar_experience" src={window.education} />
                     </div>
                     <div className="experience_info">
                         <h2>{education.school}</h2>

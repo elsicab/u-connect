@@ -9,7 +9,7 @@ const receiveUser = (user) => ({
     user
 })
 
-const receiveAllUsers = () => ({
+const receiveAllUsers = (users) => ({
     type: RECEIVE_ALL_USERS, 
     users
 })
@@ -20,7 +20,7 @@ export const fetchUser = (id) => dispatch => (
 )
 
 export const fetchUsers = () => dispatch => (
-    ApiUtil.fetchUser()
+    ApiUtil.fetchUsers()
         .then( users => dispatch(receiveAllUsers(users)))
 )
 

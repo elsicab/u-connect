@@ -12,6 +12,7 @@ import { fetchProfile, fetchProfiles } from '../../actions/profile_actions'
 import { RiContactsBookLine } from 'react-icons/ri';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { fetchUsers } from '../../actions/user_actions';
+import { withRouter } from 'react-router';
 
 
 
@@ -32,7 +33,7 @@ class UserProfile extends React.Component{
 
     componentDidMount(){
         this.props.fetchProfiles();
-        // this.props.fetchUsers();
+        this.props.fetchUsers();
     }
 
 
@@ -68,14 +69,20 @@ class UserProfile extends React.Component{
                         <div className="info_section">
                             <div className="currentUser_info">
                                 <div className="name">
-                                    <h2 className="username">{this.props.profileUser.first_name} {this.props.profileUser.last_name}</h2>
+                                    <h2 className="username_profile">{this.props.profileUser.first_name} {this.props.profileUser.last_name}</h2>
                                     <p className="pronoun">({this.props.profile.pronouns})</p>
                                 </div>
                             </div>
                             <div className="headline_sec">{this.props.profile.headline}</div>
                             <div className="location">{this.props.profile.location}, {this.props.profile.country}</div>
-                            {/* <div className="num_connections"></div> */}
-                        </div> : null
+                        </div> : 
+                        <div className="info_section">
+                            <div className="currentUser_info">
+                                <div className="name">
+                                    <h2 className="username_profile">{this.props.profileUser.first_name} {this.props.profileUser.last_name}</h2>
+                                </div>
+                            </div>
+                        </div> 
         
         const avatar = this.props.profileUser.avatarUrl ? <img className= "avatar" src={this.props.profileUser.avatarUrl} /> : 
         <img className="avatar" src={window.avatar} />
@@ -100,14 +107,14 @@ class UserProfile extends React.Component{
                     </div>
                     <div className="edu_exp_sec">
                         <div className = "experience">
-                            <h3>Experience</h3>
+                            <h3 id="sec_title">Experience</h3>
                             <div onClick={this.handleExperience} className="add_exp"><AiOutlinePlus/></div>
                         </div>
                         <div className= "education_list">
                             <ExperienceIndexContainer/>
                         </div>
                         <div className = "education">
-                            <h3>Education</h3>
+                            <h3 id="sec_title">Education</h3>
                             <div onClick={this.handleEducation} className="add_edu"><AiOutlinePlus/></div>
                         </div>
                         <div className= "education_list">
@@ -127,7 +134,6 @@ const mSTP = (state, ownProps) => {
     return{
         currentUser: state.entities.users[state.session.currentUser],
         modal: state.ui.modal,
-        // profile: state.entities.profiles[ownProps.match.params.userId],
         profileUser: state.entities.users[ownProps.match.params.userId],
         userId: ownProps.match.params.userId, 
         profile: Object.values(state.entities.profiles).filter(
@@ -147,4 +153,4 @@ const mDTP = dispatch => ({
 })
 
 
-export default connect(mSTP, mDTP)(UserProfile);
+export default withRouter(connect(mSTP, mDTP)(UserProfile));
