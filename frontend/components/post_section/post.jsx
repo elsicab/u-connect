@@ -5,6 +5,9 @@ import { RiCalendarEventFill } from 'react-icons/ri';
 import { RiArticleLine } from 'react-icons/ri';
 import PostIndexContainer from './post_index';
 import { fetchProfiles } from '../../actions/profile_actions';
+import { RiLinkedinLine } from 'react-icons/ri';
+import { FiGithub } from 'react-icons/fi'
+import { SiAngellist } from 'react-icons/si'
 
 class Post extends React.Component {
     constructor(props){
@@ -71,14 +74,6 @@ class Post extends React.Component {
                                 <p className="video_icon"><AiFillPlaySquare/></p>
                                 <p>Video</p>
                             </li>
-                            {/* <li className="post_icon">
-                                <p className="event_icon"><RiCalendarEventFill/></p>
-                                <p>Event</p>
-                            </li>
-                            <li className="post_icon">
-                                <p className="article_icon"><RiArticleLine/></p>
-                                <p>Write article</p>
-                            </li> */}
                         </ul>
                     </div>
                     <div className="posts_feed">
@@ -86,40 +81,21 @@ class Post extends React.Component {
                     </div> 
                 </div>  
                 <div className="right_side">
-                    <div className="news">
-                        <div className="extra_sec_header">WiredIn News</div>
-                        <ul id="news_list">
-                            <li>NYC bets big on Broadway's comeback
-                                <p>11h ago  2,476 readers</p>
-                            </li>
-                            <li>Dread turns to fear for commuters
-                                <p>13h ago   13,654 readers</p>
-                            </li>
-                            <li>Craft beer's moment of reckoning
-                                <p>7h ago   13,654 readers</p>
-                            </li>
-                            <li>Apple's latest product reveal
-                                <p>8h ago   38,552 readers</p>
-                            </li>
-                            <li>Homes, sweet... where are the homes?
-                                <p>2h ago   1,038 readers</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="courses">
-                        <div className="extra_sec_header">Today’s top courses</div>
-                        <ol id="course_list">
-                            <li>Customer Experience Leadership
-                                <p>Brad Cleveland</p>
-                            </li>
-                            <li>How to Be an Inclusive Leader
-                                <p>getAbstract</p>
-                            </li>
-                            <li>Unconscious Bias
-                                <p>Stacey Gordon</p>
-                            </li>
-                        </ol>
-                        <h2>Show more on WiredIn Learning</h2>
+                    <div className="developer-info">
+                            <p>Ad</p>
+                            <div className="developer-main">
+                                <div className="developer-section">
+                                    <img className="developer-img" src={window.developer} />
+                                    <div className="developer-social">
+                                        <a className="developer-social-icon" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/elsa-caballero/"><RiLinkedinLine /></a>
+                                        <a className="developer-social-icon" target="_blank" rel="noopener noreferrer" href="https://github.com/elsicab"><FiGithub /></a>
+                                        <a className="developer-social-icon" target="_blank" rel="noopener noreferrer" href="https://angel.co/u/elsa-caballero"><SiAngellist /></a>
+                                    </div>
+                                </div>
+                                <p>Software Engineer | Java • JavaScript • React • 
+                                    Redux • Ruby • Ruby on Rails • SQL • jQuery • 
+                                    Git • Express • Node • MongoDB • HTML • CSS</p>
+                            </div>
                     </div>
                 </div>
             </div>

@@ -13,6 +13,9 @@ import { RiContactsBookLine } from 'react-icons/ri';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { fetchUsers } from '../../actions/user_actions';
 import { withRouter } from 'react-router';
+import { RiLinkedinLine } from 'react-icons/ri';
+import { FiGithub } from 'react-icons/fi'
+import { SiAngellist } from 'react-icons/si'
 
 
 
@@ -93,37 +96,55 @@ class UserProfile extends React.Component{
                 <NavbarContainer/>
                 <div className="main_profile">
                     <div className="left_section">
-                    <div className = "basic_info">
-                        <div className="banner">
-                            <img className="banner_photo" src={window.banner} />
-                            <div className="avatar" onClick={this.handleAvatar}>{avatar}</div>
-                            {/* <div className="add_banner_photo"><AiFillCamera/></div> */}
+                        <div className = "basic_info">
+                            <div className="banner">
+                                <img className="banner_photo" src={window.banner} />
+                                <div className="avatar" onClick={this.handleAvatar}>{avatar}</div>
+                                {/* <div className="add_banner_photo"><AiFillCamera/></div> */}
+                            </div>
+                            <div>
+                                {/* <div className="avatar">{avatar}</div> */}
+                                {renderCreate}
+                            </div>
+                            <div className="info_section">
+                                {profileInfo}
+                            </div>
                         </div>
-                        <div>
-                            {/* <div className="avatar">{avatar}</div> */}
-                            {renderCreate}
-                        </div>
-                        <div className="info_section">
-                            {profileInfo}
+                        <div className="edu_exp_sec">
+                            <div className = "experience">
+                                <h3 id="sec_title">Experience</h3>
+                                {addExperience}
+                            </div>
+                            <div className= "education_list">
+                                <ExperienceIndexContainer/>
+                            </div>
+                            <div className = "education">
+                                <h3 id="sec_title">Education</h3>
+                                {addEducation}
+                            </div>
+                            <div className= "education_list">
+                                <EducationIndexContainer userId={this.props.userId}/>
+                            </div>    
+                        </div> 
+                    </div>
+                    <div className="right_side">
+                        <div className="developer-info">
+                            <p>Ad</p>
+                            <div className="developer-main">
+                                <div className="developer-section">
+                                    <img className="developer-img" src={window.developer} />
+                                    <div className="developer-social">
+                                        <a className="developer-social-icon" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/elsa-caballero/"><RiLinkedinLine /></a>
+                                        <a className="developer-social-icon" target="_blank" rel="noopener noreferrer" href="https://github.com/elsicab"><FiGithub /></a>
+                                        <a className="developer-social-icon" target="_blank" rel="noopener noreferrer" href="https://angel.co/u/elsa-caballero"><SiAngellist /></a>
+                                    </div>
+                                </div>
+                                <p>Software Engineer | Java • JavaScript • React •
+                                Redux • Ruby • Ruby on Rails • SQL • jQuery •
+                                    Git • Express • Node • MongoDB • HTML • CSS</p>
+                            </div>
                         </div>
                     </div>
-                    <div className="edu_exp_sec">
-                        <div className = "experience">
-                            <h3 id="sec_title">Experience</h3>
-                            {addExperience}
-                        </div>
-                        <div className= "education_list">
-                            <ExperienceIndexContainer/>
-                        </div>
-                        <div className = "education">
-                            <h3 id="sec_title">Education</h3>
-                            {addEducation}
-                        </div>
-                        <div className= "education_list">
-                            <EducationIndexContainer userId={this.props.userId}/>
-                        </div>    
-                    </div> 
-                </div>
                 </div>
             </div>
         )
