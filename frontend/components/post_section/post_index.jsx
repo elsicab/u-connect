@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 import { removePost, fetchPosts  } from '../../actions/post_actions';
 import Dropdown from './post_dropdown';
+import PostCommentContainer from './comment';
 
 
 class PostIndex extends React.Component{
@@ -95,9 +96,10 @@ class PostIndex extends React.Component{
                 <ul className="post_interactions">
                     <li><AiOutlineLike/>  Like</li>
                     <li><BiCommentDetail/>  Comment</li>
-                    {/* <li><RiShareForwardLine/>  Share</li> */}
-                    {/* <li><IoIosSend/>  Send</li> */}
                 </ul>
+                <div className="comment-container">
+                    <PostCommentContainer postId={post.id}/>
+                </div>
             </div>
         )});
             
