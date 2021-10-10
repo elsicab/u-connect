@@ -1,4 +1,4 @@
-class Post < ApplicationRecord
+class Comment < ApplicationRecord
     validates :body, :author_id, :post_id, presence: true
 
     belongs_to :post, 
