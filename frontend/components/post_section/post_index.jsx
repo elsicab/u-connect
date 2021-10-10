@@ -35,14 +35,6 @@ class PostIndex extends React.Component{
     componentDidMount() {
         this.props.fetchPosts();
     }
-    
-    // handleSubmit(e){
-    //     e.preventDefault();
-    //     this.props.openModal('editForm')
-    // }
-    // componentDidUpdate(){
-    //     this.props.fetchPosts();
-    // }
 
     timepassed(date){
         let time = Date.now() - Date.parse(date)

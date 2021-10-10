@@ -2,6 +2,7 @@ import React from 'react';
 import { RiHistoryLine } from 'react-icons/ri';
 import { connect } from 'react-redux';
 import { createComment } from '../../actions/comment_action'; 
+import CommentIndexContainer from './comments_index';
 
 
 class Comments extends React.Component{
@@ -24,6 +25,7 @@ class Comments extends React.Component{
     handleSubmit(e){
         e.preventDefault();
         this.props.createComment(this.state)
+        .then(this.setState({body: ""}))
     }
 
     render(){
@@ -32,6 +34,9 @@ class Comments extends React.Component{
                 <div className="comment-body">
                     <textarea className="comment-box" placeholder="Add a comment..." onChange={this.handleInput('body')}/>
                     <button className="comment-button" onClick={this.handleSubmit}>Post</button>
+                </div>
+                <div className="comments-index">
+                    <CommentIndexContainer postId={this.props.postId}/>
                 </div>
             </div> 
         )

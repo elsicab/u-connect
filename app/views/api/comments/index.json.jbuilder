@@ -3,7 +3,7 @@
         json.extract! comment, :id, :body, :author_id, :post_id, :created_at
 
         json.author do
-            json.extract! comment.author, :first_name, :last_name, :avatar, :id
+            json.extract! comment.user, :first_name, :last_name, :avatar, :id
         end
     end
 end
