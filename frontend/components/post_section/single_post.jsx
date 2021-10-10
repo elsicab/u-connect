@@ -12,20 +12,18 @@ import { openModal } from '../../actions/modal_actions';
 import { removePost, fetchPosts  } from '../../actions/post_actions';
 import Dropdown from './post_dropdown';
 import PostCommentContainer from './comment';
-import SinglePost from './single_post';
 
 
-class PostIndex extends React.Component{
+class SinglePost extends React.Component{
     constructor(props){
         super(props)
          this.state = {
-            posts: [],
             openMenu: true, 
-            // show: false 
+            showComment: false 
         };
         this.handleFocus = this.handleFocus.bind(this); 
         this.timepassed = this.timepassed.bind(this);
-        // this.showComment = this.showComment.bind(this)
+        this.showComment = this.showComment.bind(this);
         // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -35,9 +33,9 @@ class PostIndex extends React.Component{
         this.setState({openMenu: newState})
     }
 
-    // showComment(e){
-    //     this.setState({show: true})
-    // }
+    showComment(e){
+        this.setState({showComment: true})
+    }
 
     componentDidMount() {
         this.props.fetchPosts();
@@ -55,35 +53,54 @@ class PostIndex extends React.Component{
     }
 
     render(){
-        if(!this.props.posts) return null
+        if(!this.props.post) return null
         const avatar = this.props.currentUser.avatarUrl ? <img className= "avatar_profile" 
             src={this.props.currentUser.avatarUrl} /> : <img className="avatar_profile" src={window.avatar} />
         
-        
-        
-        const showPosts = this.props.posts.reverse().map((post, i) => {
+            const dropdown = this.props.currentUser.id == this.props.post.author_id ? <Dropdown post={this.props.post}/> : null
+            const avatarPost = this.props.post?.author?.avatarUrl ? <img className= "avatar_index" src={this.props.post.author.avatarUrl} /> : 
+            <img className="avatar_index" src={window.avatar} />
+            console.log(this.state.show)
             return(
-            <div key={`${i}`} className="single_post">
-                <SinglePost post={post}/>
-            </div>
-        )});
-            
-        
-        return(
             <div>
-                {!this.props.posts ?  null : showPosts}
-             
+                <div className="post_menu" >
+                    {dropdown}
+                </div>
+                
+                <div className="post_info">
+                    {/* {postAvatar} */}
+                    <p>{avatarPost}</p>
+                    <div className="author_info">
+                        <div className="author_name">
+                            <p>{this.props.post?.author?.first_name}</p>
+                            <p>{this.props.post?.author?.last_name}</p>
+                        </div>
+                        <div className="created">
+                            <p>{this.timepassed(this.props.post.created_at)}</p>
+                        </div>
+                    </div>
+                </div>
+                <div><img className= "post_image" src={this.props.post.photoUrl} /></div>
+                <div className="post_text">{this.props.post.body}</div>
+                <ul className="post_interactions">
+                    <li><AiOutlineLike/>  Like</li>
+                    <li onClick={this.showComment}><BiCommentDetail/ >  Comment</li>
+                </ul>
+                <div className={this.state.showComment ? "show-comment" : "clear"}>
+                    <PostCommentContainer postId={this.props.post.id}/>
+                </div>
             </div>
-        )
+        );
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
     // errors: errors.session,
     author: state.entities.posts.author,
     posts: Object.values(state.entities.posts),
-    currentUser: state.entities.users[state.session.currentUser]
+    currentUser: state.entities.users[state.session.currentUser],
+    post: ownProps.post
   };
 };
 
@@ -95,4 +112,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(SinglePost);
