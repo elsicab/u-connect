@@ -15,6 +15,10 @@ class User < ApplicationRecord
         foreign_key: :user_id, 
         class_name: :Experience
 
+    has_many :comments,
+        foreign_key: :author_id, 
+        class_name: :Comment
+
     has_one :profile,
         foreign_key: :user_id, 
         class_name: :Profile

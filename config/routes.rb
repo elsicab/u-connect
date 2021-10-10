@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :profiles, only: [:create, :update, :show, :index]
     resource :session, only: [:create, :destroy]
     resources :posts, only: [:create, :index, :show, :destroy, :update]
+    resources :comments, only: [:create, :index, :show, :destroy, :update]
   end
 end
