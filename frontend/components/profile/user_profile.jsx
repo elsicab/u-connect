@@ -65,6 +65,7 @@ class UserProfile extends React.Component{
             return null
         } 
 
+
         let createUpdate = this.props.profile ? <div onClick={() => this.props.openModal('editBasic', this.props.profile.id)} className="edit_basic_info"><BiPencil/></div> : <div onClick={this.handleCreate} className="edit_basic_info"><BiPencil/></div>
         let renderCreate = this.props.profileUser.id == this.props.currentUser.id ? createUpdate : null
         let profileInfo =  this.props.profile ? 
@@ -77,6 +78,7 @@ class UserProfile extends React.Component{
                             </div>
                             <div className="headline_sec">{this.props.profile.headline}</div>
                             <div className="location">{this.props.profile.location}, {this.props.profile.country}</div>
+                            <button className="connect-button">Connnect</button>
                         </div> : 
                         <div className="info_section">
                             <div className="currentUser_info">
@@ -84,7 +86,9 @@ class UserProfile extends React.Component{
                                     <h2 className="username_profile">{this.props.profileUser.first_name} {this.props.profileUser.last_name}</h2>
                                 </div>
                             </div>
+                            <button className="connect-button">Connnect</button>
                         </div> 
+
         
         const avatar = this.props.profileUser.avatarUrl ? <img className= "avatar" src={this.props.profileUser.avatarUrl} /> : 
         <img className="avatar" src={window.avatar} />
