@@ -1,5 +1,4 @@
 import React from 'react';
-import { RiHistoryLine } from 'react-icons/ri';
 import { connect } from 'react-redux';
 import { createComment } from '../../actions/comment_action'; 
 import CommentIndexContainer from './comments_index';
@@ -26,7 +25,7 @@ class Comments extends React.Component{
     handleSubmit(e){
         e.preventDefault();
         this.props.createComment(this.state)
-        .then(this.setState({body: ""}))
+        .then(() => this.setState({body: ""}))
     }
 
     render(){
