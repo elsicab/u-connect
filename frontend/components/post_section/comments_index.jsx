@@ -14,6 +14,12 @@ class CommentIndex extends React.Component{
         this.props.fetchComments();
     }
 
+    componentDidUpdate(prevProps){
+        if (this.props.comments.length !== prevProps.comments.length) {
+            this.props.fetchComments();
+        }
+    }
+
     timepassed(date){
         let time = Date.now() - Date.parse(date)
         if(Math.floor(time / 86400000 ) > 0){
@@ -30,7 +36,7 @@ class CommentIndex extends React.Component{
         if(!this.props.comments) return null
         
         const showComments= this.props.comments.reverse().map((comment, i) => {
-            const avatarComment = comment.user.avatar ? <img className= "avatar-index" src={comment.user.avatar} /> : 
+            const avatarComment = comment?.user?.avatar ? <img className= "avatar-index" src={comment?.user?.avatar} /> : 
             <img className="avatar-index" src={window.avatar} />
             return(
             <div key={`${i}`} className="single-comment">

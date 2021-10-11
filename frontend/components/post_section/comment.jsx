@@ -25,14 +25,14 @@ class Comments extends React.Component{
     handleSubmit(e){
         e.preventDefault();
         this.props.createComment(this.state)
-        .then(() => this.setState({body: ""}))
+        .then(this.setState({body: ""}))
     }
 
     render(){
         return(
             <div>
                 <div className="comment-body">
-                    <textarea className="comment-box" placeholder="Add a comment..." onChange={this.handleInput('body')}/>
+                    <textarea className="comment-box" placeholder="Add a comment..." onChange={this.handleInput('body')} value={this.state.body}/>
                     <button className="comment-button" onClick={this.handleSubmit}>Post</button>
                 </div>
                 <div className="comments-index">
