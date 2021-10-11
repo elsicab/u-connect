@@ -23,6 +23,14 @@ class User < ApplicationRecord
         foreign_key: :user_id, 
         class_name: :Profile
 
+    has_many :connections, 
+        foreign_key: :connector_id, 
+        class_name: :Connection
+
+    has_many :connected, 
+        foreign_key: :connected_id, 
+        class_name: :Connection
+
     has_one_attached :avatar
 
 
