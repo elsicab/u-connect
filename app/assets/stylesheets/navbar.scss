@@ -65,6 +65,7 @@
     justify-content: center;
     position: relative;
     text-decoration: none;
+    align-items: center;
 }
 
 .single_icon{
@@ -223,12 +224,15 @@
     align-items: center;
 }
 
-#single_icon{
+#single_icon,
+#network{
     text-decoration: none;
     color: gray;
+    align-items: center;
 }
 
-#single_icon:hover{
+#single_icon:hover,
+#network:hover{
     color: black;
 }
 
