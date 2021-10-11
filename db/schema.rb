@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_08_213540) do
+ActiveRecord::Schema.define(version: 2021_10_11_005658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 2021_10_08_213540) do
     t.text "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "connections", force: :cascade do |t|
+    t.integer "connector_id", null: false
+    t.integer "connected_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["connector_id", "connected_id"], name: "index_connections_on_connector_id_and_connected_id", unique: true
   end
 
   create_table "educations", force: :cascade do |t|
