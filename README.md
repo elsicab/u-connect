@@ -3,6 +3,16 @@ WiredIn is a functional LinkedIn clone in which an user can create an account an
 
 ### Live Site: [WiredIn](https://w-in.herokuapp.com/#/)
 
+## How To Install
+* Clone repo using `git clone https://github.com/elsicab/wiredIn.git`
+* Run the following commands: 
+  * `npm install`
+  * `bundle install`
+  * `bundle exec rails db:create`
+  * `bundle exec rails db:setup`
+  * `npm run start`
+  * In a separate terminal run `bundle exec rails server`
+
 ## Technologies Used
 * React
 * Redux
