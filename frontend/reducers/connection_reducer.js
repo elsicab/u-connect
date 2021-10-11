@@ -1,4 +1,4 @@
-import {RECEIVE_CONNECTION, RECEIVE_CONNECTIONS, DELETE_CONNECTION} from '../actions/connection_actions';
+import {RECEIVE_CONNECTION, RECEIVE_CONNECTIONS, DELETE_CONNECTION} from '../actions/connection_action';
 
 const connectionReducer = (state = {}, action) => {
     Object.freeze(state)
