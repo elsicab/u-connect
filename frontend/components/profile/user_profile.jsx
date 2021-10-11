@@ -20,7 +20,6 @@ class UserProfile extends React.Component{
     constructor(props){
         super(props)        
         this.state = {
-            // currentProfile: this.props.profile
         }
 
         this.handleCreate = this.handleCreate.bind(this)
