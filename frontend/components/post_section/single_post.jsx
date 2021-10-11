@@ -24,7 +24,6 @@ class SinglePost extends React.Component{
         this.handleFocus = this.handleFocus.bind(this); 
         this.timepassed = this.timepassed.bind(this);
         this.showComment = this.showComment.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
 
@@ -69,7 +68,6 @@ class SinglePost extends React.Component{
                 </div>
                 
                 <div className="post_info">
-                    {/* {postAvatar} */}
                     <p>{avatarPost}</p>
                     <div className="author_info">
                         <div className="author_name">
