@@ -69,7 +69,7 @@ class SinglePost extends React.Component{
                 
                 <div className="post_info">
                     <p>{avatarPost}</p>
-                    <div className="author_info">
+                    <div className="author-info">
                         <div className="author_name">
                             <p>{this.props.post?.author?.first_name}</p>
                             <p>{this.props.post?.author?.last_name}</p>

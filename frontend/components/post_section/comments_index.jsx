@@ -33,20 +33,20 @@ class CommentIndex extends React.Component{
             const avatarComment = comment.user.avatar ? <img className= "avatar-index" src={comment.user.avatar} /> : 
             <img className="avatar-index" src={window.avatar} />
             return(
-            <div key={`${i}`} className="single_comment">                
-                <div className="comment_info">
-                    <div className="author_info">
-                        {avatarComment}
-                        <div className="author_name">
-                            <p>{comment?.author?.first_name}</p>
-                            <p>{comment?.author?.last_name}</p>
+            <div key={`${i}`} className="single-comment">
+                <div className="comment-avatar">{avatarComment}</div>                
+                <div className="comment-main">
+                    <div className="comment-author">
+                        <div className="author_name" id="comment-author-name">
+                            <p>{comment?.user?.first_name}</p>
+                            <p>{comment?.user?.last_name}</p>
                         </div>
-                        <div className="created">
+                        <div className="comment-created">
                             <p>{this.timepassed(comment.created_at)}</p>
                         </div>
                     </div>
+                    <div className="comment-text">{comment.body}</div>
                 </div>
-                <div className="post_text">{comment.body}</div>
             </div>
         )});
             
