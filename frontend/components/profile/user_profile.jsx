@@ -3,16 +3,13 @@ import NavbarContainer from '../navbar/navbar_container';
 import ExperienceIndexContainer from './experience'
 import EducationIndexContainer from './education'
 import { BiPencil } from 'react-icons/bi';
-import { AiFillCamera } from 'react-icons/ai';
+import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
 import { openModal } from '../../actions/modal_actions';
-import { fetchUser } from '../../actions/user_actions'
-import { fetchProfile, fetchProfiles } from '../../actions/profile_actions'
-import { RiContactsBookLine } from 'react-icons/ri';
+import { fetchProfiles } from '../../actions/profile_actions'
+import { createConnection } from '../../actions/connection_action';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { fetchUsers } from '../../actions/user_actions';
-import { withRouter } from 'react-router';
 import { RiLinkedinLine } from 'react-icons/ri';
 import { FiGithub } from 'react-icons/fi'
 import { SiAngellist } from 'react-icons/si'
@@ -27,10 +24,10 @@ class UserProfile extends React.Component{
         }
 
         this.handleCreate = this.handleCreate.bind(this)
-        // this.handleEdit = this.handleEdit.bind(this)
         this.handleEducation = this.handleEducation.bind(this)
         this.handleExperience = this.handleExperience.bind(this)
         this.handleAvatar = this.handleAvatar.bind(this)
+        this.handleConnection = this.handleConnection.bind(this)
 
     }
 
@@ -39,6 +36,11 @@ class UserProfile extends React.Component{
         this.props.fetchUsers();
     }
 
+    handleConnection(e){
+        console.log(this.props.connected)
+        e.preventDefault();
+        this.props.createConnection({connected_id: this.props.connected})
+    }
 
     handleCreate(e){
         e.preventDefault();
@@ -65,6 +67,7 @@ class UserProfile extends React.Component{
             return null
         } 
 
+
         let createUpdate = this.props.profile ? <div onClick={() => this.props.openModal('editBasic', this.props.profile.id)} className="edit_basic_info"><BiPencil/></div> : <div onClick={this.handleCreate} className="edit_basic_info"><BiPencil/></div>
         let renderCreate = this.props.profileUser.id == this.props.currentUser.id ? createUpdate : null
         let profileInfo =  this.props.profile ? 
@@ -77,6 +80,7 @@ class UserProfile extends React.Component{
                             </div>
                             <div className="headline_sec">{this.props.profile.headline}</div>
                             <div className="location">{this.props.profile.location}, {this.props.profile.country}</div>
+                            <button onClick={this.handleConnection} className="connect-button">Connnect</button>
                         </div> : 
                         <div className="info_section">
                             <div className="currentUser_info">
@@ -84,7 +88,9 @@ class UserProfile extends React.Component{
                                     <h2 className="username_profile">{this.props.profileUser.first_name} {this.props.profileUser.last_name}</h2>
                                 </div>
                             </div>
+                            <button onClick={this.handleConnection} className="connect-button">Connnect</button>
                         </div> 
+
         
         const avatar = this.props.profileUser.avatarUrl ? <img className= "avatar" src={this.props.profileUser.avatarUrl} /> : 
         <img className="avatar" src={window.avatar} />
@@ -162,6 +168,7 @@ const mSTP = (state, ownProps) => {
             profile => {
                 return profile.user_id == ownProps.match.params.userId}
         )[0],
+        connected: ownProps.match.params.userId
     }   
    
 }
@@ -170,6 +177,7 @@ const mDTP = dispatch => ({
     openModal: (modal, id) => dispatch(openModal(modal, id)),
     fetchProfiles: () => dispatch(fetchProfiles()),
     fetchUsers: () => dispatch(fetchUsers()),
+    createConnection: connection => dispatch(createConnection(connection))
 
 })
 
