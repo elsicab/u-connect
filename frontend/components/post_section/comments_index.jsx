@@ -30,10 +30,13 @@ class CommentIndex extends React.Component{
         if(!this.props.comments) return null
         
         const showComments= this.props.comments.reverse().map((comment, i) => {
+            const avatarComment = comment.user.avatar ? <img className= "avatar-index" src={comment.user.avatar} /> : 
+            <img className="avatar-index" src={window.avatar} />
             return(
             <div key={`${i}`} className="single_comment">                
                 <div className="comment_info">
                     <div className="author_info">
+                        {avatarComment}
                         <div className="author_name">
                             <p>{comment?.author?.first_name}</p>
                             <p>{comment?.author?.last_name}</p>

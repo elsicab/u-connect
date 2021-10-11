@@ -21,23 +21,15 @@ class PostIndex extends React.Component{
          this.state = {
             posts: [],
             openMenu: true, 
-            // show: false 
         };
         this.handleFocus = this.handleFocus.bind(this); 
         this.timepassed = this.timepassed.bind(this);
-        // this.showComment = this.showComment.bind(this)
-        // this.handleSubmit = this.handleSubmit.bind(this);
     }
-
 
     handleFocus(e) {
         const newState = !this.state.openMenu 
         this.setState({openMenu: newState})
     }
-
-    // showComment(e){
-    //     this.setState({show: true})
-    // }
 
     componentDidMount() {
         this.props.fetchPosts();
@@ -59,8 +51,7 @@ class PostIndex extends React.Component{
         const avatar = this.props.currentUser.avatarUrl ? <img className= "avatar_profile" 
             src={this.props.currentUser.avatarUrl} /> : <img className="avatar_profile" src={window.avatar} />
         
-        
-        
+         
         const showPosts = this.props.posts.reverse().map((post, i) => {
             return(
             <div key={`${i}`} className="single_post">
