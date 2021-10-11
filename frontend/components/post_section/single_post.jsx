@@ -54,12 +54,10 @@ class SinglePost extends React.Component{
 
     render(){
         if(!this.props.post) return null
-        const avatar = this.props.currentUser.avatarUrl ? <img className= "avatar_profile" 
-            src={this.props.currentUser.avatarUrl} /> : <img className="avatar_profile" src={window.avatar} />
         
             const dropdown = this.props.currentUser.id == this.props.post.author_id ? <Dropdown post={this.props.post}/> : null
-            const avatarPost = this.props.post?.author?.avatarUrl ? <img className= "avatar_index" src={this.props.post.author.avatarUrl} /> : 
-            <img className="avatar_index" src={window.avatar} />
+            const avatarPost = this.props.post.author.avatar ? <img className= "avatar-index" src={this.props.post.author.avatar} /> : 
+            <img className="avatar-index" src={window.avatar} />
             let comments = this.props.comments.filter(comment => 
                 comment.post_id === this.props.post.id)
             
