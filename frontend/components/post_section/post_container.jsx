@@ -1,15 +1,13 @@
 import { connect } from 'react-redux';
-import React from 'react';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { fetchPosts  } from '../../actions/post_actions';
 import Post from './post';
-import { withRouter } from 'react-router';
 import { fetchProfiles } from '../../actions/profile_actions';
+import { fetchConnections } from '../../actions/connection_action';
 
 
 const mapStateToProps = state => {
   return {
-    // errors: errors.session,
     author: state.entities.posts.author,
     users: state.entities.users,
     modal: state.ui.modal, 
@@ -26,7 +24,8 @@ const mapDispatchToProps = dispatch => {
     openModal: modal => dispatch(openModal(modal)),
     closeModal: () => dispatch(closeModal()),
     fetchPosts: () => dispatch(fetchPosts()), 
-    fetchProfiles: () => dispatch(fetchProfiles())
+    fetchProfiles: () => dispatch(fetchProfiles()),
+    fetchConnections: () => dispatch(fetchConnections())
   };
 };
 

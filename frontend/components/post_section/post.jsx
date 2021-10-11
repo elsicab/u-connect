@@ -1,8 +1,6 @@
 import React from 'react';
 import { HiOutlinePhotograph } from 'react-icons/hi';
-import { AiFillPlaySquare } from 'react-icons/ai';
-import { RiCalendarEventFill } from 'react-icons/ri';
-import { RiArticleLine } from 'react-icons/ri';
+import { AiFillPlaySquare } from 'react-icons/ai';;
 import PostIndexContainer from './post_index';
 import { fetchProfiles } from '../../actions/profile_actions';
 import { RiLinkedinLine } from 'react-icons/ri';
@@ -17,6 +15,7 @@ class Post extends React.Component {
 
     componentDidMount() {
         this.props.fetchProfiles();
+        this.props.fetchConnections();
     }
 
     handleSubmit(e){

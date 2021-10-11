@@ -2,12 +2,13 @@ import {RECEIVE_CONNECTION, RECEIVE_CONNECTIONS, DELETE_CONNECTION} from '../act
 
 const connectionReducer = (state = {}, action) => {
     Object.freeze(state)
-    let newState = Object.assign({}, state)
+    let newState = [Object.assign({}, state)]
     switch(action.type){
         case RECEIVE_CONNECTIONS:
             return action.connections
         case RECEIVE_CONNECTION:
-            return Object.assign({}, state, action.connection)
+            newState[action.connection.id] = action.connection;
+            return newState;
         case DELETE_CONNECTION:
             delete newState[action.connectionId]
             return newState
