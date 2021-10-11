@@ -60,7 +60,10 @@ class SinglePost extends React.Component{
             const dropdown = this.props.currentUser.id == this.props.post.author_id ? <Dropdown post={this.props.post}/> : null
             const avatarPost = this.props.post?.author?.avatarUrl ? <img className= "avatar_index" src={this.props.post.author.avatarUrl} /> : 
             <img className="avatar_index" src={window.avatar} />
-            console.log(this.state.show)
+            let comments = this.props.comments.filter(comment => 
+                comment.post_id === this.props.post.id)
+            
+            let commentCount = comments.length > 0 ? <div onClick={this.showComment} className="comment-count">{comments.length} comments</div> : null
             return(
             <div>
                 <div className="post_menu" >
@@ -86,6 +89,7 @@ class SinglePost extends React.Component{
                     <li><AiOutlineLike/>  Like</li>
                     <li onClick={this.showComment}><BiCommentDetail/ >  Comment</li>
                 </ul>
+                {commentCount}
                 <div className={this.state.showComment ? "show-comment" : "clear"}>
                     <PostCommentContainer postId={this.props.post.id}/>
                 </div>
@@ -100,7 +104,8 @@ const mapStateToProps = (state, ownProps) => {
     author: state.entities.posts.author,
     posts: Object.values(state.entities.posts),
     currentUser: state.entities.users[state.session.currentUser],
-    post: ownProps.post
+    post: ownProps.post,
+    comments: Object.values(state.entities.comments)
   };
 };
 

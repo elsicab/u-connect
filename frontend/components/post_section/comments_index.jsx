@@ -44,10 +44,6 @@ class CommentIndex extends React.Component{
                     </div>
                 </div>
                 <div className="post_text">{comment.body}</div>
-                {/* <ul className="post_interactions">
-                    <li><AiOutlineLike/>  Like</li>
-                    <li><BiCommentDetail/>  Comment</li>
-                </ul> */}
             </div>
         )});
             
