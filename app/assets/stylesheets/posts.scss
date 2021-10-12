@@ -331,17 +331,32 @@
     margin-top: 20px;
 }
 
-.comment-count{
+.comment-count, 
+.like-count{
     font-size: 12px;
-    margin-top: 15px;
-    margin-left: 10px;
     width: 75px;
     text-align: center;
+}
+
+.comment-count{
     cursor: pointer;
+}
+
+.interactions{
+    margin-top: 15px;
+    display: flex;
 }
 
 .comment-count:hover{
     text-decoration: underline;
     color: #0A66C2;
     background: rgba(0, 157, 255, 0.077);
+}
+
+.liked{
+    background-color: pink;
+}
+
+.not-liked{
+    background-color: yellow;
 }

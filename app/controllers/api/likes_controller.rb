@@ -1,7 +1,7 @@
 class Api::LikesController < ApplicationController
 
     def index
-        @likes = Likes.all
+        @likes = Like.all
         render :index
     end
 
@@ -27,6 +27,6 @@ class Api::LikesController < ApplicationController
 
     private
     def like_params 
-        params.permit(:type, :likeable_id)
+        params.permit(:likeable_type, :likeable_id)
     end
 end
