@@ -4,6 +4,7 @@ import { AiOutlineLike } from 'react-icons/ai';
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 import { removePost, fetchPosts  } from '../../actions/post_actions';
+import { createLike, fetchLikes, removeLike} from '../../actions/like_action'
 import Dropdown from './post_dropdown';
 import PostCommentContainer from './comment';
 
@@ -13,13 +14,35 @@ class SinglePost extends React.Component{
         super(props)
          this.state = {
             openMenu: true, 
-            showComment: false 
+            showComment: false,
+            like: []
         };
         this.handleFocus = this.handleFocus.bind(this); 
         this.timepassed = this.timepassed.bind(this);
         this.showComment = this.showComment.bind(this);
+        this.handleLike = this.handleLike.bind(this);
     }
 
+    componentWillReceiveProps(props) {
+        this.setState({
+            like: props.liked,
+        })
+    }
+
+    componentDidUpdate(prevProps){
+        if (this.props.likes.length !== prevProps.likes.length) {
+            this.props.fetchLikes();
+        }
+    }
+
+    handleLike(e){
+        e.preventDefault();
+        if(this.state.like.length === 0){
+            this.props.createLike({likeable_id: this.props.post.id, likeable_type: "post"})
+        }else{
+            this.props.removeLike(this.props.liked[0].id)
+        }
+    }
 
     handleFocus(e) {
         const newState = !this.state.openMenu 
@@ -32,6 +55,7 @@ class SinglePost extends React.Component{
 
     componentDidMount() {
         this.props.fetchPosts();
+        this.props.fetchLikes();
     }
 
     timepassed(date){
@@ -49,11 +73,15 @@ class SinglePost extends React.Component{
         if(!this.props.post) return null
         
             const dropdown = this.props.currentUser.id == this.props.post.author_id ? <Dropdown post={this.props.post}/> : null
-            const avatarPost = this.props.post.author.avatar ? <img className= "avatar-index" src={this.props.post.author.avatar} /> : 
+            const avatarPost = this.props.post?.author?.avatar ? <img className= "avatar-index" src={this.props.post?.author?.avatar} /> : 
             <img className="avatar-index" src={window.avatar} />
             let comments = this.props.comments.filter(comment => 
                 comment.post_id === this.props.post.id)
             
+            let likes = this.props.likes.filter(like => 
+                like.likeable_id === this.props.post.id)
+
+            let likeCount = likes.length > 0 ? <div className="like-count">{likes.length} likes</div> : null
             let commentCount = comments.length > 0 ? <div onClick={this.showComment} className="comment-count">{comments.length} comments</div> : null
             return(
             <div>
@@ -76,10 +104,13 @@ class SinglePost extends React.Component{
                 <div><img className= "post_image" src={this.props.post.photoUrl} /></div>
                 <div className="post_text">{this.props.post.body}</div>
                 <ul className="post_interactions">
-                    <li><AiOutlineLike/>  Like</li>
+                    <li onClick={this.handleLike} className={this.state.like.length != 0 ? "liked" : "not-liked"}><AiOutlineLike/>  Like</li>
                     <li onClick={this.showComment}><BiCommentDetail/ >  Comment</li>
                 </ul>
-                {commentCount}
+                <div className="interactions">
+                    {likeCount}
+                    {commentCount}
+                </div>
                 <div className={this.state.showComment ? "show-comment" : "clear"}>
                     <PostCommentContainer postId={this.props.post.id}/>
                 </div>
@@ -94,8 +125,12 @@ const mapStateToProps = (state, ownProps) => {
     author: state.entities.posts.author,
     posts: Object.values(state.entities.posts),
     currentUser: state.entities.users[state.session.currentUser],
+    liker: state.session.currentUser,
     post: ownProps.post,
-    comments: Object.values(state.entities.comments)
+    comments: Object.values(state.entities.comments),
+    likes: Object.values(state.entities.likes),
+    liked: Object.values(state.entities.likes).filter(like => 
+                like.likeable_id === ownProps.post.id && like.liker_id === state.session.currentUser)
   };
 };
 
@@ -103,7 +138,10 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchPosts: () => dispatch(fetchPosts()),
     removePost: postId => dispatch(removePost(postId)),
-    openModal: (modal, id) => dispatch(openModal(modal, id))
+    openModal: (modal, id) => dispatch(openModal(modal, id)), 
+    createLike: like => dispatch(createLike(like)), 
+    removeLike: likeId => dispatch(removeLike(likeId)),
+    fetchLikes: () => dispatch(fetchLikes())
   };
 };
 
