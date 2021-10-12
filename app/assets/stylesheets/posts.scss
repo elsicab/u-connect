@@ -119,7 +119,6 @@
 .post_text{
     padding: 15px;
     padding-bottom: 20px;
-    border-bottom: 0.2px solid lightgray;
 
 }
 
@@ -335,16 +334,21 @@
 .like-count{
     font-size: 12px;
     width: 75px;
-    text-align: center;
+    justify-content: center;
 }
 
 .comment-count{
     cursor: pointer;
+    padding-top: 2px;
 }
 
 .interactions{
     margin-top: 15px;
     display: flex;
+    justify-content: left;
+    padding-bottom: 10px;
+    border-bottom: 0.2px solid lightgray;
+    height: 20px;
 }
 
 .comment-count:hover{
@@ -354,9 +358,23 @@
 }
 
 .liked{
-    background-color: pink;
+    color: #0A66C2;
 }
 
-.not-liked{
-    background-color: yellow;
+.active-likes{
+    color: #0A66C2;
+    border-radius: 50%;
+    background-color: #0a66c25d;
+    padding: 2px;
+    margin-right: 5px;
+}
+
+.like-count{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.likes-num{
+    padding-top: 2px;
 }
