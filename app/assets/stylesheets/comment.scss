@@ -54,7 +54,7 @@
 .comment-author{
     display: flex;
     justify-content: space-between;
-    margin: 10px 10px;
+    margin: 0 10px;
     font-size: 12px;
 }
 
@@ -66,4 +66,9 @@
     margin: 10px 10px;
     color: black;
     font-weight: 100;
+}
+
+#comment-dropdown{
+    padding-top: 5px;
+    padding-right: 5px;
 }
