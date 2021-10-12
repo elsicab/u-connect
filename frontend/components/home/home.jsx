@@ -2,10 +2,6 @@ import React from 'react';
 import SessionContainer from '../sessions/session_container';
 import { Link } from 'react-router-dom';
 
-
-
-
-
 class HomePage extends React.Component {
     constructor(props) {
         super(props);
@@ -57,15 +53,11 @@ class HomePage extends React.Component {
 
     render(){
         return(
-            <div className="homePage">
+            <div className="home-page">
                 <div className="navbar" id="home_nav"> 
-                    <div className="header" id="header_home">
+                    <div className="header" id="header-home">
                         <div className="left_nav">
                             <img className="main_logo" src={window.mainlogo} />
-                            {/* <div className="nav_search">
-                                <FaSearch />
-                                <input type="text" placeholder="Search"></input>
-                            </div> */}
                         </div>
                         <div className="right_nav">
                             <ul className="navbar_icons">
@@ -82,7 +74,6 @@ class HomePage extends React.Component {
                                 {this.renderErrors()}
                                 <input className="home_input" type="text" placeholder="Email" value={this.state.email} onChange={this.handleInput('email')} />
                                 <input className="home_input" type="password" placeholder="Password" value={this.state.password} onChange={this.handleInput('password')}/>
-                                {/* <p>Forgot Password?</p> */}
                                 <button onClick={this.handleSubmit} className="login_button">Sign in</button>
                                 <button onClick={this.handleDemo} className="login_demo_button">Demo User</button>
                             </form>

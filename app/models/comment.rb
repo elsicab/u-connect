@@ -9,4 +9,7 @@ class Comment < ApplicationRecord
         foreign_key: :author_id, 
         class_name: :User
 
+    has_many :likes,
+        foreign_key: :likeable_id, 
+        class_name: :Like
 end
