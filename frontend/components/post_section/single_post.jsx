@@ -1,12 +1,6 @@
 import React from 'react';
 import { BiCommentDetail } from 'react-icons/bi';
 import { AiOutlineLike } from 'react-icons/ai';
-import { BsPersonBoundingBox } from 'react-icons/bs';
-import { RiShareForwardLine } from 'react-icons/ri';
-import { IoIosSend } from 'react-icons/io';
-import { BiPencil } from 'react-icons/bi';
-import { FaTrashAlt } from 'react-icons/fa';
-import { BiDotsHorizontalRounded } from 'react-icons/bi'
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 import { removePost, fetchPosts  } from '../../actions/post_actions';
