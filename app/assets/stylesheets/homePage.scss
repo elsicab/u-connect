@@ -6,11 +6,24 @@
     padding-right: 200px;
 }
 
+.home-page{
+    height: 100%;
+    width: 100%;
+}
+
+.hero_image{
+    z-index: 0;
+}
+
+.banner_form{
+    z-index: 1;
+}
+
 .hero_image, 
 .banner_form{
     flex-basis: 100%;
-    margin: 20px;
-    padding: 20px;
+    margin: 20px 15px;
+    padding: 15px;
 }
 
 .main_form{
@@ -149,7 +162,7 @@
     color: white;
 }
 
-#header_home{
+#header-home{
     padding-right: 200px;
     padding-left: 200px;
 }

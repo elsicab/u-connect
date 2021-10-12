@@ -6,7 +6,7 @@ class Connection < ApplicationRecord
         foreign_key: :connected_id, 
         class_name: :User
 
-    has_many :connector,
+    belongs_to :connector,
         foreign_key: :connector_id, 
         class_name: :User
 end

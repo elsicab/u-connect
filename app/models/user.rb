@@ -31,6 +31,10 @@ class User < ApplicationRecord
         foreign_key: :connected_id, 
         class_name: :Connection
 
+    has_many :likes, 
+        foreign_key: :liker_id, 
+        class_name: :Like
+
     has_one_attached :avatar
 
 
