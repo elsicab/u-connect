@@ -1,5 +1,5 @@
 import React from 'react';
-import { BiCommentDetail } from 'react-icons/bi';
+import { FaRegCommentDots } from 'react-icons/fa';
 import { AiOutlineLike } from 'react-icons/ai';
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
@@ -107,9 +107,9 @@ class SinglePost extends React.Component{
                     {likeCount}
                     {commentCount}
                 </div>
-                <ul className="post_interactions">
+                <ul className="post-interactions">
                     <li onClick={this.handleLike} className={this.state.like.length != 0 ? "liked" : "not-liked"}><AiOutlineLike/>  Like</li>
-                    <li onClick={this.showComment}><BiCommentDetail/ >  Comment</li>
+                    <li onClick={this.showComment}><FaRegCommentDots/ >  Comment</li>
                 </ul>
                 <div className={this.state.showComment ? "show-comment" : "clear"}>
                     <PostCommentContainer postId={this.props.post.id}/>
