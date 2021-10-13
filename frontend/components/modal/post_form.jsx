@@ -89,7 +89,7 @@ class PostForm extends React.Component{
                             <li className="attach_icon"><RiCalendarEventFill/></li>
                             <li className="attach_icon"><RiArticleLine/></li>
                         </ul>
-                        <button onClick={this.handleSubmit} className="post_button">Post</button>
+                    <button disabled={!this.state.body} onClick={this.handleSubmit} className={this.state.body ? "post_button" : "post_button_disabled"}>Post</button>
                     </div>
             </div>
         )

@@ -29,11 +29,12 @@ class Comments extends React.Component{
     }
 
     render(){
+        let button = this.state.body ? <button className="comment-button" onClick={this.handleSubmit}>Post</button> : null
         return(
             <div>
                 <div className="comment-body">
                     <textarea className="comment-box" placeholder="Add a comment..." onChange={this.handleInput('body')} value={this.state.body}/>
-                    <button className="comment-button" onClick={this.handleSubmit}>Post</button>
+                    {button}
                 </div>
                 <div className="comments-index">
                     <CommentIndexContainer postId={this.props.postId}/>
