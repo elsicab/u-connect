@@ -4,16 +4,11 @@
     padding-bottom: 0;
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
     margin: 0;
     border-radius: 2px;
     position: relative;
     min-height: 100vh;
-    // padding-top: 30px;
     font-family: sans-serif;
-    // padding-left: 180px;
-    // padding-right: 180px;
-    // align-items: center;
 }
 
 .network-body{
@@ -48,7 +43,7 @@
 
 .single-connection{
     display: flex;
-    flex: row;
+    flex-direction: row;
     margin: 10px;
     padding-top: 10px;
     border-top: 0.1px solid rgba(0, 0, 0, 0.1);
@@ -93,4 +88,14 @@
 .connection-created-time{
     font-size: 12px;
     color: #00000099;
+}
+
+#connection-main{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.show-dropdown li{
+    cursor: pointer;
 }

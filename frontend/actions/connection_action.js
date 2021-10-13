@@ -14,7 +14,7 @@ export const receiveConnection = connection => ({
     connection
 });
 
-export const deleteComment = connectionId => ({
+export const deleteConnection = connectionId => ({
     type: DELETE_CONNECTION, 
     connectionId
 })
