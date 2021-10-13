@@ -1,0 +1,49 @@
+.footer-component{
+    display: flex;
+    flex-direction: row;
+    margin: 20px 15%;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+
+.footer-logo{
+    width: 100px;
+    height: 30px;
+}
+
+.footer-component div h3{
+    font-weight: bold;
+    color: #000000E6;
+    font-size: 16px;
+    padding-bottom: 5px;
+}
+
+.dev-links,
+.technologies{
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    color: #666666;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.proj-link{
+    text-decoration: none;
+    color: #666666;
+}
+
+.dev-links a:hover{
+    text-decoration: underline;
+    color: #0a66c2;
+}
+
+.dev-links a, 
+.technologies div{
+    padding-bottom: 10px;
+}
+
+.footer-main{
+    background-color: #faf9f7;
+}
