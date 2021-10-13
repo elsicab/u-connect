@@ -81,7 +81,7 @@ class SinglePost extends React.Component{
             let likes = this.props.likes.filter(like => 
                 like.likeable_id === this.props.post.id)
 
-            let likeCount = likes.length > 0 ? <div className="like-count">{likes.length} likes</div> : null
+            let likeCount = likes.length > 0 ? <div className="like-count"><div className="active-likes"><AiOutlineLike/></div> <div className="likes-num">{likes.length}</div> </div> : null
             let commentCount = comments.length > 0 ? <div onClick={this.showComment} className="comment-count">{comments.length} comments</div> : null
             return(
             <div>
@@ -103,14 +103,14 @@ class SinglePost extends React.Component{
                 </div>
                 <div><img className= "post_image" src={this.props.post.photoUrl} /></div>
                 <div className="post_text">{this.props.post.body}</div>
-                <ul className="post_interactions">
-                    <li onClick={this.handleLike} className={this.state.like.length != 0 ? "liked" : "not-liked"}><AiOutlineLike/>  Like</li>
-                    <li onClick={this.showComment}><BiCommentDetail/ >  Comment</li>
-                </ul>
                 <div className="interactions">
                     {likeCount}
                     {commentCount}
                 </div>
+                <ul className="post_interactions">
+                    <li onClick={this.handleLike} className={this.state.like.length != 0 ? "liked" : "not-liked"}><AiOutlineLike/>  Like</li>
+                    <li onClick={this.showComment}><BiCommentDetail/ >  Comment</li>
+                </ul>
                 <div className={this.state.showComment ? "show-comment" : "clear"}>
                     <PostCommentContainer postId={this.props.post.id}/>
                 </div>
