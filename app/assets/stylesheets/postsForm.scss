@@ -83,6 +83,19 @@ textarea{
         cursor: pointer;
     }
 
+.post_button_disabled{
+        display: flex;
+        padding: 0 25px;
+        background: lightgray;
+        outline: none;
+        border: none;
+        border-radius: 20px;
+        color: gray;
+        font-size: 1rem;
+        font-weight: bolder;
+        line-height: 40px;
+    }
+
 .image_preview{
     max-height: 100px;
     padding: 10px;
@@ -106,4 +119,8 @@ textarea{
 .create_post_user{
     color: rgba(0, 0, 0, 0.735);
     font-size: 18px;
+}
+
+.post_button:hover{
+    background-color: #053a6fe5;
 }
