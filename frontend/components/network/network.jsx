@@ -1,57 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import NavbarContainer from '../navbar/navbar_container';
 import { fetchConnections } from '../../actions/connection_action';
 import { RiLinkedinLine } from 'react-icons/ri';
-import { FiGithub } from 'react-icons/fi'
-import { SiAngellist } from 'react-icons/si'
+import { FiGithub } from 'react-icons/fi';
+import { SiAngellist } from 'react-icons/si';
+import SingleConnection from './network_connection';
 
 class Network extends React.Component{
-    constructor(props){
-        super(props);
-        this.timepassed = this.timepassed.bind(this);
-    }
 
     componentDidMount(){
         this.props.fetchConnections();
     }
 
-    timepassed(date){
-        let time = Date.now() - Date.parse(date)
-        if(Math.floor(time / 604800000) > 0){
-            return Math.floor(time / 604800000) + 'weeks'
-        }else if(Math.floor(time / 86400000 ) > 0){
-            return Math.floor(time / 86400000) + 'days'
-        }else if(Math.floor(time / 3600000) > 0)
-            return Math.floor(time / 3600000) + 'hours'
-        else{
-            return Math.floor(time / 60000) + 'minutes'
-        }
-    }
-
     render(){
-        console.log(this.props.connections)
         const showConnections = !this.props.connections ? <div></div> : 
         this.props.connections.reverse().map((connection, i) => {
-            const connectionAvatar = 
-            connection.connected.avatar ? <img className= "connection-avatar" src={connection.connected.avatar} /> : 
-            <img className="connection-avatar" src={window.avatar} />
             return(
-            <div key={`${i}`} className="single-connection">
-                <div>{connectionAvatar}</div>
-                <div className="connection-info">
-                    <div className="network-link">
-                        <Link className="connection-link" to={`/users/${connection.connected_id}`}>
-                            <div className="connection-name">
-                                <p>{connection.connected.first_name} {connection.connected.last_name}</p>
-                            </div>
-                        </Link>
-                    </div>
-                    <div className="connection-created-time">
-                        <p>Connected {this.timepassed(connection.created_at)} ago</p>
-                    </div>
-                </div>
+            <div key={`${i}`}>
+                <SingleConnection connection = {connection}/>
             </div>
         )})
 
@@ -101,7 +68,7 @@ const mSTP = state => ({
 });
 
 const mDTP = dispatch => ({
-    fetchConnections: () => dispatch(fetchConnections())
+    fetchConnections: () => dispatch(fetchConnections()), 
 });
 
 export default connect(mSTP, mDTP)(Network);
