@@ -1,5 +1,6 @@
 import React from 'react';
 import SessionContainer from '../sessions/session_container';
+import Footer from '../footer/footer';
 import { Link } from 'react-router-dom';
 
 class HomePage extends React.Component {
@@ -92,6 +93,7 @@ class HomePage extends React.Component {
                             </div>
                             <img className="banner_image" src={window.bannerimage} />
                     </div>
+                    <div className="extra-space"></div>
                     <div className="signup_banner">
                             <div>
                                 <p>Join your colleagues, classmates, and friends on WiredIn.</p>
@@ -100,6 +102,7 @@ class HomePage extends React.Component {
                             <img className="create_image" src={window.createimage} />
                     </div>
                 </div>
+                <Footer />
             </div>
 
         )
