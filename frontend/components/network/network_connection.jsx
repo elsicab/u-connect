@@ -52,8 +52,8 @@ class SingleConnection extends React.Component{
                             <p>Connected {this.timepassed(this.props.connection.created_at)} ago</p>
                         </div>
                     </div>
-                    <div className="dropdown_post">
-                        <div className="dropdown_button" onClick={this.handleShow}><BiDotsHorizontalRounded /></div>
+                    <div className="dropdown-post">
+                        <div className="dropdown-button" onClick={this.handleShow}><BiDotsHorizontalRounded /></div>
                         <ul onClick={e => e.stopPropagation()} className={this.state.show ? "show-dropdown" : "clear"}>
                             <li onClick={() => this.props.removeConnection(this.props.connection.id)}><FaTrashAlt />  Remove connection </li>
                         </ul>

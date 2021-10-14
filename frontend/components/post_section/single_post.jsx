@@ -85,14 +85,14 @@ class SinglePost extends React.Component{
             let commentCount = comments.length > 0 ? <div onClick={this.showComment} className="comment-count">{comments.length} comments</div> : null
             return(
             <div>
-                <div className="post_menu" >
+                <div className="post-menu" >
                     {dropdown}
                 </div>
                 
-                <div className="post_info">
+                <div className="post-info">
                     <p>{avatarPost}</p>
                     <div className="author-info">
-                        <div className="author_name">
+                        <div className="author-name">
                             <p>{this.props.post?.author?.first_name}</p>
                             <p>{this.props.post?.author?.last_name}</p>
                         </div>
@@ -101,8 +101,8 @@ class SinglePost extends React.Component{
                         </div>
                     </div>
                 </div>
-                <div><img className= "post_image" src={this.props.post.photoUrl} /></div>
-                <div className="post_text">{this.props.post.body}</div>
+                <div><img className= "post-image" src={this.props.post.photoUrl} /></div>
+                <div className="post-text">{this.props.post.body}</div>
                 <div className="interactions">
                     {likeCount}
                     {commentCount}

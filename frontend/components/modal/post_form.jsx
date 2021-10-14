@@ -78,7 +78,7 @@ class PostForm extends React.Component{
                         {preview}
                         <textarea value={this.state.body} onChange={this.handleInput('body')} placeholder="What do you want to talk about?" />
                     </div>
-                    <div className="create_post_icons">
+                    <div className="create_post-icons">
                         <ul className="attach_icons">
                             <li>
                                 <label className="attach_icon"><HiOutlinePhotograph />
