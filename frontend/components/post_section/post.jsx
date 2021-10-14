@@ -24,21 +24,21 @@ class Post extends React.Component {
     }
 
     render(){
-        const avatar = this.props.currentUser.avatarUrl ? <img className= "avatar_profile" src={this.props.currentUser.avatarUrl} /> : <img className="avatar_profile" src={window.avatar} />
-        const postingAvatar = this.props.currentUser.avatarUrl ? <img className= "posting_avatar" src={this.props.currentUser.avatarUrl} /> : <img className="posting_avatar" src={window.avatar} />
+        const avatar = this.props.currentUser.avatarUrl ? <img className= "avatar-profile" src={this.props.currentUser.avatarUrl} /> : <img className="avatar-profile" src={window.avatar} />
+        const postingAvatar = this.props.currentUser.avatarUrl ? <img className= "posting-avatar" src={this.props.currentUser.avatarUrl} /> : <img className="posting-avatar" src={window.avatar} />
         const profile = this.props.profile ? 
                         <div className="info_section">
                             <div className="currentUser_info">
-                                <div className="profile_name">
-                                    <h2 className="feed_name"><strong>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</strong></h2>                                
+                                <div className="profile-name">
+                                    <h2 className="feed-name"><strong>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</strong></h2>                                
                                 </div>
                             </div>
-                            <div id="headline_feed">{this.props.profile.headline}</div>
+                            <div id="headline-feed">{this.props.profile.headline}</div>
                         </div> : 
                         <div className="info_section">
                             <div className="currentUser_info">
-                                <div className="profile_name">
-                                    <h2 className="feed_name"><strong>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</strong></h2>
+                                <div className="profile-name">
+                                    <h2 className="feed-name"><strong>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</strong></h2>
                                 </div>
                             </div>
                         </div>
@@ -47,30 +47,30 @@ class Post extends React.Component {
             <div className="feed" key={this.props.posts}>
                 <div className="currentUser">
                         <div className="feed_banner">
-                            <img className="profile_banner" src={window.banner} />
-                            <div className="avatar_sec">{avatar}</div>
+                            <img className="profile-banner" src={window.banner} />
+                            <div className="avatar-sec">{avatar}</div>
                             {/* <div className="add_banner_photo"><AiFillCamera/></div> */}
                         </div>
                         {profile}
                 </div>
                   <div>    
-                    <div className="post_container">
-                        <div className="posting_header">
+                    <div className="post-container">
+                        <div className="posting-header">
                             <div className="post_avatar">
-                                <div className="posting_avatar">{postingAvatar}</div>
+                                <div className="posting-avatar">{postingAvatar}</div>
                             </div>
                             <div className="posting_sec">
-                                <span className="button_text" onClick={this.handleSubmit}>Start a post</span>
-                                <button className="posting_button" onClick={this.handleSubmit}></button>
+                                <span className="button-text" onClick={this.handleSubmit}>Start a post</span>
+                                <button className="posting-button" onClick={this.handleSubmit}></button>
                             </div>
                         </div>
-                        <ul className="post_icons">
-                            <li className="post_icon" onClick={this.handleSubmit}>
-                                <p className="photo_icon"><HiOutlinePhotograph /></p>
+                        <ul className="post-icons">
+                            <li className="post-icon" onClick={this.handleSubmit}>
+                                <p className="photo-icon"><HiOutlinePhotograph /></p>
                                 <p>Photo</p>
                             </li>
-                            <li className="post_icon" onClick={this.handleSubmit}>
-                                <p className="video_icon"><AiFillPlaySquare/></p>
+                            <li className="post-icon" onClick={this.handleSubmit}>
+                                <p className="video-icon"><AiFillPlaySquare/></p>
                                 <p>Video</p>
                             </li>
                         </ul>

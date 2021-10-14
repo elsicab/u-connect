@@ -63,15 +63,15 @@ class SingleComment extends React.Component{
             <div className="single-comment">
                 <div className="comment-avatar">{avatarComment}</div>                
                 <div className="comment-main">
-                    <div className="dropdown_post" id="comment-dropdown">
-                        <div className="dropdown_button" onClick={this.handleShow}><BiDotsHorizontalRounded/></div>
+                    <div className="dropdown-post" id="comment-dropdown">
+                        <div className="dropdown-button" onClick={this.handleShow}><BiDotsHorizontalRounded/></div>
                             <ul onClick={e => e.stopPropagation()} className={this.state.show ? "show-dropdown" : "clear"}>
                                 <li onClick={this.handleEdit}><BiPencil/>  Edit </li>
                                 <li onClick={() => this.props.removeComment(this.props.comment.id)}><FaTrashAlt/>  Delete </li>
                             </ul>
                     </div>
                     <div className="comment-author">
-                        <div className="author_name" id="comment-author-name">
+                        <div className="author-name" id="comment-author-name">
                             <p>{this.props.comment?.user?.first_name}</p>
                             <p>{this.props.comment?.user?.last_name}</p>
                         </div>

@@ -24,10 +24,10 @@ class Dropdown extends React.Component {
 
     render() {
         return (
-            <div className="dropdown_post">
-                <div className="dropdown_button" onClick={this.handleClick}><BiDotsHorizontalRounded/>
+            <div className="dropdown-post">
+                <div className="dropdown-button" onClick={this.handleClick}><BiDotsHorizontalRounded/>
                 </div>
-                <ul onClick={e => e.stopPropagation()} id="post_dropdown" className={this.state.show ? "show-dropdown" : "clear"}>
+                <ul onClick={e => e.stopPropagation()} id="post-dropdown" className={this.state.show ? "show-dropdown" : "clear"}>
                     <li onClick={() => this.props.openModal('editForm', this.props.post.id)}><BiPencil/>  Edit post</li>
                     <li onClick={() => this.props.removePost(this.props.post.id)}><FaTrashAlt/>  Delete post</li>
                 </ul>
