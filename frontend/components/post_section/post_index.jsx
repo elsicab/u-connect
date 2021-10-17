@@ -71,7 +71,6 @@ class PostIndex extends React.Component{
 
 const mapStateToProps = state => {
   return {
-    // errors: errors.session,
     author: state.entities.posts.author,
     posts: Object.values(state.entities.posts),
     currentUser: state.entities.users[state.session.currentUser]

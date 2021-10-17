@@ -8,8 +8,6 @@ const postReducer = (state = {}, action) => {
         case RECEIVE_POST:
             return Object.assign({}, state, action.post)
         case DELETE_POST:
-             //array
-            // delete newState[action.postId]
             let newState = []
             return newState.filter(element => element !== action.postId);
         default:
