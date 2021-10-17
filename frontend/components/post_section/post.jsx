@@ -59,8 +59,7 @@ class Post extends React.Component {
                                 <div className="posting-avatar">{postingAvatar}</div>
                             </div>
                             <div className="posting_sec">
-                                <span className="button-text" onClick={this.handleSubmit}>Start a post</span>
-                                <button className="posting-button" onClick={this.handleSubmit}></button>
+                                <button className="posting-button" onClick={this.handleSubmit}>Start a post</button>
                             </div>
                         </div>
                         <ul className="post-icons">

@@ -6,7 +6,7 @@
     margin: 0 auto;
     border-radius: 2px;
     position: relative;
-    height: 100vh;
+    height: 100%;
     padding-top: 30px;
     justify-content: space-evenly;
     font-family: sans-serif;
@@ -25,14 +25,6 @@
     border: .5px solid lightgray;
 }
 
-.button-text{
-    position: absolute;
-    margin-top: 17px;
-    margin-left: 30px;
-    font-weight: 520;
-    cursor: pointer;
-}
-
 .posting-button{
     margin-bottom: 15px;
     width: 420px;
@@ -42,7 +34,10 @@
     background-color: white;
     margin-left: 15px;
     cursor: pointer;
-    
+    text-align: left;
+    padding-left: 30px;
+    font-weight: 520;
+    color: #00000099;  
 }
 
 .post-icons{
@@ -176,7 +171,6 @@
     border: .5px solid lightgray;
     border-radius: 10px;
     height: 220px;
-
 }
 
 .avatar-profile{
