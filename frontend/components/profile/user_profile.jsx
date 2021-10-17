@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 import { fetchProfiles } from '../../actions/profile_actions'
 import { createConnection } from '../../actions/connection_action';
+import { fetchConnections } from '../../actions/connection_action';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { fetchUsers } from '../../actions/user_actions';
 import { RiLinkedinLine } from 'react-icons/ri';
@@ -31,6 +32,7 @@ class UserProfile extends React.Component{
     }
 
     componentDidMount(){
+        this.props.fetchConnections();
         this.props.fetchProfiles();
         this.props.fetchUsers();
     }
@@ -66,9 +68,11 @@ class UserProfile extends React.Component{
             return null
         } 
 
-
+        let connectButton = this.props.connections.length === 0 && this.props.profileUser.id != this.props.currentUser.id ? <button onClick={this.handleConnection} className="connect-button">Connnect</button> : null
         let createUpdate = this.props.profile ? <div onClick={() => this.props.openModal('editBasic', this.props.profile.id)} className="edit_basic_info"><BiPencil/></div> : <div onClick={this.handleCreate} className="edit_basic_info"><BiPencil/></div>
         let renderCreate = this.props.profileUser.id == this.props.currentUser.id ? createUpdate : null
+        console.log(this.props.connections.length)
+        console.log(this.props.connections)
         let profileInfo =  this.props.profile ? 
                         <div className="info_section">
                             <div className="currentUser_info">
@@ -79,7 +83,7 @@ class UserProfile extends React.Component{
                             </div>
                             <div className="headline_sec">{this.props.profile.headline}</div>
                             <div className="location">{this.props.profile.location}, {this.props.profile.country}</div>
-                            <button onClick={this.handleConnection} className="connect-button">Connnect</button>
+                            {connectButton}
                         </div> : 
                         <div className="info_section">
                             <div className="currentUser_info">
@@ -105,10 +109,8 @@ class UserProfile extends React.Component{
                             <div className="banner">
                                 <img className="banner_photo" src={window.banner} />
                                 <div className="avatar" onClick={this.handleAvatar}>{avatar}</div>
-                                {/* <div className="add_banner_photo"><AiFillCamera/></div> */}
                             </div>
                             <div>
-                                {/* <div className="avatar">{avatar}</div> */}
                                 {renderCreate}
                             </div>
                             <div className="info_section">
@@ -159,10 +161,13 @@ class UserProfile extends React.Component{
 
 const mSTP = (state, ownProps) => {
     return{
+        connections: Object.values(state.entities.connections).filter(
+        connection => connection.connector_id == state.session.currentUser 
+                && connection.connected_id == ownProps.match.params.userId),
         currentUser: state.entities.users[state.session.currentUser],
+        user: state.session.currentUser,
         modal: state.ui.modal,
         profileUser: state.entities.users[ownProps.match.params.userId],
-        userId: ownProps.match.params.userId, 
         profile: Object.values(state.entities.profiles).filter(
             profile => {
                 return profile.user_id == ownProps.match.params.userId}
@@ -176,6 +181,7 @@ const mDTP = dispatch => ({
     openModal: (modal, id) => dispatch(openModal(modal, id)),
     fetchProfiles: () => dispatch(fetchProfiles()),
     fetchUsers: () => dispatch(fetchUsers()),
+    fetchConnections: () => dispatch(fetchConnections()), 
     createConnection: connection => dispatch(createConnection(connection))
 
 })
