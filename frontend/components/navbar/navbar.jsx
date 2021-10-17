@@ -26,29 +26,29 @@ class Navbar extends React.Component {
 
     render(){
         const menuAvatar = this.props.currentUser.avatarUrl ? <img className= "menu_avatar" src={this.props.currentUser.avatarUrl} /> : <img className="menu_avatar" src={window.avatar} />
-        const dropdownAvatar = this.props.currentUser.avatarUrl ? <img className= "dropdown_avatar" src={this.props.currentUser.avatarUrl} /> : <img className="dropdown_avatar" src={window.avatar} />
+        const dropdownAvatar = this.props.currentUser.avatarUrl ? <img className= "dropdown-avatar" src={this.props.currentUser.avatarUrl} /> : <img className="dropdown-avatar" src={window.avatar} />
 
         return(
             <div className="navbar"> 
                 <div className="header">
-                    <div className="left_nav">
+                    <div className="left-nav">
                         <img className="logo" src={window.logo} />
-                        <div className="nav_search">
+                        <div className="nav-search">
                             <FaSearch />
                             <input type="text" placeholder="Search"></input>
                         </div>
                     </div>
-                    <div className="right_nav">
-                        <ul className="navbar_icons">
-                            <li className="single_icon">
-                                <Link id="single_icon" to='/feed'>
-                                    <p className="navbar_icon"><ImHome3 /></p>
+                    <div className="right-nav">
+                        <ul className="navbar-icons">
+                            <li className="single-icon">
+                                <Link id="single-icon" to='/feed'>
+                                    <p className="navbar-icon"><ImHome3 /></p>
                                     <p className="title">Home</p>
                                 </Link>
                             </li>
-                            <li className="single_icon">
+                            <li className="single-icon">
                                 <Link id="network" to='/myNetwork'>
-                                    <p className="navbar_icon"><BsPeopleFill /></p>
+                                    <p className="navbar-icon"><BsPeopleFill /></p>
                                     <p className="title">My Network</p>
                                 </Link>
                             </li>
@@ -60,7 +60,7 @@ class Navbar extends React.Component {
                                 <ul onClick={e => e.stopPropagation()} className={this.state.dropdown ? "show_dropdown" : "clear"}>
                                     <li className="dropdown_pic">
                                         <p >{dropdownAvatar}</p>
-                                        <p className="dropdown_name">{this.props.currentUser.first_name} {this.props.currentUser.last_name}</p>
+                                        <p className="dropdown-name">{this.props.currentUser.first_name} {this.props.currentUser.last_name}</p>
                                     </li>
                                     <li className="view_profile">
                                         <Link className="view_btn" to={`/users/${this.props.currentUser.id}`}>View profile</Link></li>

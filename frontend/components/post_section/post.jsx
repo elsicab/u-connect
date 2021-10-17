@@ -49,11 +49,10 @@ class Post extends React.Component {
                         <div className="feed_banner">
                             <img className="profile-banner" src={window.banner} />
                             <div className="avatar-sec">{avatar}</div>
-                            {/* <div className="add_banner_photo"><AiFillCamera/></div> */}
                         </div>
                         {profile}
                 </div>
-                  <div>    
+                  <div className="mid-section">    
                     <div className="post-container">
                         <div className="posting-header">
                             <div className="post_avatar">
