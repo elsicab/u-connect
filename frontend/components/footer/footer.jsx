@@ -13,6 +13,13 @@ function Footer(){
                         <a className="proj-link" target="_blank" rel="noopener noreferrer" href="https://angel.co/u/elsa-caballero">AngelList</a>
                     </div>
                 </div>
+                <div className="general-links">
+                    <h3>Projects</h3>
+                    <div className="dev-links">
+                        <a className="proj-link" target="_blank" rel="noopener noreferrer" href="https://elsicab.github.io/little-heist/">Little Heist</a>
+                        <a className="proj-link" target="_blank" rel="noopener noreferrer" href="https://come-what-may.herokuapp.com/#/">Come What May</a>
+                    </div>
+                </div>
                 <div className="technologies-used">
                     <h3>Technologies Implemented</h3>
                     <div className="technologies">

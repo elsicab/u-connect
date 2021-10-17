@@ -57,12 +57,12 @@ class HomePage extends React.Component {
             <div className="home-page">
                 <div className="navbar" id="home_nav"> 
                     <div className="header" id="header-home">
-                        <div className="left_nav">
+                        <div className="left-nav">
                             <img className="main_logo" src={window.mainlogo} />
                         </div>
-                        <div className="right_nav">
-                            <ul className="navbar_icons">
-                                <li className="navbar_icon"><SessionContainer /></li>
+                        <div className="right-nav">
+                            <ul className="navbar-icons">
+                                <li className="navbar-icon"><SessionContainer /></li>
                             </ul>  
                         </div>
                     </div>

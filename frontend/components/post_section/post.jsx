@@ -49,19 +49,17 @@ class Post extends React.Component {
                         <div className="feed_banner">
                             <img className="profile-banner" src={window.banner} />
                             <div className="avatar-sec">{avatar}</div>
-                            {/* <div className="add_banner_photo"><AiFillCamera/></div> */}
                         </div>
                         {profile}
                 </div>
-                  <div>    
+                  <div className="mid-section">    
                     <div className="post-container">
                         <div className="posting-header">
                             <div className="post_avatar">
                                 <div className="posting-avatar">{postingAvatar}</div>
                             </div>
                             <div className="posting_sec">
-                                <span className="button-text" onClick={this.handleSubmit}>Start a post</span>
-                                <button className="posting-button" onClick={this.handleSubmit}></button>
+                                <button className="posting-button" onClick={this.handleSubmit}>Start a post</button>
                             </div>
                         </div>
                         <ul className="post-icons">

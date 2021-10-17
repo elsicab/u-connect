@@ -1,7 +1,6 @@
 .navbar{
     display: flex;
-    width: 100vw;
-    // padding: 0 30px;
+    width: 100%;
     position: sticky;
     top: 0;
     left: 0;
@@ -11,22 +10,17 @@
     z-index: 100;
     background-color: white;
     font-family: sans-serif;
-
 }
 
 .header{
-    // align-items: center;
     display: flex;
-    // margin: 0 auto;
-    // min-height: 100%;
     width: 100%;
     text-align: center;
-    padding-left: 12vw;
-    padding-right: 12vw;
-    // border-bottom: 0.1px solid lightgray;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
-.nav_search{
+.nav-search{
     display: flex;
     align-items: center;
     padding: 10px;
@@ -37,13 +31,13 @@
     width: 300px;
 }
 
-.nav_search > input{
+.nav-search > input{
     outline: none;
     border: none;
     background: none;
 }
 
-.navbar_icons{
+.navbar-icons{
     display: flex;
     flex-wrap: nowrap;
     list-style-type: none;
@@ -51,12 +45,12 @@
     color: #00000099;
     align-items: center;
     float: right;
-    padding: 5px 20px;
+    padding: 5px 0;
     // font-size: 1.5rem;
     font-size: 28px;
 }
 
-.navbar_icon{
+.navbar-icon{
     display: flex;
     // align-items: center;
     cursor: pointer;
@@ -67,27 +61,27 @@
     align-items: center;
 }
 
-.single_icon{
+.single-icon{
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    margin-right: 20px;
-    margin-left: 20px;
+    // margin-right: 20px;
+    margin-left: 40px;
     color: gray;
 }
 
-.single_icon:hover{
+.single-icon:hover{
     color: black;
 }
 
-.right_nav, 
-.left_nav{
+.right-nav, 
+.left-nav{
     min-height: 52px;
     flex-basis: 100%;
 }
 
-.left_nav{
+.left-nav{
     display: flex;
 }
 
@@ -223,14 +217,14 @@
     align-items: center;
 }
 
-#single_icon,
+#single-icon,
 #network{
     text-decoration: none;
     color: gray;
     align-items: center;
 }
 
-#single_icon:hover,
+#single-icon:hover,
 #network:hover{
     color: black;
 }
@@ -242,7 +236,7 @@
     padding-right: 30px;
 }
 
-.dropdown_name{
+.dropdown-name{
     padding-left: 10px;
     font-size: 16px;
     color: black;
@@ -251,8 +245,22 @@
     margin-top: 30px;
 }
 
-.dropdown_avatar{
+.dropdown-avatar{
     width: 70px;
     height: 70px;
     border-radius: 50%;
+}
+
+@media screen and (max-width: 1484px){
+    .header{
+        margin-left: 13%;
+        margin-right: 13%;
+    }
+}
+
+@media screen and (max-width: 1410px){
+    .header{
+        margin-left: 12%;
+        margin-right: 12%;
+    }
 }
