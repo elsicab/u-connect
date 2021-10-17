@@ -50,11 +50,6 @@ class AddAvatar extends React.Component{
         }
         this.props.editUser(formData)
             .then(() => this.props.closeModal())
-        // this.setState({
-        //     body: '',
-        //     photoUrl: null,
-        //     photoFile: null
-        // });
     }
 
 

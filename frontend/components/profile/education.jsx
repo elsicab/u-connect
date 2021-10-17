@@ -1,11 +1,5 @@
 import React from 'react';
-import { BiCommentDetail } from 'react-icons/bi';
-import { AiOutlineLike } from 'react-icons/ai';
-import { BsPersonBoundingBox } from 'react-icons/bs';
-import { RiShareForwardLine } from 'react-icons/ri';
-import { IoIosSend } from 'react-icons/io';
 import { BiPencil } from 'react-icons/bi';
-import { FaTrashAlt } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 import { fetchEducations  } from '../../actions/education_actions';
@@ -49,7 +43,6 @@ class EducationIndex extends React.Component{
                         <p>{education.degree} in {education.field}</p>
                         <p className="year_loc">{education.start} - {education.end}</p> 
                         <p>{education.activities}</p> 
-                        {/* <p>{education.end}</p> */}
                     </div>
                     {editbutton}
                 </div>
@@ -70,8 +63,6 @@ class EducationIndex extends React.Component{
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    // errors: errors.session,
-    // educations: Object.values(state.entities.educations),
     currentUser: state.entities.users[state.session.currentUser],
     educations: Object.values(state.entities.educations).filter(
             education => {

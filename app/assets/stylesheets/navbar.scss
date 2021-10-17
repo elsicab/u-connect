@@ -41,18 +41,15 @@
     display: flex;
     flex-wrap: nowrap;
     list-style-type: none;
-    // color: rgb(109, 108, 108);
     color: #00000099;
     align-items: center;
     float: right;
     padding: 5px 0;
-    // font-size: 1.5rem;
     font-size: 28px;
 }
 
 .navbar-icon{
     display: flex;
-    // align-items: center;
     cursor: pointer;
     flex-direction: column;
     justify-content: center;
@@ -66,7 +63,6 @@
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    // margin-right: 20px;
     margin-left: 40px;
     color: gray;
 }

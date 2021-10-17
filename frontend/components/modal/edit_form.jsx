@@ -21,10 +21,6 @@ class EditForm extends React.Component{
         this.handleFile = this.handleFile.bind(this);
     }
 
-    // componentDidMount(){
-    //      this.props.fetchPost(this.props.postId);
-    // }
-
     handleFile(e){
         const reader = new FileReader();
         const file = e.currentTarget.files[0];
@@ -48,11 +44,6 @@ class EditForm extends React.Component{
         }
         this.props.editPost(formData)
             .then(() => this.props.closeModal())
-        // this.setState({
-        //     body: '',
-        //     photoUrl: null,
-        //     photoFile: null
-        // });
     }
 
     handleInput(type){

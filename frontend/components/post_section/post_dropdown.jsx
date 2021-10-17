@@ -38,8 +38,6 @@ class Dropdown extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    // errors: errors.session,
-    // postId: ownProps.id,
     post: ownProps.post,
     currentUser: state.entities.users[state.session.currentUser]
   };

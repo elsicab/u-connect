@@ -1,11 +1,5 @@
 import React from 'react';
-import { BiCommentDetail } from 'react-icons/bi';
-import { AiOutlineLike } from 'react-icons/ai';
-import { BsPersonBoundingBox } from 'react-icons/bs';
-import { RiShareForwardLine } from 'react-icons/ri';
-import { IoIosSend } from 'react-icons/io';
 import { BiPencil } from 'react-icons/bi';
-import { FaTrashAlt } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 import { fetchExperiences  } from '../../actions/experience_actions';
@@ -18,7 +12,6 @@ class ExperienceIndex extends React.Component{
          this.state = {
             experiences: this.props.experiences
         };
-        // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
@@ -71,8 +64,6 @@ class ExperienceIndex extends React.Component{
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    // errors: errors.session,
-    
     currentUser: state.entities.users[state.session.currentUser],
     experiences: Object.values(state.entities.experiences).filter(
             experience => {

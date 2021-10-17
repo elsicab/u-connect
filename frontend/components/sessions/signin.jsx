@@ -54,7 +54,6 @@ class Signin extends React.Component {
     render() {
         return (
             <div className="signin">
-                    {/*<img /> logo */}
                 <Link to="/"><img className="logo2" src={window.logo2} /></Link>
         
                 <form className="signin_form" onSubmit={this.handleSubmit}>
@@ -65,7 +64,6 @@ class Signin extends React.Component {
                     <input type="password" placeholder="Password" value={this.state.password} onChange={this.handleInput('password')} />
                     <p className="forgot_password">Forgot Password?</p>
                     <button onClick={this.handleSubmit} className="signin_button">Sign in</button>
-                    {/* <p> ---------------------------- or ----------------------------</p> */}
                     <button className="login_demo_button" onClick={this.handleDemo} >Demo User</button>
                 </form>
                 <div className="join_now">
@@ -77,5 +75,4 @@ class Signin extends React.Component {
     };
 };
 
-// export default withRouter(Signin);
 export default Signin;
