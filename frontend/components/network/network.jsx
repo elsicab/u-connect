@@ -8,11 +8,22 @@ import { SiAngellist } from 'react-icons/si';
 import SingleConnection from './network_connection';
 
 class Network extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            connections: this.props.connections
+        }
+    }
 
     componentDidMount(){
         this.props.fetchConnections();
     }
 
+    componentDidUpdate(prevProps){
+        if (this.state.connections != prevProps.connections) {
+            this.props.fetchConnections();
+        }
+    }
 
     render(){
         const showConnections = !this.props.connections ? <div></div> : 
