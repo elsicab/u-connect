@@ -13,7 +13,7 @@ class Api::EducationsController < ApplicationController
         @education = Education.new(education_params)
         @education.user_id = current_user.id
 
-        if @education.save!
+        if @education.save
             render 'api/educations/show'
         else
             render json: @education.errors.full_messages, status: 404

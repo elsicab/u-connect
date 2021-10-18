@@ -13,7 +13,7 @@ class Api::ProfilesController < ApplicationController
         @profile = Profile.new(profile_params)
         @profile.user_id = current_user.id
 
-        if @profile.save!
+        if @profile.save
             render 'api/profiles/show'
         else
             render json: @profile.errors.full_messages, status: 404
@@ -34,6 +34,5 @@ class Api::ProfilesController < ApplicationController
     private
     def profile_params
         params.permit(:pronouns, :headline, :country, :postal_code, :location, :industry)
-        # params.require(:profile).permit(:pronouns, :headline, :country, :postal_code, :location, :industry)
     end 
 end

@@ -1,11 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions'; 
 import { AiOutlineClose } from 'react-icons/ai';
-import { editEducation, deleteEducation } from '../../actions/education_actions';
-
-
+import { AiFillMinusCircle } from 'react-icons/ai';
+import { editEducation, deleteEducation, clearEducationErrors } from '../../actions/education_actions';
 
 class EduEdit extends React.Component{
     constructor(props){
@@ -18,13 +16,30 @@ class EduEdit extends React.Component{
             end: this.props.education.end,
             activities: this.props.education.activities, 
             gpa: this.props.education.gpa, 
-            id: this.props.education.id 
+            id: this.props.education.id,
         }
-        this.handleInput = this.handleInput.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+        
+        this.handleInput = this.handleInput.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleModal = this.handleModal.bind(this);
-        this.handleDelete = this.handleDelete.bind(this)
+        this.handleDelete = this.handleDelete.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
+    }
 
+    componentWillMount() {
+        if (this.props.errors.length > 0) this.props.clearEducationErrors()
+    }
+
+    renderErrors() {
+        return(
+        <ul className="errors">
+            {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`} className="error">
+                <AiFillMinusCircle/> {error}
+            </li>
+            ))}
+        </ul>
+        );
     }
 
     handleDelete(e){
@@ -54,7 +69,7 @@ class EduEdit extends React.Component{
         return (
             <div className="edu_modal">
                 <div className="edu_header">
-                    <h2>Add education</h2>
+                    <h2>Edit education</h2>
                     <p className="exit_edit" onClick={this.handleModal}><AiOutlineClose/></p>
                 </div>
                 <div className="school_input">
@@ -89,6 +104,7 @@ class EduEdit extends React.Component{
                      <button className="delete_btn" onClick={this.handleDelete}>Delete education</button>
                      <button className="save_button" onClick={this.handleSubmit}>Save</button>  
                 </div>   
+                {this.renderErrors()}
             </div>
         )
     }
@@ -97,13 +113,15 @@ class EduEdit extends React.Component{
 const mSTP = (state, ownProps) => ({
     currentUser: state.entities.users[state.session.currentUser], 
     eduId: ownProps.eduId,
-    education: state.entities.educations[ownProps.eduId]
+    education: state.entities.educations[ownProps.eduId],
+    errors: state.errors.educations
 });
 
 const mDTP = dispatch => ({
     editEducation: education => dispatch(editEducation(education)),
     closeModal: () => dispatch(closeModal()),
-    deleteEducation: eduId => dispatch(deleteEducation(eduId))
+    deleteEducation: eduId => dispatch(deleteEducation(eduId)),
+    clearEducationErrors: () => dispatch(clearEducationErrors())
 })
 
 export default connect(mSTP, mDTP)(EduEdit);

@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions'; 
 import { AiOutlineClose } from 'react-icons/ai';
+import { AiFillMinusCircle } from 'react-icons/ai';
 import { editExperience } from '../../actions/experience_actions';
-import { fetchExperiences, deleteExperience } from '../../actions/experience_actions';
+import { fetchExperiences, deleteExperience, clearExperienceErrors } from '../../actions/experience_actions';
 
 
 
@@ -21,15 +22,32 @@ class ExpEdit extends React.Component{
             description: this.props.experience.description,
             id: this.props.experience.id
         }
-        this.handleInput = this.handleInput.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleInput = this.handleInput.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleModal = this.handleModal.bind(this);
-        this.handleDelete = this.handleDelete.bind(this)
+        this.handleDelete = this.handleDelete.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
 
     }
 
     componentDidMount(){
         this.props.fetchExperiences();
+    }
+
+    componentWillMount() {
+        if (this.props.errors.length > 0) this.props.clearExperienceErrors()
+    }
+
+    renderErrors() {
+        return(
+        <ul className="errors">
+            {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`} className="error">
+                <AiFillMinusCircle/> {error}
+            </li>
+            ))}
+        </ul>
+        );
     }
 
     handleModal(e){
@@ -94,6 +112,7 @@ class ExpEdit extends React.Component{
                     <button className="delete_btn" onClick={this.handleDelete}>Delete experience</button>
                     <button className="save_button" onClick={this.handleSubmit}>Save</button>   
                 </div>  
+                {this.renderErrors()}
             </div>
         )
     }
@@ -102,16 +121,16 @@ class ExpEdit extends React.Component{
 const mSTP = (state, ownProps) => ({
     currentUser: state.entities.users[state.session.currentUser],
     expId: ownProps.expId,
-    experience: state.entities.experiences[ownProps.expId]
-    
+    experience: state.entities.experiences[ownProps.expId],
+    errors: state.errors.experiences
 });
 
 const mDTP = dispatch => ({
     editExperience: experience => dispatch(editExperience(experience)),
     closeModal: () => dispatch(closeModal()), 
     fetchExperiences: () => dispatch(fetchExperiences()),
-    deleteExperience: expId => dispatch(deleteExperience(expId))
-
+    deleteExperience: expId => dispatch(deleteExperience(expId)),
+    clearExperienceErrors: () => dispatch(clearExperienceErrors())
 })
 
 export default connect(mSTP, mDTP)(ExpEdit);

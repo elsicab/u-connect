@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions'; 
 import { AiOutlineClose } from 'react-icons/ai';
-import { createExperience } from '../../actions/experience_actions';
+import { createExperience, clearExperienceErrors } from '../../actions/experience_actions';
 import { fetchExperiences } from '../../actions/experience_actions';
-
-
+import { AiFillMinusCircle } from 'react-icons/ai';
 
 class ExpBasic extends React.Component{
     constructor(props){
@@ -20,14 +19,30 @@ class ExpBasic extends React.Component{
             industry: '',
             description: ''
         }
-        this.handleInput = this.handleInput.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleInput = this.handleInput.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleModal = this.handleModal.bind(this);
-
+        this.renderErrors = this.renderErrors.bind(this);
     }
 
     componentDidMount(){
         this.props.fetchExperiences();
+    }
+
+    componentWillMount() {
+        if (this.props.errors.length > 0) this.props.clearExperienceErrors()
+    }
+
+    renderErrors() {
+        return(
+        <ul className="errors">
+            {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`} className="error">
+                <AiFillMinusCircle/> {error}
+            </li>
+            ))}
+        </ul>
+        );
     }
 
     handleModal(e){
@@ -83,6 +98,7 @@ class ExpBasic extends React.Component{
                     <textarea value={this.state.description} onChange={this.handleInput('description')} name="" id="" cols="10" rows="3"></textarea>
                 </div>
                 <button className="save_button" onClick={this.handleSubmit}>Save</button>     
+                {this.renderErrors()}
             </div>
         )
     }
@@ -90,13 +106,14 @@ class ExpBasic extends React.Component{
 
 const mSTP = state => ({
     currentUser: state.entities.users[state.session.currentUser],
-    
+    errors: state.errors.experiences
 });
 
 const mDTP = dispatch => ({
     createExperience: experience => dispatch(createExperience(experience)),
     closeModal: () => dispatch(closeModal()), 
-    fetchExperiences: () => dispatch(fetchExperiences())
+    fetchExperiences: () => dispatch(fetchExperiences()),
+    clearExperienceErrors: () => dispatch(clearExperienceErrors())
 })
 
 export default connect(mSTP, mDTP)(ExpBasic);

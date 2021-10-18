@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions'; 
 import { AiOutlineClose } from 'react-icons/ai';
-import { createEducation } from '../../actions/education_actions';
+import { AiFillMinusCircle } from 'react-icons/ai';
+import { createEducation, clearEducationErrors } from '../../actions/education_actions';
 
 
 
@@ -22,7 +23,23 @@ class EduBasic extends React.Component{
         this.handleInput = this.handleInput.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleModal = this.handleModal.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
+    }
 
+    componentWillMount() {
+        if (this.props.errors.length > 0) this.props.clearEducationErrors()
+    }
+
+    renderErrors() {
+        return(
+        <ul className="errors">
+            {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`} className="error">
+                <AiFillMinusCircle/> {error}
+            </li>
+            ))}
+        </ul>
+        );
     }
 
     handleModal(e){
@@ -78,18 +95,21 @@ class EduBasic extends React.Component{
                     <textarea value={this.state.activities} onChange={this.handleInput('activities')} name="" id="" cols="10" rows="3"></textarea>
                 </div>                
                 <button className="save_button" onClick={this.handleSubmit}>Save</button>     
+                {this.renderErrors()}
             </div>
         )
     }
 }
 
 const mSTP = state => ({
-    currentUser: state.entities.users[state.session.currentUser]
+    currentUser: state.entities.users[state.session.currentUser],
+    errors: state.errors.educations
 });
 
 const mDTP = dispatch => ({
     createEducation: education => dispatch(createEducation(education)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    clearEducationErrors: () => dispatch(clearEducationErrors())
 })
 
 export default connect(mSTP, mDTP)(EduBasic);
