@@ -32,7 +32,7 @@ class EditBasic extends React.Component{
         return(
         <ul className="errors">
             {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`} className="error">
+            <li key={`error-${i}`} className="error. profile-errors">
                 <AiFillMinusCircle/> {error}
             </li>
             ))}

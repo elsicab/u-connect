@@ -34,7 +34,7 @@ class EduBasic extends React.Component{
         return(
         <ul className="errors">
             {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`} className="error">
+            <li key={`error-${i}`} className="error, education-errors" >
                 <AiFillMinusCircle/> {error}
             </li>
             ))}
@@ -69,6 +69,7 @@ class EduBasic extends React.Component{
                 <div className="school_input">
                     <label>School*</label>
                     <input value={this.state.school} onChange={this.handleInput('school')} type="text" />
+                    {this.renderErrors()}
                 </div>
                 <div className="degree">
                     <label>Degree </label>
@@ -95,7 +96,6 @@ class EduBasic extends React.Component{
                     <textarea value={this.state.activities} onChange={this.handleInput('activities')} name="" id="" cols="10" rows="3"></textarea>
                 </div>                
                 <button className="save_button" onClick={this.handleSubmit}>Save</button>     
-                {this.renderErrors()}
             </div>
         )
     }

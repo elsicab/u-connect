@@ -34,7 +34,7 @@ class EduEdit extends React.Component{
         return(
         <ul className="errors">
             {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`} className="error">
+            <li key={`error-${i}`} className="error, education-errors">
                 <AiFillMinusCircle/> {error}
             </li>
             ))}
@@ -75,6 +75,7 @@ class EduEdit extends React.Component{
                 <div className="school_input">
                     <label>School*</label>
                     <input value={this.state.school} onChange={this.handleInput('school')} type="text" />
+                    {this.renderErrors()}
                 </div>
                 <div className="degree">
                     <label>Degree </label>
@@ -104,7 +105,6 @@ class EduEdit extends React.Component{
                      <button className="delete_btn" onClick={this.handleDelete}>Delete education</button>
                      <button className="save_button" onClick={this.handleSubmit}>Save</button>  
                 </div>   
-                {this.renderErrors()}
             </div>
         )
     }

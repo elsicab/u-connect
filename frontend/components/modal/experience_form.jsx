@@ -37,7 +37,7 @@ class ExpBasic extends React.Component{
         return(
         <ul className="errors">
             {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`} className="error">
+            <li key={`error-${i}`} className="error, experience-errors">
                 <AiFillMinusCircle/> {error}
             </li>
             ))}

@@ -31,7 +31,7 @@ class CreateBasic extends React.Component{
         return(
         <ul className="errors">
             {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`} className="error">
+            <li key={`error-${i}`} className="error, profile-errors">
                 <AiFillMinusCircle/> {error}
             </li>
             ))}
@@ -70,7 +70,7 @@ class CreateBasic extends React.Component{
                     </div>
                     <div className="last_name_input">
                         <label>Last Name *</label>
-                        <input value={this.props.currentUser.last_name}type="text" />
+                        <input value={this.props.currentUser.last_name} type="text" />
                     </div>
                 </div>
                 <div className="pronouns">
