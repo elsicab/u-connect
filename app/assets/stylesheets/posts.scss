@@ -103,9 +103,10 @@
 
 .post-info{
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     padding: 10px;
     font-size: 2rem;
-
 }
 
 .post-text{
@@ -277,14 +278,6 @@
     float: right;
 }
 
-.dropdown-button:hover{
-    cursor: pointer;
-    border-radius: 50%;
-    background-color: rgb(205, 203, 203);
-    width: 25px;
-    padding-bottom: 1px 1px;;
-}
-
 .dropdown-post{
     display: flex;
     flex-direction: column;
@@ -293,6 +286,17 @@
 
 .show-dropdown{
     display: block;
+    border: 1px solid lightgray;
+    z-index: 1;
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 5px 0px;
+    position: absolute;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+.show-dropdown li{
+    padding: 8px;
 }
 
 .clear{
@@ -374,6 +378,11 @@
 
 .mid-section{
     margin: 0 10px;
+}
+
+.post-left-side{
+    display: flex;
+    flex-direction: row;
 }
 
 @media screen and (max-width: 1690px){

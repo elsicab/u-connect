@@ -68,7 +68,30 @@
     font-weight: 100;
 }
 
-#comment-dropdown{
-    padding-top: 5px;
+.dropdown-comment-dropdown{
+    cursor: pointer;
+    float: right;
+}
+
+#comment-dropdown svg{
     padding-right: 5px;
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+.comment-menu{
+    background: white;
+    position: absolute;
+    margin-right: 20px;
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 5px 0px;}
+
+#comment-dropdown > li{
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    
 }

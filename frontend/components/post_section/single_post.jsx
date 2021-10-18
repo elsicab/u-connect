@@ -84,21 +84,22 @@ class SinglePost extends React.Component{
             let likeCount = likes.length > 0 ? <div className="like-count"><div className="active-likes"><AiOutlineLike/></div> <div className="likes-num">{likes.length}</div> </div> : null
             let commentCount = comments.length > 0 ? <div onClick={this.showComment} className="comment-count">{comments.length} comments</div> : null
             return(
-            <div>
-                <div className="post-menu" >
-                    {dropdown}
-                </div>
-                
+            <div>        
                 <div className="post-info">
-                    <p>{avatarPost}</p>
-                    <div className="author-info">
-                        <div className="author-name">
-                            <p>{this.props.post?.author?.first_name}</p>
-                            <p>{this.props.post?.author?.last_name}</p>
+                    <div className="post-left-side">
+                        <p>{avatarPost}</p>
+                        <div className="author-info">
+                            <div className="author-name">
+                                <p>{this.props.post?.author?.first_name}</p>
+                                <p>{this.props.post?.author?.last_name}</p>
+                            </div>
+                            <div className="created">
+                                <p>{this.timepassed(this.props.post.created_at)}</p>
+                            </div>
                         </div>
-                        <div className="created">
-                            <p>{this.timepassed(this.props.post.created_at)}</p>
-                        </div>
+                    </div>
+                    <div className="post-menu" >
+                        {dropdown}
                     </div>
                 </div>
                 <div><img className= "post-image" src={this.props.post.photoUrl} /></div>
