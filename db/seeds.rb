@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
 
 User.destroy_all
 Post.destroy_all
@@ -24,6 +25,19 @@ user7 = User.create!(email: "vicky@martin.com", password: "password1", first_nam
 user8 = User.create!(email: "greta@navarro.com", password: "password1", first_name: "Greta", last_name: "Navarro")
 user9 = User.create!(email: "Deryl@miller.com", password: "password1", first_name: "Deryl", last_name: "Miller")
 user10 = User.create!(email: "adamn@marcs.com", password: "password1", first_name: "Adam", last_name: "Marcs")
+
+#Avatar 
+demo.avatar.attach(io: URI.open('https://wiredin-images.s3.amazonaws.com/demo.jpg'), filename: 'demo.jpg')
+user1.avatar.attach(io: URI.open('https://wiredin-images.s3.amazonaws.com/user1.jpg'), filename: 'user1.jpg')
+user2.avatar.attach(io: URI.open('https://wiredin-images.s3.amazonaws.com/user2.jpg'), filename: 'user2.jpg')
+user3.avatar.attach(io: URI.open('https://wiredin-images.s3.amazonaws.com/user3.jpg'), filename: 'user3.jpg')
+user4.avatar.attach(io: URI.open('https://wiredin-images.s3.amazonaws.com/user4.jpg'), filename: 'user4.jpg')
+user5.avatar.attach(io: URI.open('https://wiredin-images.s3.amazonaws.com/user5.jpg'), filename: 'user5.jpg')
+user6.avatar.attach(io: URI.open('https://wiredin-images.s3.amazonaws.com/user6.jpg'), filename: 'user6.jpg')
+user7.avatar.attach(io: URI.open('https://wiredin-images.s3.amazonaws.com/user7.jpg'), filename: 'user7.jpg')
+user8.avatar.attach(io: URI.open('https://wiredin-images.s3.amazonaws.com/user8.jpg'), filename: 'user8.jpg')
+user9.avatar.attach(io: URI.open('https://wiredin-images.s3.amazonaws.com/user9.jpg'), filename: 'user9.jpg')
+user10.avatar.attach(io: URI.open('https://wiredin-images.s3.amazonaws.com/user10.jpg'), filename: 'user10.jpg')
 
 #Posts
 post1 = Post.create!(body: "The best way to learn a new programming language is to build projects with it.", author_id: demo.id)
