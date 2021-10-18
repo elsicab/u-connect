@@ -13,6 +13,7 @@ class Network extends React.Component{
         this.props.fetchConnections();
     }
 
+
     render(){
         const showConnections = !this.props.connections ? <div></div> : 
         this.props.connections.reverse().map((connection, i) => {
