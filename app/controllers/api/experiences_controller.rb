@@ -13,7 +13,7 @@ class Api::ExperiencesController < ApplicationController
         @experience = Experience.new(experience_params)
         @experience.user_id = current_user.id
 
-        if @experience.save!
+        if @experience.save
             render 'api/experiences/show'
         else
             render json: @experience.errors.full_messages, status: 404

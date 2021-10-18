@@ -2,7 +2,6 @@ import { RECEIVE_EDUCATION_ERRORS, CLEAR_EDUCATION_ERRORS} from '../actions/educ
 
 const educationErrorsReducer = (state = [], action) => {
     Object.freeze(state);
-    debugger
     switch (action.type) {
       case RECEIVE_EDUCATION_ERRORS:
           return action.errors;
