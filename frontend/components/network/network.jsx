@@ -36,7 +36,7 @@ class Network extends React.Component{
                                 {showConnections}
                             </div>
                         </div>
-                        <div className="right_side">
+                        <div className="developer-content">
                             <div className="developer-info">
                                 <p>Ad</p>
                                 <div className="developer-main">

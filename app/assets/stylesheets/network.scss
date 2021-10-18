@@ -14,7 +14,6 @@
 .network-body{
     padding-left: 15%;
     padding-right: 15%;
-    align-items: center;
     padding-top: 30px;
     display: flex;
     flex-direction: row;
@@ -98,4 +97,9 @@
 
 .show-dropdown li{
     cursor: pointer;
+}
+
+.developer-content{
+    margin-top: 20px;
+    margin-left: 20px;
 }
