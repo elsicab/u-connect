@@ -69,10 +69,10 @@ class UserProfile extends React.Component{
         } 
 
         let connectButton = this.props.connections.length === 0 && this.props.profileUser.id != this.props.currentUser.id ? <button onClick={this.handleConnection} className="connect-button">Connnect</button> : null
+        
         let createUpdate = this.props.profile ? <div onClick={() => this.props.openModal('editBasic', this.props.profile.id)} className="edit_basic_info"><BiPencil/></div> : <div onClick={this.handleCreate} className="edit_basic_info"><BiPencil/></div>
         let renderCreate = this.props.profileUser.id == this.props.currentUser.id ? createUpdate : null
-        console.log(this.props.connections.length)
-        console.log(this.props.connections)
+
         let profileInfo =  this.props.profile ? 
                         <div className="info_section">
                             <div className="currentUser_info">
@@ -91,7 +91,7 @@ class UserProfile extends React.Component{
                                     <h2 className="username_profile">{this.props.profileUser.first_name} {this.props.profileUser.last_name}</h2>
                                 </div>
                             </div>
-                            <button onClick={this.handleConnection} className="connect-button">Connnect</button>
+                           {connectButton}
                         </div> 
 
         
@@ -167,6 +167,7 @@ const mSTP = (state, ownProps) => {
         currentUser: state.entities.users[state.session.currentUser],
         user: state.session.currentUser,
         modal: state.ui.modal,
+        userId: ownProps.match.params.userId,
         profileUser: state.entities.users[ownProps.match.params.userId],
         profile: Object.values(state.entities.profiles).filter(
             profile => {

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { FaTrashAlt } from 'react-icons/fa';
 import { BiPencil } from 'react-icons/bi';
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
-import { removeComment, editComment } from '../../actions/comment_action';
+import { removeComment, editComment, fetchComment } from '../../actions/comment_action';
 
 class SingleComment extends React.Component{
     constructor(props){
@@ -17,6 +17,18 @@ class SingleComment extends React.Component{
         this.handleEdit = this.handleEdit.bind(this)
         this.handleInput = this.handleInput.bind(this)
         this.handleComment = this.handleComment.bind(this)
+    }
+
+    componentWillReceiveProps(props) {
+        this.setState({
+            body: props.comment.body,
+        })
+    }
+
+    componentDidUpdate(prevProps){
+        if (this.state.body != prevProps.comment.body) {
+            this.props.fetchComment(this.props.comment.id);
+        }
     }
 
     handleShow(e){
@@ -93,7 +105,8 @@ const mSTP = (state, ownProps) => ({
 
 const mDTP = dispatch => ({
     removeComment: commentId => dispatch(removeComment(commentId)), 
-    editComment: comment => dispatch(editComment(comment))
+    editComment: comment => dispatch(editComment(comment)), 
+    fetchComment: commentId => dispatch(fetchComment(commentId))
 })
 
 export default connect(mSTP, mDTP)(SingleComment);

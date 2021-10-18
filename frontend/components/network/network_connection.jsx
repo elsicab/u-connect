@@ -23,18 +23,18 @@ class SingleConnection extends React.Component{
     timepassed(date) {
         let time = Date.now() - Date.parse(date)
         if (Math.floor(time / 604800000) > 0) {
-            return Math.floor(time / 604800000) + 'weeks'
+            return Math.floor(time / 604800000) + ' weeks'
         } else if (Math.floor(time / 86400000) > 0) {
-            return Math.floor(time / 86400000) + 'days'
+            return Math.floor(time / 86400000) + ' days'
         } else if (Math.floor(time / 3600000) > 0)
-            return Math.floor(time / 3600000) + 'hours'
+            return Math.floor(time / 3600000) + ' hours'
         else {
-            return Math.floor(time / 60000) + 'minutes'
+            return Math.floor(time / 60000) + ' minutes'
         }
     }
 
     render(){
-        const connectionAvatar = this.props.connection.connected.avatar ? <img className="connection-avatar" src={this.props.connection.connected.avatar} /> :
+        const connectionAvatar = this.props.connection?.connected?.avatar ? <img className="connection-avatar" src={this.props.connection.connected.avatar} /> :
                 <img className="connection-avatar" src={window.avatar} />
         return(
             <div className="single-connection">
@@ -44,12 +44,12 @@ class SingleConnection extends React.Component{
                         <div className="network-link">
                             <Link className="connection-link" to={`/users/${this.props.connection.connected_id}`}>
                                 <div className="connection-name">
-                                    <p>{this.props.connection.connected.first_name} {this.props.connection.connected.last_name}</p>
+                                    <p>{this.props.connection?.connected?.first_name} {this.props.connection?.connected?.last_name}</p>
                                 </div>
                             </Link>
                         </div>
                         <div className="connection-created-time">
-                            <p>Connected {this.timepassed(this.props.connection.created_at)} ago</p>
+                            <p>Connected {this.timepassed(this.props.connection?.created_at)} ago</p>
                         </div>
                     </div>
                     <div className="dropdown-post">
