@@ -1,11 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions'; 
 import { AiOutlineClose } from 'react-icons/ai';
-import { editProfile } from '../../actions/profile_actions';
-
-
+import { AiFillMinusCircle } from 'react-icons/ai';
+import { editProfile, clearProfileErrors } from '../../actions/profile_actions';
 
 class EditBasic extends React.Component{
     constructor(props){
@@ -19,10 +17,27 @@ class EditBasic extends React.Component{
             postal_code: this.props.profile.postal_code, 
             id: this.props.profile.id
         }
-        this.handleInput = this.handleInput.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleModal = this.handleModal.bind(this);
 
+        this.handleInput = this.handleInput.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleModal = this.handleModal.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
+    }
+
+    componentWillMount() {
+        if (this.props.errors.length > 0) this.props.clearProfileErrors()
+    }
+
+    renderErrors() {
+        return(
+        <ul className="errors">
+            {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`} className="error">
+                <AiFillMinusCircle/> {error}
+            </li>
+            ))}
+        </ul>
+        );
     }
 
     handleModal(e){
@@ -73,14 +88,6 @@ class EditBasic extends React.Component{
                     <label>Headline *</label>
                     <textarea value={this.state.headline} onChange={this.handleInput('headline')} name="" id="" cols="78" rows="2"></textarea>
                 </div>
-                {/* <div className="position">
-                    <label>Current Position</label>
-                    <input type="text" />
-                </div>
-                <div className="pick_edu">
-                    <label>Education</label>
-                    <input type="text" />
-                </div> */}
                 <div className="country">
                     <label>Country/Region *</label>
                     <input value={this.state.country} onChange={this.handleInput('country')}type="text" />
@@ -100,7 +107,8 @@ class EditBasic extends React.Component{
                     <input value={this.state.industry} onChange={this.handleInput('industry')} type="text" />
 
                 </div>
-                <button className="save_button" onClick={this.handleSubmit}>Save</button>     
+                <button className="save_button" onClick={this.handleSubmit}>Save</button>  
+                {this.renderErrors()}     
             </div>
         )
     }
@@ -109,12 +117,14 @@ class EditBasic extends React.Component{
 const mSTP = (state, ownProps) => ({
     currentUser: state.entities.users[state.session.currentUser], 
     profileId: ownProps.profileId, 
-    profile: state.entities.profiles[ownProps.profileId]
+    profile: state.entities.profiles[ownProps.profileId],
+    errors: state.errors.profile
 });
 
 const mDTP = dispatch => ({
     editProfile: profile => dispatch(editProfile(profile)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    clearProfileErrors: () => dispatch(clearProfileErrors())
 })
 
 export default connect(mSTP, mDTP)(EditBasic);

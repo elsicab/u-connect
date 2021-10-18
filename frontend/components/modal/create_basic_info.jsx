@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions'; 
 import { AiOutlineClose } from 'react-icons/ai';
-import { createProfile } from '../../actions/profile_actions';
-
+import { AiFillMinusCircle } from 'react-icons/ai';
+import { createProfile, clearProfileErrors } from '../../actions/profile_actions';
 
 
 class CreateBasic extends React.Component{
@@ -18,10 +17,26 @@ class CreateBasic extends React.Component{
             location: '',
             postal_code: ''
         }
-        this.handleInput = this.handleInput.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleInput = this.handleInput.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleModal = this.handleModal.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
+    }
 
+    componentWillMount() {
+        if (this.props.errors.length > 0) this.props.clearProfileErrors()
+    }
+
+    renderErrors() {
+        return(
+        <ul className="errors">
+            {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`} className="error">
+                <AiFillMinusCircle/> {error}
+            </li>
+            ))}
+        </ul>
+        );
     }
 
     handleModal(e){
@@ -72,14 +87,6 @@ class CreateBasic extends React.Component{
                     <label>Headline *</label>
                     <textarea value={this.state.headline} onChange={this.handleInput('headline')} name="" id="" cols="78" rows="2"></textarea>
                 </div>
-                {/* <div className="position">
-                    <label>Current Position</label>
-                    <input type="text" />
-                </div>
-                <div className="pick_edu">
-                    <label>Education</label>
-                    <input type="text" />
-                </div> */}
                 <div className="country">
                     <label>Country/Region *</label>
                     <input value={this.state.country} onChange={this.handleInput('country')}type="text" />
@@ -102,19 +109,21 @@ class CreateBasic extends React.Component{
                 <div className="btn_container">
                     <button className="save_button" onClick={this.handleSubmit}>Save</button>  
                 </div>
-                       
+                {this.renderErrors()}    
             </div>
         )
     }
 }
 
 const mSTP = state => ({
-    currentUser: state.entities.users[state.session.currentUser]
+    currentUser: state.entities.users[state.session.currentUser],
+    errors: state.errors.profile
 });
 
 const mDTP = dispatch => ({
     createProfile: profile => dispatch(createProfile(profile)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    clearProfileErrors: () => dispatch(clearProfileErrors())
 })
 
 export default connect(mSTP, mDTP)(CreateBasic);
