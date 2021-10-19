@@ -4,6 +4,8 @@ import { FaTrashAlt } from 'react-icons/fa';
 import { BiPencil } from 'react-icons/bi';
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import { removeComment, editComment, fetchComment } from '../../actions/comment_action';
+import { Link } from 'react-router-dom';
+
 
 class SingleComment extends React.Component{
     constructor(props){
@@ -83,10 +85,11 @@ class SingleComment extends React.Component{
                             </ul>
                     </div>
                     <div className="comment-author">
-                        <div className="author-name" id="comment-author-name">
-                            <p>{this.props.comment?.user?.first_name}</p>
-                            <p>{this.props.comment?.user?.last_name}</p>
-                        </div>
+                        <Link className="connection-link" to={`/users/${this.props.comment.author_id}`}>
+                            <div className="author-name" id="comment-author-name">
+                                <p>{this.props.comment?.user?.first_name} {this.props.comment?.user?.last_name}</p>
+                            </div>
+                        </Link>
                         <div className="comment-created">
                             <p>{this.timepassed(this.props.comment.created_at)}</p>
                         </div>

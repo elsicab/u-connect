@@ -147,11 +147,8 @@
 
 .author-name{
     color: #000000E6;
-    display: flex;
-}
-
-.author-name > p{
     margin-right: 5px;
+    font-weight: bold;
 }
 
 .created{
@@ -383,6 +380,11 @@
 .post-left-side{
     display: flex;
     flex-direction: row;
+}
+
+.author-name:hover{
+    text-decoration: underline;
+    color: #0A66C2;
 }
 
 @media screen and (max-width: 1690px){
