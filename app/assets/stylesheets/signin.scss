@@ -1,4 +1,4 @@
-.signin_form{
+.signin-form{
     display: flex;
     width: 350px;
     box-shadow: 0 4px 12px rgba(179, 179, 179, 0.7);
@@ -11,9 +11,9 @@
     line-height: 1.5;
     font-size: 1rem;
     font-family: sans-serif;
-    margin-top: 10%;
+    margin-top: 4%;
 }
-.signin_button{
+.signin-button{
     padding: 0 25px;
     height: 45px;
     background: #0A66C3;
@@ -27,11 +27,11 @@
     margin-bottom: 15px;
 }
 
-.join_now{
+.join-now{
     display: flex;
     flex-direction: row;
     justify-content: center;
-
+    margin-top: 25px;
 }
 
 .logo2{
@@ -39,20 +39,16 @@
     padding: 25px;
 }
 
-.signin_form > h2{
+.signin-form > h2{
     font-size: 2.5rem;
 }
 
-.join_now{
-    margin-top: 25px;
-}
-
-.signin_form > p{
+.signin-form > p{
     padding-top: 2px;
     padding-bottom: 20px;
 }
 
-.signin_form > input{
+.signin-form > input{
     height: 40px;
     margin-bottom: 15px;
 }
@@ -66,7 +62,7 @@
     font-weight: 500;
 }
 
-#link_signup{
+#link-signup{
     padding-left: 5px;
     text-decoration: none;
     color:  #0A66C2;

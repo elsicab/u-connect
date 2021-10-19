@@ -67,12 +67,12 @@ class EduEdit extends React.Component{
 
     render(){
         return (
-            <div className="edu_modal">
-                <div className="edu_header">
+            <div className="edu-modal">
+                <div className="edu-header">
                     <h2>Edit education</h2>
-                    <p className="exit_edit" onClick={this.handleModal}><AiOutlineClose/></p>
+                    <p className="exit-edit" onClick={this.handleModal}><AiOutlineClose/></p>
                 </div>
-                <div className="school_input">
+                <div className="school-input">
                     <label>School*</label>
                     <input value={this.state.school} onChange={this.handleInput('school')} type="text" />
                     {this.renderErrors()}
@@ -81,7 +81,7 @@ class EduEdit extends React.Component{
                     <label>Degree </label>
                     <input  value={this.state.degree} onChange={this.handleInput('degree')} type="text" />
                 </div>
-                <div className="field_study">
+                <div className="field-study">
                     <label>Field of study</label>
                     <input  value={this.state.field} onChange={this.handleInput('field')} type="text" />
                 </div>
@@ -101,9 +101,9 @@ class EduEdit extends React.Component{
                     <label>Activities and societies</label>
                     <textarea value={this.state.activities} onChange={this.handleInput('activities')} name="" id="" cols="10" rows="3"></textarea>
                 </div>                
-                <div className="profile_buttons">
-                     <button className="delete_btn" onClick={this.handleDelete}>Delete education</button>
-                     <button className="save_button" onClick={this.handleSubmit}>Save</button>  
+                <div className="profile-buttons">
+                     <button className="delete-btn" onClick={this.handleDelete}>Delete education</button>
+                     <button className="save-button" onClick={this.handleSubmit}>Save</button>  
                 </div>   
             </div>
         )

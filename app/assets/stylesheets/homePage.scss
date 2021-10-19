@@ -1,4 +1,4 @@
-.signin_banner{
+.signin-banner{
     display: flex;
     height: 700px;
     font-family: sans-serif;
@@ -11,22 +11,22 @@
     width: 100vw;
 }
 
-.hero_image{
+.hero-image{
     z-index: 0;
 }
 
-.banner_form{
+.banner-form{
     z-index: 1;
 }
 
-.hero_image, 
-.banner_form{
-    flex-basis: 100%;
+.hero-image, 
+.banner-form{
+    width: 50%;
     margin: 20px 15px;
     padding: 15px;
 }
 
-.main_form{
+.main-form{
     display: flex;
     width: 450px;
     flex-direction: column;
@@ -38,7 +38,7 @@
     font-size: 1rem;
 }
 
-.login_button{
+.login-button{
     padding: 0 25px;
     height: 45px;
     background: #0A66C3;
@@ -52,7 +52,7 @@
     cursor: pointer;
 }
 
-.login_demo_button{
+.login-demo-button{
     padding: 0 25px;
     height: 45px;
     border: 1px solid rgba(0,0,0,0.6);;
@@ -65,32 +65,32 @@
     background-color: white;
 }
 
-.banner_form > h1{
+.banner-form > h1{
     font-size: 48px;
     font-weight: lighter;
     margin-bottom: 20px;
     color: #0A66C3;
 }
 
-.main_form > p{
+.main-form > p{
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.main_form > input{
+.main-form > input{
     margin-top: 10px;
     margin-bottom: 10px;
     height: 44px;
     font-size: 12px;
 }
 
-.main_form > p:hover{
+.main-form > p:hover{
     color: #0A66C3;
     text-decoration: underline;
     cursor: pointer;
 }
 
-.info_banner{
+.info-banner{
     background-color: #faf9f7;
     display: flex;
     padding-top: 150px;
@@ -100,31 +100,35 @@
     font-family: sans-serif;
 }
 
-.info_banner > img{
+.info-banner > img{
     width: 400px;
     padding-left: 75px;
 }
 
-.banner_title{
+.banner-title{
     padding-top: 50px;
     font-size: 3rem;
     font-weight: 100;
     color: #2977c9;
 }
 
-.banner_body{
+.banner-body{
     font-weight: 100;
     font-size: 2rem;
     padding-top: 30px;
     color: rgba(0,0,0,0.9);
 }
 
-.create_image{
+.create-image{
     width: 100%;
     position:relative;
 }
 
-.signup_banner > div{
+.signup-banner{
+    width: 100%;
+}
+
+.signup-banner > div{
     margin-top: 70px;
     position: absolute;
     z-index: 5;
@@ -142,22 +146,22 @@
     }
 }
 
-#home_nav{
+#home-nav{
     position: relative;
     border: none;
 }
 
 
-.errors_main{
+.errors-main{
     padding-bottom: 2px;
 }
 
-.error_main{
+.error-main{
     color: #d11124;
     font-weight: 600;
 }
 
-#get_started_link{
+#get-started-link{
     text-decoration: none;
     color: white;
 }

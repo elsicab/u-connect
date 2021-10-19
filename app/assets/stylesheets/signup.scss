@@ -9,11 +9,11 @@
     position: relative;
     height: 100vh;
     width: 100vw;
-    padding-top: 50px;
+    // padding-top: 2%;
     font-family: sans-serif;
 }
 
-.signup_form{
+.signup-form{
     background-color: white;
     color: gray;
     width: 420px;
@@ -34,11 +34,11 @@
     line-height: 1.25;
     font-weight: 400;
     display: flex;
-    font-size: 2.2rem;
+    font-size: 2rem;
 
 }
 
-.signup_form > button{
+.signup-form > button{
     padding: 0 25px;
     height: 50px;
     background: #0A66C3;
@@ -57,7 +57,7 @@
     padding-top: 50px;
 }
 
-.signup_input{
+.signup-input{
     height: 32px;
     padding-top: 10px;
 }
@@ -67,7 +67,7 @@
     padding-top: 5px;
 }
 
-.fine_print{
+.fine-print{
     font-size: 12px;
     margin-top: -15px;
     text-align: center;

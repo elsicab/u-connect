@@ -64,20 +64,20 @@ class ExpBasic extends React.Component{
 
     render(){
         return (
-            <div className="edu_modal">
-                <div className="edu_header">
+            <div className="edu-modal">
+                <div className="edu-header">
                     <h2>Add experience</h2>
-                    <p className="exit_edit" onClick={this.handleModal}><AiOutlineClose/></p>
+                    <p className="exit-edit" onClick={this.handleModal}><AiOutlineClose/></p>
                 </div>
-                <div className="school_input">
+                <div className="school-input">
                     <label>Title*</label>
                     <input value={this.state.title} onChange={this.handleInput('title')} type="text" />
                 </div>
-                <div className="school_input">
+                <div className="school-input">
                     <label>Company name*</label>
                     <input value={this.state.company} onChange={this.handleInput('company')} type="text" />
                 </div>
-                <div className="school_input">
+                <div className="school-input">
                     <label>Location</label>
                     <input value={this.state.location} onChange={this.handleInput('location')} type="text" />
                 </div>
@@ -97,7 +97,7 @@ class ExpBasic extends React.Component{
                     <label>Description</label>
                     <textarea value={this.state.description} onChange={this.handleInput('description')} name="" id="" cols="10" rows="3"></textarea>
                 </div>
-                <button className="save_button" onClick={this.handleSubmit}>Save</button>     
+                <button className="save-button" onClick={this.handleSubmit}>Save</button>     
                 {this.renderErrors()}
             </div>
         )

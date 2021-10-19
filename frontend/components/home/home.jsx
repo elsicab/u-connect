@@ -42,9 +42,9 @@ class HomePage extends React.Component {
 
     renderErrors() {
         return(
-        <ul className="errors_main">
+        <ul className="errors-main">
             {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`} className="error_main">
+            <li key={`error-${i}`} className="error-main">
                 {error}
             </li>
             ))}
@@ -55,7 +55,7 @@ class HomePage extends React.Component {
     render(){
         return(
             <div className="home-page">
-                <div className="navbar-home" id="home_nav"> 
+                <div className="navbar-home" id="home-nav"> 
                     <div className="header-home">
                         <div className="left-nav">
                             <img className="main_logo" src={window.mainlogo} />
@@ -68,25 +68,25 @@ class HomePage extends React.Component {
                     </div>
                 </div>
                 <div className="main">
-                    <div className="signin_banner">
-                        <div className="banner_form">
+                    <div className="signin-banner">
+                        <div className="banner-form">
                             <h1>Welcome to your professional community</h1>
-                            <form className="main_form">
+                            <form className="main-form">
                                 {this.renderErrors()}
                                 <input className="home_input" type="text" placeholder="Email" value={this.state.email} onChange={this.handleInput('email')} />
                                 <input className="home_input" type="password" placeholder="Password" value={this.state.password} onChange={this.handleInput('password')}/>
-                                <button onClick={this.handleSubmit} className="login_button">Sign in</button>
-                                <button onClick={this.handleDemo} className="login_demo_button">Demo User</button>
+                                <button onClick={this.handleSubmit} className="login-button">Sign in</button>
+                                <button onClick={this.handleDemo} className="login-demo-button">Demo User</button>
                             </form>
                         </div>
-                        <img className="hero_image" src={window.hero} />
+                        <img className="hero-image" src={window.hero} />
                     </div>
-                    <div className="info_banner">
+                    <div className="info-banner">
                             <div className="banner_text">
-                                <div className="banner_title">
+                                <div className="banner-title">
                                     <p>Conversations today could lead to opportunity tomorrow</p>
                                 </div>
-                                <div className="banner_body">
+                                <div className="banner-body">
                                     <p>Sending messages to people you know is a great way to strengthen relationships 
                                         as you take the next step in your career</p>
                                 </div>
@@ -94,12 +94,12 @@ class HomePage extends React.Component {
                             <img className="banner_image" src={window.bannerimage} />
                     </div>
                     <div className="extra-space"></div>
-                    <div className="signup_banner">
+                    <div className="signup-banner">
                             <div>
                                 <p>Join your colleagues, classmates, and friends on WiredIn.</p>
-                                <button className="login_button"><Link id="get_started_link" to='/signup' >Get Started</Link></button>
+                                <button className="login-button"><Link id="get-started-link" to='/signup' >Get Started</Link></button>
                             </div>
-                            <img className="create_image" src={window.createimage} />
+                            <img className="create-image" src={window.createimage} />
                     </div>
                 </div>
                 <Footer />
