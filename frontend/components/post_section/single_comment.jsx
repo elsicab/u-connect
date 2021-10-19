@@ -28,7 +28,7 @@ class SingleComment extends React.Component{
         })
     }
 
-    componentDidUpdate(prevProps){
+    componentDidUpdate(prevProps, prevState){
         if (this.state.body != prevProps.comment.body) {
             this.props.fetchComment(this.props.comment.id);
         }
@@ -57,7 +57,7 @@ class SingleComment extends React.Component{
     handleComment(e){
         e.preventDefault();
         this.props.editComment({id: this.props.comment.id, post_id: this.props.postId, body: this.state.body})
-        .then(this.setState({editBody: false}))
+            .then(() => this.setState({ editBody: false }))
     }
 
     timepassed(date){
@@ -80,7 +80,8 @@ class SingleComment extends React.Component{
                                 <li onClick={() => this.props.removeComment(this.props.comment.id)}><FaTrashAlt/>  Delete </li>
                             </ul>
                     </div>
-        const commentBody = !this.state.editBody ? <div className="comment-text">{this.props.comment.body}</div> :
+
+        const commentBody = !this.state.editBody ? <div className="comment-text">{this.state.body}</div> :
            <div>
                 <textarea className="comment-box-edit" onChange={this.handleInput('body')} value={this.state.body}/>
                <div className="comment-btns">
@@ -88,8 +89,10 @@ class SingleComment extends React.Component{
                     <div className="cancel-comment-btn" onClick={this.handleCancel}>Cancel</div>
                </div>
            </div>
+
         const avatarComment = this.props.comment?.user?.avatar ? <img className= "avatar-index" src={this.props.comment?.user?.avatar} /> : 
             <img className="avatar-index" src={window.avatar} />
+            
         return(
             <div className="single-comment">
                 <div className="comment-avatar">{avatarComment}</div>                
