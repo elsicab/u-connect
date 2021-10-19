@@ -55,8 +55,8 @@ class HomePage extends React.Component {
     render(){
         return(
             <div className="home-page">
-                <div className="navbar" id="home_nav"> 
-                    <div className="header" id="header-home">
+                <div className="navbar-home" id="home_nav"> 
+                    <div className="header-home">
                         <div className="left-nav">
                             <img className="main_logo" src={window.mainlogo} />
                         </div>
