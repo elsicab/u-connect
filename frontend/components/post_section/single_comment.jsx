@@ -19,6 +19,7 @@ class SingleComment extends React.Component{
         this.handleEdit = this.handleEdit.bind(this)
         this.handleInput = this.handleInput.bind(this)
         this.handleComment = this.handleComment.bind(this)
+        this.handleCancel = this.handleCancel.bind(this)
     }
 
     componentWillReceiveProps(props) {
@@ -33,13 +34,18 @@ class SingleComment extends React.Component{
         }
     }
 
+    handleCancel(e){
+        e.preventDefault();
+        this.setState({editBody: false})
+    }
+
     handleShow(e){
         const newState = !this.state.show 
         this.setState({show: newState})
     }
 
     handleEdit(){
-        this.setState({editBody: true})
+        this.setState({editBody: true, show: false})
     }
 
     handleInput(type){
@@ -76,8 +82,11 @@ class SingleComment extends React.Component{
                     </div>
         const commentBody = !this.state.editBody ? <div className="comment-text">{this.props.comment.body}</div> :
            <div>
-                <textarea className="comment-box" onChange={this.handleInput('body')} value={this.state.body}/>
-                <div onClick={this.handleComment}>Save Changes</div>
+                <textarea className="comment-box-edit" onChange={this.handleInput('body')} value={this.state.body}/>
+               <div className="comment-btns">
+                    <div className="edit-comment-btn" onClick={this.handleComment}>Save Changes</div>
+                    <div className="cancel-comment-btn" onClick={this.handleCancel}>Cancel</div>
+               </div>
            </div>
         const avatarComment = this.props.comment?.user?.avatar ? <img className= "avatar-index" src={this.props.comment?.user?.avatar} /> : 
             <img className="avatar-index" src={window.avatar} />
