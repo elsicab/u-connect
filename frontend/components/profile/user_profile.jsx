@@ -83,6 +83,9 @@ class UserProfile extends React.Component{
                             </div>
                             <div className="headline_sec">{this.props.profile.headline}</div>
                             <div className="location">{this.props.profile.location}, {this.props.profile.country}</div>
+                            <div className="connection-count-profile">
+                                <p>{this.props.connectionCount.length} Connections</p>
+                            </div>
                             {connectButton}
                         </div> : 
                         <div className="info_section">
@@ -90,6 +93,9 @@ class UserProfile extends React.Component{
                                 <div className="name">
                                     <h2 className="username_profile">{this.props.profileUser.first_name} {this.props.profileUser.last_name}</h2>
                                 </div>
+                            </div>
+                            <div className="connection-count-profile">
+                                <p>{this.props.connectionCount.length} Connections</p>
                             </div>
                            {connectButton}
                         </div> 
@@ -173,7 +179,10 @@ const mSTP = (state, ownProps) => {
             profile => {
                 return profile.user_id == ownProps.match.params.userId}
         )[0],
-        connected: ownProps.match.params.userId
+        connected: ownProps.match.params.userId,
+        connectionCount: Object.values(state.entities.connections).filter(
+            connection => connection.connector_id == ownProps.match.params.userId
+        ),
     }   
    
 }

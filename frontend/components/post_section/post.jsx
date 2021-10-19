@@ -1,11 +1,11 @@
 import React from 'react';
 import { HiOutlinePhotograph } from 'react-icons/hi';
-import { AiFillPlaySquare } from 'react-icons/ai';;
 import PostIndexContainer from './post_index';
-import { fetchProfiles } from '../../actions/profile_actions';
 import { RiLinkedinLine } from 'react-icons/ri';
-import { FiGithub } from 'react-icons/fi'
-import { SiAngellist } from 'react-icons/si'
+import { FiGithub } from 'react-icons/fi';
+import { SiAngellist } from 'react-icons/si';
+import { Link } from 'react-router-dom';
+
 
 class Post extends React.Component {
     constructor(props){
@@ -51,6 +51,13 @@ class Post extends React.Component {
                             <div className="avatar-sec">{avatar}</div>
                         </div>
                         {profile}
+                        <div id="connection-count-feed">
+                            <Link className="connection-count-feed" to='/myNetwork'>
+                                <p>Connections</p>
+                                <div>{this.props.connectionCount.length}</div>
+                            </Link>
+                        </div>
+                        
                 </div>
                   <div className="mid-section">    
                     <div className="post-container">
@@ -67,10 +74,6 @@ class Post extends React.Component {
                                 <p className="photo-icon"><HiOutlinePhotograph /></p>
                                 <p>Photo</p>
                             </li>
-                            {/* <li className="post-icon" onClick={this.handleSubmit}>
-                                <p className="video-icon"><AiFillPlaySquare/></p>
-                                <p>Video</p>
-                            </li> */}
                         </ul>
                     </div>
                     <div className="posts_feed">
