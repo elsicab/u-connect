@@ -55,6 +55,10 @@ post9 = Post.create!(body: "I'm happy to announce that I have joined IBM as Appl
 post10 = Post.create!(body: "I'm looking for a sales managerial position. I have 5+ years floor experience and 2 years as assistant manager.", author_id: user6.id)
 post11 = Post.create!(body: "Very happy to have joined WiredIn, can't wait to connect with you all.", author_id: user10.id)
 
+#Post image
+post4.photo.attach(io: URI.open('https://wiredin-images.s3.amazonaws.com/post4.jpg'), filename: 'post4jpg')
+post5.photo.attach(io: URI.open('https://wiredin-images.s3.amazonaws.com/post5.jpg'), filename: 'post5.jpg')
+post11.photo.attach(io: URI.open('https://wiredin-images.s3.amazonaws.com/post11.jpg'), filename: 'post11.jpg')
 
 #Comments
 comment1 = Comment.create!(body: "Welcome! Glad to have you here.", author_id: demo.id, post_id: post11.id)
