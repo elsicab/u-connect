@@ -66,6 +66,14 @@ class SingleComment extends React.Component{
     }
 
     render(){
+        const dropdownMenu =  this.props.currentUser.id != this.props.comment.author_id ? null : 
+            <div className="dropdown-post" id="comment-dropdown">
+                        <div className="dropdown-comment-button" onClick={this.handleShow}><BiDotsHorizontalRounded/></div>
+                            <ul onClick={e => e.stopPropagation()} id="comment-dropdown" className={this.state.show ? "show-dropdown, comment-menu" : "clear"}>
+                                <li onClick={this.handleEdit}><BiPencil/>  Edit </li>
+                                <li onClick={() => this.props.removeComment(this.props.comment.id)}><FaTrashAlt/>  Delete </li>
+                            </ul>
+                    </div>
         const commentBody = !this.state.editBody ? <div className="comment-text">{this.props.comment.body}</div> :
            <div>
                 <textarea className="comment-box" onChange={this.handleInput('body')} value={this.state.body}/>
@@ -77,13 +85,7 @@ class SingleComment extends React.Component{
             <div className="single-comment">
                 <div className="comment-avatar">{avatarComment}</div>                
                 <div className="comment-main">
-                    <div className="dropdown-post" id="comment-dropdown">
-                        <div className="dropdown-comment-button" onClick={this.handleShow}><BiDotsHorizontalRounded/></div>
-                            <ul onClick={e => e.stopPropagation()} id="comment-dropdown" className={this.state.show ? "show-dropdown, comment-menu" : "clear"}>
-                                <li onClick={this.handleEdit}><BiPencil/>  Edit </li>
-                                <li onClick={() => this.props.removeComment(this.props.comment.id)}><FaTrashAlt/>  Delete </li>
-                            </ul>
-                    </div>
+                    {dropdownMenu}
                     <div className="comment-author">
                         <Link className="connection-link" to={`/users/${this.props.comment.author_id}`}>
                             <div className="author-name" id="comment-author-name">
@@ -103,7 +105,8 @@ class SingleComment extends React.Component{
 
 const mSTP = (state, ownProps) => ({
     postId: ownProps.postId,
-    comment: ownProps.comment
+    comment: ownProps.comment,
+    currentUser: state.entities.users[state.session.currentUser]
 })
 
 const mDTP = dispatch => ({
