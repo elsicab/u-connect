@@ -12,6 +12,9 @@ Post.destroy_all
 Profile.destroy_all
 Experience.destroy_all
 Education.destroy_all
+Comment.destroy_all
+Connection.destroy_all
+Like.destroy_all
 
 #Users
 demo = User.create!(email: "ecaballero3@live.com", password: "password", first_name: "Elsi", last_name: "Cab")
@@ -48,16 +51,70 @@ post5 = Post.create!(body: "The problem with troubleshooting is that trouble sho
 post6 = Post.create!(body: "Computers have lots of memory but no imagination.", author_id: user2.id)
 post7 = Post.create!(body: "I won’t be impressed with technology until I can download food.", author_id: user3.id)
 post8 = Post.create!(body: "Believe you can and you’re halfway there. ", author_id: user4.id)
-# post9 = Post.create!(body: , author_id: )
-# post10 = Post.create!(body: , author_id: )
-# post11 = Post.create!(body: , author_id: )
+post9 = Post.create!(body: "I'm happy to announce that I have joined IBM as Application Developer- DevOps.", author_id: user5.id)
+post10 = Post.create!(body: "I'm looking for a sales managerial position. I have 5+ years floor experience and 2 years as assistant manager.", author_id: user6.id)
+post11 = Post.create!(body: "Very happy to have joined WiredIn, can't wait to connect with you all.", author_id: user10.id)
+
+
+#Comments
+comment1 = Comment.create!(body: "Welcome! Glad to have you here.", author_id: demo.id, post_id: post11.id)
+comment2 = Comment.create!(body: "Congratulations! Hard work definitely pays off.", author_id: demo.id, post_id: post9.id)
+comment3 = Comment.create!(body: "...and that is why engineering will always exist", author_id: user10.id, post_id: post6.id)
+comment4 = Comment.create!(body: "Thats the spirit!", author_id: user5.id, post_id: post8.id)
+comment5 = Comment.create!(body: "Excited to have you here!", author_id: user9.id, post_id: post11.id)
+comment6 = Comment.create!(body: "Welcome", author_id: user9.id, post_id: post11.id)
+comment7 = Comment.create!(body: "Congratulations!!. You're going to kill it!", author_id: user8.id, post_id: post2.id)
+
+#Likes
+like1 = Like.create!(liker_id: demo.id, likeable_id: post11.id, likeable_type: "post")
+like2 = Like.create!(liker_id: user2.id, likeable_id: post11.id, likeable_type: "post")
+like3 = Like.create!(liker_id: user5.id, likeable_id: post11.id, likeable_type: "post")
+like4 = Like.create!(liker_id: user7.id, likeable_id: post11.id, likeable_type: "post")
+like5 = Like.create!(liker_id: user8.id, likeable_id: post11.id, likeable_type: "post")
+like6 = Like.create!(liker_id: user1.id, likeable_id: post1.id, likeable_type: "post")
+like7 = Like.create!(liker_id: demo.id, likeable_id: post3.id, likeable_type: "post")
+like8 = Like.create!(liker_id: demo.id, likeable_id: post5.id, likeable_type: "post")
+like9 = Like.create!(liker_id: user3.id, likeable_id: post4.id, likeable_type: "post")
+like10 = Like.create!(liker_id: user5.id, likeable_id: post4.id, likeable_type: "post")
+like11 = Like.create!(liker_id: user7.id, likeable_id: post4.id, likeable_type: "post")
+like12 = Like.create!(liker_id: user10.id, likeable_id: post9.id, likeable_type: "post")
+like13 = Like.create!(liker_id: user10.id, likeable_id: post8.id, likeable_type: "post")
+like14 = Like.create!(liker_id: user8.id, likeable_id: post8.id, likeable_type: "post")
+like15 = Like.create!(liker_id: user2.id, likeable_id: post1.id, likeable_type: "post")
+like16 = Like.create!(liker_id: user3.id, likeable_id: post1.id, likeable_type: "post")
+like17= Like.create!(liker_id: user7.id, likeable_id: post1.id, likeable_type: "post")
+like18 = Like.create!(liker_id: user9.id, likeable_id: post2.id, likeable_type: "post")
+like19 = Like.create!(liker_id: user10.id, likeable_id: post3.id, likeable_type: "post")
+like20 = Like.create!(liker_id: user10.id, likeable_id: post6.id, likeable_type: "post")
+
+
+#Connections
+connection1 = Connection.create!(connector_id: demo.id, connected_id: user1.id)
+connection2 = Connection.create!(connector_id: demo.id, connected_id: user2.id)
+connection3 = Connection.create!(connector_id: demo.id, connected_id: user3.id)
+connection4 = Connection.create!(connector_id: demo.id, connected_id: user4.id)
+connection5 = Connection.create!(connector_id: demo.id, connected_id: user5.id)
+connection6 = Connection.create!(connector_id: demo.id, connected_id: user6.id)
+connection7 = Connection.create!(connector_id: demo.id, connected_id: user7.id)
+connection8 = Connection.create!(connector_id: demo.id, connected_id: user8.id)
+connection9 = Connection.create!(connector_id: demo.id, connected_id: user9.id)
+connection10 = Connection.create!(connector_id: demo.id, connected_id: user10.id)
+connection11 = Connection.create!(connector_id: user2.id, connected_id: user1.id)
+connection12 = Connection.create!(connector_id: user3.id, connected_id: user1.id)
+connection13 = Connection.create!(connector_id: user4.id, connected_id: user1.id)
+connection14 = Connection.create!(connector_id: user5.id, connected_id: user1.id)
+connection15 = Connection.create!(connector_id: user3.id, connected_id: user2.id)
+connection16 = Connection.create!(connector_id: user9.id, connected_id: user1.id)
+connection17 = Connection.create!(connector_id: user10.id, connected_id: user1.id)
+connection18 = Connection.create!(connector_id: user6.id, connected_id: user1.id)
+connection19 = Connection.create!(connector_id: user3.id, connected_id: user9.id)
+connection20 = Connection.create!(connector_id: user4.id, connected_id: user3.id)
+connection21 = Connection.create!(connector_id: user5.id, connected_id: user4.id)
 
 #Profiles
 profile1 = Profile.create!(user_id: demo.id, pronouns: "She/Her", headline: "Creator of WiredIn ", country: "United States", postal_code: "33183", location: "Miami, FL", industry: "Software Development")
 profile2 = Profile.create!(user_id: user1.id, pronouns: "He/Him", headline: "Anyone hiring?", country: "United States", postal_code: "33183", location: "Miami, FL", industry: "Finance")
 profile3 = Profile.create!(user_id: user2.id, pronouns: "He/Him", headline: "It's a dogs world ", country: "United States", postal_code: "33183", location: "Miami, FL", industry: "Sleeping")
-
-
 
 #Educations
 education1 = Education.create!(user_id: demo.id, school: "App Academy", degree: "Certificate", field: "Software Development", start: "June 2021", end: "October 2021", activities: "", gpa: "")

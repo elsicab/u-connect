@@ -9,6 +9,15 @@
     margin-top: 20px;
 }
 
+.comment-box-edit{
+    margin: 10px 10px;
+    color: black;
+    font-weight: 100;
+    border: none;
+    background-color: transparent;
+    width: 95%;
+}
+
 .comment-body{
     margin: 0;
     margin-left: 10px;
@@ -49,6 +58,7 @@
     background-color: rgba(211, 211, 211, 0.454);
     width: 100%;
     border-radius: 10px;
+    padding-top: 5px;
 }
 
 .comment-author{
@@ -94,4 +104,46 @@
     font-size: 16px;
     display: block;
     
+}
+
+.comment-avatar{
+    padding-right: 5px;
+}
+
+.edit-comment-btn{
+    display: flex;
+    padding: 0 8px;
+    border: 1px solid #00000099;
+    border-radius: 20px;
+    color: #00000099;
+    font-size: 1rem;
+    font-weight: bolder;
+    line-height: 30px;
+    cursor: pointer;
+    font-size: 12px;
+    width: 85px;
+    text-align: center;
+}
+
+.cancel-comment-btn{
+    display: flex;
+    padding: 0 8px;
+    border: 1px solid #00000099;
+    border-radius: 20px;
+    color: #00000099;
+    font-size: 1rem;
+    font-weight: bolder;
+    line-height: 30px;
+    cursor: pointer;
+    font-size: 12px;
+    width: 40px;
+    text-align: center;
+}
+
+.comment-btns{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    width: 200px;
+    justify-content: space-between;
 }

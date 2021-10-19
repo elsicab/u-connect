@@ -7,6 +7,7 @@ import { removePost, fetchPosts  } from '../../actions/post_actions';
 import { createLike, fetchLikes, removeLike} from '../../actions/like_action'
 import Dropdown from './post_dropdown';
 import PostCommentContainer from './comment';
+import { Link } from 'react-router-dom';
 
 
 class SinglePost extends React.Component{
@@ -89,10 +90,11 @@ class SinglePost extends React.Component{
                     <div className="post-left-side">
                         <p>{avatarPost}</p>
                         <div className="author-info">
-                            <div className="author-name">
-                                <p>{this.props.post?.author?.first_name}</p>
-                                <p>{this.props.post?.author?.last_name}</p>
-                            </div>
+                            <Link className="connection-link" to={`/users/${this.props.post.author_id}`}>
+                                <div className="author-name">
+                                    <p>{this.props.post?.author?.first_name} {this.props.post?.author?.last_name}</p>
+                                </div>
+                            </Link>
                             <div className="created">
                                 <p>{this.timepassed(this.props.post.created_at)}</p>
                             </div>

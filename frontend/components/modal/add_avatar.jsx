@@ -20,7 +20,6 @@ class AddAvatar extends React.Component{
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleModal = this.handleModal.bind(this);
         this.handleFile = this.handleFile.bind(this);
-        this.handleDelete = this.handleDelete.bind(this);
     }
 
     componentWillUnmount(){
@@ -53,17 +52,6 @@ class AddAvatar extends React.Component{
             .then(() => this.props.closeModal())
     }
 
-    handleDelete(e){
-        e.preventDefault();
-        this.setState({ avatarUrl: "", avatarFile: null });
-        const formData = new FormData();
-        formData.set('user[id]', this.props.currentUser.id);
-        formData.set('user[avatar]', this.state.avatarFile);
-        this.props.editUser(formData)
-            .then(() => this.props.closeModal())
-    }
-
-
     handleModal(e){
         e.preventDefault();
         this.props.closeModal();
@@ -86,7 +74,7 @@ class AddAvatar extends React.Component{
                                     <p>Add photo</p>
                                 </label>
                             </li>
-                            <li onClick={this.handleDelete} className="avatar_icon">
+                            <li className="avatar_icon">
                                 <div><FaTrashAlt/></div>
                                 <p>Delete</p>
                             </li>
