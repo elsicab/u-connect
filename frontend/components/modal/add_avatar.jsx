@@ -1,7 +1,7 @@
 import React from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { AiFillCamera } from 'react-icons/ai';
-import { FaTrashAlt } from 'react-icons/fa';
+import { HiOutlinePencil } from 'react-icons/hi';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import { editUser } from '../../actions/user_actions';
@@ -74,9 +74,15 @@ class AddAvatar extends React.Component{
                                     <p>Add photo</p>
                                 </label>
                             </li>
-                            <li className="avatar_icon">
+                            {/* <li className="avatar_icon">
                                 <div><FaTrashAlt/></div>
                                 <p>Delete</p>
+                            </li> */}
+                            <li>
+                                <label className="avatar_icon">
+                                <div className="add_avatar"><HiOutlinePencil /><input id="file_input" onChange={this.handleFile} type="file" /></div>
+                                    <p>Edit</p>
+                                </label>
                             </li>
                         </ul>
                         <button onClick={this.handleSubmit} className="avatar_button">Upload</button>
