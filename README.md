@@ -3,6 +3,8 @@ WiredIn is a functional LinkedIn clone in which an user can create an account an
 
 ### Live Site: [WiredIn](https://w-in.herokuapp.com/#/)
 
+![App Overview Gid](https://media.giphy.com/media/4CTJDa2EqTdiE4wt7u/giphy.gif)
+
 ## How To Install
 * Clone repo using `git clone https://github.com/elsicab/wiredIn.git`
 * Run the following commands: 
@@ -72,6 +74,8 @@ function Modal({modal, closeModal, id}){
     }
 
 ```
+![App Overview Gid](https://media.giphy.com/media/evuXEs8okXcgo6nLH8/giphy.gif)
+
 
 * Handle file input through AWS storage 
 ```javascript
