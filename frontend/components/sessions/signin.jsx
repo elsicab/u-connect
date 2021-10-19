@@ -62,7 +62,6 @@ class Signin extends React.Component {
                     <input type="text" placeholder="Email" value={this.state.email} onChange={this.handleInput('email')} />
                     {this.renderErrors()}
                     <input type="password" placeholder="Password" value={this.state.password} onChange={this.handleInput('password')} />
-                    <p className="forgot_password">Forgot Password?</p>
                     <button onClick={this.handleSubmit} className="signin-button">Sign in</button>
                     <button className="login-demo-button" onClick={this.handleDemo} >Demo User</button>
                 </form>
