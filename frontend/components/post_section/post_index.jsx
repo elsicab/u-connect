@@ -48,10 +48,6 @@ class PostIndex extends React.Component{
 
     render(){
         if(!this.props.posts) return null
-        const avatar = this.props.currentUser.avatarUrl ? <img className= "avatar-profile" 
-            src={this.props.currentUser.avatarUrl} /> : <img className="avatar-profile" src={window.avatar} />
-        
-         
         const showPosts = this.props.posts.reverse().map((post, i) => {
             return(
             <div key={`${i}`} className="single-post">
