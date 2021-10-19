@@ -83,7 +83,7 @@
 
 .post-icon{
     display: flex;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 .post-icon > p{
@@ -151,6 +151,7 @@
 
 .post-interactions li{
     cursor: pointer;
+    padding: 5px;
 }
 
 .post-interactions li:hover {
@@ -224,7 +225,7 @@
 .posting-header{
     display: flex;
     flex-direction: row;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
 }
 
 .posting-avatar{
