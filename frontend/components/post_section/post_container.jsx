@@ -17,7 +17,8 @@ const mapStateToProps = state => {
       profile => profile.user_id == state.session.currentUser
     )[0],
     connectionCount: Object.values(state.entities.connections).filter(
-      connection => connection.connector_id == state.session.currentUser
+      connection => connection.connector_id == state.session.currentUser 
+      || connection.connected_id == state.session.currentUser
     ),
   };
 };

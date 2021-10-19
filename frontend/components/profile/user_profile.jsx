@@ -168,8 +168,10 @@ class UserProfile extends React.Component{
 const mSTP = (state, ownProps) => {
     return{
         connections: Object.values(state.entities.connections).filter(
-        connection => connection.connector_id == state.session.currentUser 
-                && connection.connected_id == ownProps.match.params.userId),
+        connection => (connection.connector_id == state.session.currentUser 
+                && connection.connected_id == ownProps.match.params.userId) || 
+                (connection.connected_id == state.session.currentUser
+                && connection.connector_id == ownProps.match.params.userId)),
         currentUser: state.entities.users[state.session.currentUser],
         user: state.session.currentUser,
         modal: state.ui.modal,
@@ -181,7 +183,8 @@ const mSTP = (state, ownProps) => {
         )[0],
         connected: ownProps.match.params.userId,
         connectionCount: Object.values(state.entities.connections).filter(
-            connection => connection.connector_id == ownProps.match.params.userId
+            connection => connection.connector_id == ownProps.match.params.userId 
+            || connection.connected_id == ownProps.match.params.userId 
         ),
     }   
    
