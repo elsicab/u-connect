@@ -1,4 +1,4 @@
-.edu_modal{
+.edu-modal{
     background-color:  white;
     color: #00000099;
     width: 650px;
@@ -7,26 +7,25 @@
     border-radius: 10px;
     border: .5px solid lightgray;
     font-family: sans-serif;
-
 }
 
-.edu_header{
+.edu-header{
     display: flex;
     justify-content: space-between;
     font-size: 1.2rem;
     color: black;
-    padding-bottom: 24px;
+    padding-bottom: 20px;
     border-bottom: 0.2px solid lightgray;
-    padding: 24px;
+    padding: 20px;
 }
 
-.exit_edit{
+.exit-edit{
     color:  #00000099;
 }
 
-.school_input, 
+.school-input, 
 .degree, 
-.field_study, 
+.field-study, 
 .start, 
 .end,
 .gpa,
@@ -34,7 +33,7 @@
 .description{
     display: flex;
     flex-direction: column;
-    padding: 15px;
+    padding: 10px 15px;
 }
 
 .description{
@@ -42,7 +41,7 @@
 
 }
 
-.save_button{
+.save-button{
     display: flex;
     justify-content: right;
     margin: 15px 15px;
@@ -52,17 +51,18 @@
     font-size: 16px;
     padding: 10px 20px;
     border: 1px solid white;
+    cursor: pointer;
 }
 
 input{
     height: 20px;
 }
 
-.btn_container{
+.btn-container{
     margin: 0 auto;
 }
 
-.delete_btn{
+.delete-btn{
     display: flex;
     justify-content: right;
     margin: 15px 15px;
@@ -75,14 +75,10 @@ input{
     cursor: pointer;
 }
 
-.profile_buttons{
+.profile-buttons{
     display: flex;
     justify-content: space-between;
     
-}
-
-.save_button{
-    cursor: pointer;
 }
 
 .education-errors{

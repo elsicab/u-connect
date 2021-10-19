@@ -61,7 +61,7 @@ class CreateBasic extends React.Component{
             <div className="edit_modal">
                 <div className="edit_header">
                     <h2>Edit intro</h2>
-                    <p className="exit_edit" onClick={this.handleModal}><AiOutlineClose/></p>
+                    <p className="exit-edit" onClick={this.handleModal}><AiOutlineClose/></p>
                 </div>
                 <div className="name_input">
                     <div className="first_name_input">
@@ -106,8 +106,8 @@ class CreateBasic extends React.Component{
                     <input value={this.state.industry} onChange={this.handleInput('industry')} type="text" />
 
                 </div >
-                <div className="btn_container">
-                    <button className="save_button" onClick={this.handleSubmit}>Save</button>  
+                <div className="btn-container">
+                    <button className="save-button" onClick={this.handleSubmit}>Save</button>  
                 </div>
                 {this.renderErrors()}    
             </div>

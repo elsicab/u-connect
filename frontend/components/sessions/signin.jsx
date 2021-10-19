@@ -56,19 +56,19 @@ class Signin extends React.Component {
             <div className="signin">
                 <Link to="/"><img className="logo2" src={window.logo2} /></Link>
         
-                <form className="signin_form" onSubmit={this.handleSubmit}>
+                <form className="signin-form" onSubmit={this.handleSubmit}>
                     <h2>Sign in</h2>
                     <p>Stay updated on your professional world</p>  
                     <input type="text" placeholder="Email" value={this.state.email} onChange={this.handleInput('email')} />
                     {this.renderErrors()}
                     <input type="password" placeholder="Password" value={this.state.password} onChange={this.handleInput('password')} />
                     <p className="forgot_password">Forgot Password?</p>
-                    <button onClick={this.handleSubmit} className="signin_button">Sign in</button>
-                    <button className="login_demo_button" onClick={this.handleDemo} >Demo User</button>
+                    <button onClick={this.handleSubmit} className="signin-button">Sign in</button>
+                    <button className="login-demo-button" onClick={this.handleDemo} >Demo User</button>
                 </form>
-                <div className="join_now">
+                <div className="join-now">
                     <p>New to wiredIn?</p>
-                    <Link id="link_signup" to="/signup" >Join now</Link>
+                    <Link id="link-signup" to="/signup" >Join now</Link>
                 </div>
             </div>
         )

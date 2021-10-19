@@ -47,21 +47,21 @@ class Signup extends React.Component {
             <div className="signup">
                 <Link to='/'><img className="logo3" src={window.logo3} /></Link>
                 <h2 className="banner">Make the most of your professional life</h2>
-                <form className="signup_form">
+                <form className="signup-form">
                     <label className="label">First Name</label>
-                        <input className="signup_input" type="text" value={this.state.first_name} onChange={this.handleInput('first_name')} />
+                        <input className="signup-input" type="text" value={this.state.first_name} onChange={this.handleInput('first_name')} />
                     
                     <label className="label">Last Name</label>
-                        <input className="signup_input" type="text" value={this.state.last_name} onChange={this.handleInput('last_name')} />
+                        <input className="signup-input" type="text" value={this.state.last_name} onChange={this.handleInput('last_name')} />
                     
                     <label className="label">Email</label>
-                        <input className="signup_input" type="text" value={this.state.email} onChange={this.handleInput('email')} />
+                        <input className="signup-input" type="text" value={this.state.email} onChange={this.handleInput('email')} />
                     
                     <label className="label">Password (6 or more characters)</label>
-                        <input className="signup_input" type="password" value={this.state.password} onChange={this.handleInput('password')} />
+                        <input className="signup-input" type="password" value={this.state.password} onChange={this.handleInput('password')} />
                     {this.renderErrors()}
                     
-                    <p className="fine_print">By clicking Agree & Join, you agree to the wiredIn User Agreement, Privacy Policy, and Cookie Policy</p>
+                    <p className="fine-print">By clicking Agree & Join, you agree to the wiredIn User Agreement, Privacy Policy, and Cookie Policy</p>
                     <button onClick={this.handleSubmit} className="signup_button">Agree & Join</button>
                 </form>
             </div>
