@@ -85,9 +85,6 @@ class PostForm extends React.Component{
                                     <input id = "file_input" onChange={this.handleFile} type="file"/>
                                 </label>
                             </li>
-                            <li className="attach_icon"><AiFillPlaySquare/></li>
-                            <li className="attach_icon"><RiCalendarEventFill/></li>
-                            <li className="attach_icon"><RiArticleLine/></li>
                         </ul>
                     <button disabled={!this.state.body} onClick={this.handleSubmit} className={this.state.body ? "post_button" : "post_button_disabled"}>Post</button>
                     </div>

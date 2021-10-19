@@ -35,7 +35,7 @@ class Navbar extends React.Component {
                         <img className="logo" src={window.logo} />
                         <div className="nav-search">
                             <FaSearch />
-                            <input type="text" placeholder="Search"></input>
+                            <input type="text" placeholder="Search" disabled></input>
                         </div>
                     </div>
                     <div className="right-nav">

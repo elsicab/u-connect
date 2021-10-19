@@ -67,10 +67,10 @@ class Post extends React.Component {
                                 <p className="photo-icon"><HiOutlinePhotograph /></p>
                                 <p>Photo</p>
                             </li>
-                            <li className="post-icon" onClick={this.handleSubmit}>
+                            {/* <li className="post-icon" onClick={this.handleSubmit}>
                                 <p className="video-icon"><AiFillPlaySquare/></p>
                                 <p>Video</p>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                     <div className="posts_feed">
