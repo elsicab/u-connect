@@ -14,9 +14,9 @@
     justify-content: space-between;
     font-size: 1.2rem;
     color: black;
-    padding-bottom: 18px;
+    padding-bottom: 16px;
     border-bottom: 0.2px solid lightgray;
-    padding: 18px;
+    padding: 16px;
 }
 
 .exit-edit{
@@ -33,7 +33,7 @@
 .description{
     display: flex;
     flex-direction: column;
-    padding: 8px 15px;
+    padding: 6px 15px;
 }
 
 .description{
@@ -69,10 +69,24 @@ input{
     color: #00000099;
     border-radius: 20px;
     background-color: white;
-    font-size: 16px;
-    padding: 10px 20px;
+    font-size: 14px;
+    padding: 8px 20px;
     border: 1px solid #00000099;
     cursor: pointer;
+}
+
+.save-btn{
+    display: flex;
+    justify-content: right;
+    margin: 15px 15px;
+    color: white;
+    border-radius: 20px;
+    background-color: white;
+    font-size: 14px;
+    padding: 8px 20px;
+    border: 1px solid white;
+    cursor: pointer;
+    background-color: #0A66C2;
 }
 
 .profile-buttons{

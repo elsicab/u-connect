@@ -58,17 +58,17 @@ class CreateBasic extends React.Component{
 
     render(){
         return (
-            <div className="edit_modal">
-                <div className="edit_header">
+            <div className="edit-modal">
+                <div className="edit-header">
                     <h2>Edit intro</h2>
                     <p className="exit-edit" onClick={this.handleModal}><AiOutlineClose/></p>
                 </div>
-                <div className="name_input">
-                    <div className="first_name_input">
+                <div className="name-input">
+                    <div className="first-name-input">
                         <label>First Name *</label>
                         <input value={this.props.currentUser.first_name} type="text" />
                     </div>
-                    <div className="last_name_input">
+                    <div className="last-name-input">
                         <label>Last Name *</label>
                         <input value={this.props.currentUser.last_name} type="text" />
                     </div>
@@ -91,7 +91,7 @@ class CreateBasic extends React.Component{
                     <label>Country/Region *</label>
                     <input value={this.state.country} onChange={this.handleInput('country')}type="text" />
                 </div>
-                <div className="postal_sec">
+                <div className="postal-sec">
                     <div className="postal_code">
                         <label>Postal Code</label>
                         <input value={this.state.postal_code} onChange={this.handleInput('postal_code')} type="text" />
