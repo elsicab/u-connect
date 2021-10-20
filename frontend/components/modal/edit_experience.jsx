@@ -110,7 +110,7 @@ class ExpEdit extends React.Component{
                 </div>
                 <div className="profile-buttons">
                     <button className="delete-btn" onClick={this.handleDelete}>Delete experience</button>
-                    <button className="save-button" onClick={this.handleSubmit}>Save</button>   
+                    <button className="save-btn" onClick={this.handleSubmit}>Save</button>   
                 </div>  
                 {this.renderErrors()}
             </div>
