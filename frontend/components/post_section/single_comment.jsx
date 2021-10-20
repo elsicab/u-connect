@@ -81,7 +81,7 @@ class SingleComment extends React.Component{
                         <div className="dropdown-comment-button" onClick={this.handleShow}><BiDotsHorizontalRounded/></div>
                             <ul onClick={e => e.stopPropagation()} id="comment-dropdown" className={this.state.show ? "show-dropdown, comment-menu" : "clear"}>
                                 <li onClick={this.handleEdit}><BiPencil/>  Edit </li>
-                                <li onClick={() => this.props.removeComment(this.props.comment.id)}><FaTrashAlt/>  Delete </li>
+                                <li onClick={() => this.props.removeComment(this.props.comment.id).then(this.setState({show: false}))}><FaTrashAlt/>  Delete </li>
                             </ul>
                     </div>
 
