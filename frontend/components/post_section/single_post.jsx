@@ -51,7 +51,11 @@ class SinglePost extends React.Component{
     }
 
     showComment(e){
-        this.setState({showComment: true})
+        if(!this.state.showComment){
+            this.setState({ showComment: true })
+        }else{
+            this.setState({ showComment: false })
+        }
     }
 
     componentDidMount() {
