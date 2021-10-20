@@ -119,7 +119,7 @@ class SinglePost extends React.Component{
                     <li onClick={this.showComment}><FaRegCommentDots/ >  Comment</li>
                 </ul>
                 <div className={this.state.showComment ? "show-comment" : "clear"}>
-                    <PostCommentContainer postId={this.props.post.id}/>
+                    <PostCommentContainer postId={this.props.post.id} comments={this.props.comments}/>
                 </div>
             </div>
         );

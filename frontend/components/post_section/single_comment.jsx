@@ -13,7 +13,9 @@ class SingleComment extends React.Component{
         this.state = {
             show: false,
             editBody: false,
-            body: this.props.comment.body
+            body: this.props.comment.body,
+            id: this.props.comment.id,
+            post_id: this.props.postId,
         }
         this.handleShow = this.handleShow.bind(this)
         this.handleEdit = this.handleEdit.bind(this)
@@ -24,15 +26,17 @@ class SingleComment extends React.Component{
 
     componentWillReceiveProps(props) {
         this.setState({
+            id: props.comment.id,
+            post_id: props.postId,
             body: props.comment.body,
         })
     }
 
-    componentDidUpdate(prevProps, prevState){
-        if (this.state.body != prevProps.comment.body) {
-            this.props.fetchComment(this.props.comment.id);
-        }
-    }
+    // componentDidUpdate(prevProps, prevState){
+    //     if (this.state.body != prevProps.comment.body) {
+    //         this.props.fetchComment(this.props.comment.id);
+    //     }
+    // }
 
     handleCancel(e){
         e.preventDefault();
@@ -56,7 +60,7 @@ class SingleComment extends React.Component{
 
     handleComment(e){
         e.preventDefault();
-        this.props.editComment({id: this.props.comment.id, post_id: this.props.postId, body: this.state.body})
+        this.props.editComment({id: this.props.comment.id, post_id: this.state.postId, body: this.state.body})
             .then(() => this.setState({ editBody: false }))
     }
 

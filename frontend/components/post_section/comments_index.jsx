@@ -35,6 +35,7 @@ class CommentIndex extends React.Component{
 
 const mSTP = (state, ownProps) => ({
     postId: ownProps.postId,
+    allComment: ownProps.comments,
     comments: Object.values(state.entities.comments).filter(comment =>
         comment.post_id === ownProps.postId)
 })
