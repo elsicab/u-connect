@@ -9,6 +9,18 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     
+    <meta property="og:title" content="WiredIn" />
+     <meta property='og:image' content="<%= image_url('project_pic.png') %>"/>
+     <meta property="og:description"
+       content="WiredIn is a functional LinkedIn clone in which a user can create
+       an account and profile and connect with other members. The user has the ability 
+       to create, edit and delete posts as well as edit all basic profile information. 
+       They may also view other memeber's profiles."
+     />
+     <meta property="og:url"
+       content="http://w-in.herokuapp.com/"
+     />
+
      <link rel="shortcut icon" type="image/jpg" href="<%= image_url('LI-In-Bug.png') %>" />
 
     <script type="text/javascript"> window.mainlogo = "<%= image_url('wiredIn_logo.png') %>"</script>
