@@ -34,11 +34,13 @@ class SingleConnection extends React.Component{
     }
 
     render(){
-        const connectionAvatar = this.props.connection?.connected?.avatar ? <img className="connection-avatar" src={this.props.connection.connected.avatar} /> :
-                <img className="connection-avatar" src={window.avatar} />
-        return(
+        // const connectionAvatar = this.props.connection?.connected?.avatar ? <img className="connection-avatar" src={this.props.connection.connected.avatar} /> :
+        //         <img className="connection-avatar" src={window.avatar} />
+        
+        const connection = this.props.connection.connected_id != this.props.currentUser ?
             <div className="single-connection">
-                <div>{connectionAvatar}</div>
+                {this.props.connection?.connected?.avatar ? <img className="connection-avatar" src={this.props.connection.connected.avatar} /> :
+                    <img className="connection-avatar" src={window.avatar} />}
                 <div id="connection-main">
                     <div className="connection-info">
                         <div className="network-link">
@@ -59,13 +61,42 @@ class SingleConnection extends React.Component{
                         </ul>
                     </div>
                 </div>
+            </div> :
+            <div className="single-connection">
+                {this.props.connection?.connector?.avatar ? <img className="connection-avatar" src={this.props.connection.connector.avatar} /> :
+                    <img className="connection-avatar" src={window.avatar} />}
+                <div id="connection-main">
+                    <div className="connection-info">
+                        <div className="network-link">
+                            <Link className="connection-link" to={`/users/${this.props.connection.connector_id}`}>
+                                <div className="connection-name">
+                                    <p>{this.props.connection?.connector?.first_name} {this.props.connection?.connector?.last_name}</p>
+                                </div>
+                            </Link>
+                        </div>
+                        <div className="connection-created-time">
+                            <p>Connected {this.timepassed(this.props.connection?.created_at)} ago</p>
+                        </div>
+                    </div>
+                    <div className="dropdown-post">
+                        <div className="dropdown-button" onClick={this.handleShow}><BiDotsHorizontalRounded /></div>
+                        <ul onClick={e => e.stopPropagation()} className={this.state.show ? "show-dropdown" : "clear"}>
+                            <li onClick={() => this.props.removeConnection(this.props.connection.id)}><FaTrashAlt />  Remove connection </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+        return(
+           <div>
+                {connection}
+           </div>
         )
     }
 }
 
 const mSTP = (state, ownProps) => ({
-    connection: ownProps.connection
+    connection: ownProps.connection,
+    currentUser: state.session.currentUser
 });
 
 const mDTP = dispatch => ({

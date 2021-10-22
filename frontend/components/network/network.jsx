@@ -75,7 +75,8 @@ class Network extends React.Component{
 const mSTP = state => ({
     currentUser: state.entities.users[state.session.currentUser],
     connections: Object.values(state.entities.connections).filter(
-        connection => connection.connector_id == state.session.currentUser
+        connection => connection.connector_id == state.session.currentUser 
+            || connection.connected_id == state.session.currentUser
     ),
 });
 
