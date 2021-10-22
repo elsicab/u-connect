@@ -4,11 +4,14 @@ import { closeModal } from '../../actions/modal_actions';
 import { AiOutlineClose } from 'react-icons/ai';
 import { AiFillMinusCircle } from 'react-icons/ai';
 import { editProfile, clearProfileErrors } from '../../actions/profile_actions';
+import { editUser } from '../../actions/user_actions';
 
 class EditBasic extends React.Component{
     constructor(props){
         super(props)
         this.state = {
+            first_name: this.props.currentUser.first_name, 
+            last_name: this.props.currentUser.last_name,
             pronouns: this.props.profile.pronouns,
             headline: this.props.profile.headline,
             country: this.props.profile.country,
@@ -53,6 +56,14 @@ class EditBasic extends React.Component{
 
     handleSubmit(e){
         e.preventDefault();
+        if(this.state.first_name != this.props.currentUser.first_name 
+            || this.state.last_name != this.props.currentUser.last_name ){
+                const formData = new FormData();
+                formData.append('user[id]', this.props.currentUser.id);
+                formData.append('user[first_name]', this.state.first_name);
+                formData.append('user[last_name]', this.state.last_name);
+                this.props.editUser(formData)
+            }
         this.props.editProfile(this.state)
             .then(() => this.props.closeModal())
     }
@@ -67,11 +78,11 @@ class EditBasic extends React.Component{
                 <div className="name-input">
                     <div className="first-name-input">
                         <label>First Name *</label>
-                        <input value={this.props.currentUser.first_name} type="text" />
+                        <input value={this.state.first_name} onChange={this.handleInput('first_name')} type="text" />
                     </div>
                     <div className="last-name-input">
                         <label>Last Name *</label>
-                        <input value={this.props.currentUser.last_name}type="text" />
+                        <input value={this.state.last_name} onChange={this.handleInput('last_name')} type="text" />
                     </div>
                 </div>
                 <div className="pronouns">
@@ -124,7 +135,8 @@ const mSTP = (state, ownProps) => ({
 const mDTP = dispatch => ({
     editProfile: profile => dispatch(editProfile(profile)),
     closeModal: () => dispatch(closeModal()),
-    clearProfileErrors: () => dispatch(clearProfileErrors())
+    clearProfileErrors: () => dispatch(clearProfileErrors()), 
+    editUser: user => dispatch(editUser(user))
 })
 
 export default connect(mSTP, mDTP)(EditBasic);
