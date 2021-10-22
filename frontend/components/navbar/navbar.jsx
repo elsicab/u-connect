@@ -31,8 +31,8 @@ class Navbar extends React.Component {
         return(
             <div className="navbar"> 
                 <div className="header">
-                    <div className="left-nav">
-                        <img className="logo" src={window.logo} />
+                        <div className="left-nav">
+                        <Link to="/feed"><img className="logo" src={window.logo} /></Link>
                         <div className="nav-search">
                             <FaSearch />
                             <input type="text" placeholder="Search" disabled></input>
