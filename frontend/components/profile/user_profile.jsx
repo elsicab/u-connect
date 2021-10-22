@@ -105,6 +105,7 @@ class UserProfile extends React.Component{
 
         const addEducation = this.props.profileUser.id == this.props.currentUser.id ? <div onClick={this.handleEducation} className="add_edu"><AiOutlinePlus/></div> : null
         const addExperience = this.props.profileUser.id == this.props.currentUser.id ? <div onClick={this.handleExperience} className="add_exp"><AiOutlinePlus/></div> : null
+        const ownAvatar = this.props.profileUser.id == this.props.currentUser.id ? <div className="avatar" id="avatar-cursor" onClick={this.handleAvatar}>{avatar}</div> : <div className="avatar">{avatar}</div>
         return(
             <div className = "profile">
                 <NavbarContainer/>
@@ -113,7 +114,7 @@ class UserProfile extends React.Component{
                         <div className = "basic_info">
                             <div className="banner">
                                 <img className="banner_photo" src={window.banner} />
-                                <div className="avatar" onClick={this.handleAvatar}>{avatar}</div>
+                                {ownAvatar}
                             </div>
                             <div>
                                 {renderCreate}
