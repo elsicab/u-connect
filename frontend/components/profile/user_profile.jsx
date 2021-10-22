@@ -38,7 +38,6 @@ class UserProfile extends React.Component{
     }
 
     handleConnection(e){
-        console.log(this.props.connected)
         e.preventDefault();
         this.props.createConnection({connected_id: this.props.connected})
     }
