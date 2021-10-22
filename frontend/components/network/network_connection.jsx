@@ -39,8 +39,10 @@ class SingleConnection extends React.Component{
         
         const connection = this.props.connection.connected_id != this.props.currentUser ?
             <div className="single-connection">
-                {this.props.connection?.connected?.avatar ? <img className="connection-avatar" src={this.props.connection.connected.avatar} /> :
-                    <img className="connection-avatar" src={window.avatar} />}
+                <Link className="connection-link" to={`/users/${this.props.connection.connected_id}`}>
+                    {this.props.connection?.connected?.avatar ? <img className="connection-avatar" src={this.props.connection.connected.avatar} /> :
+                        <img className="connection-avatar" src={window.avatar} />}
+                </Link>
                 <div id="connection-main">
                     <div className="connection-info">
                         <div className="network-link">
