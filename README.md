@@ -1,5 +1,5 @@
 # WiredIn
-WiredIn is a functional LinkedIn clone in which a user can create an account and profile and connect with other members. The user has the ability to create, edit and delete posts as well as edit all basic profile information. They may also view other memeber's profiles. 
+WiredIn is a functional LinkedIn clone in which a user can create an account and profile and connect with other members. The user has the ability to create, edit and delete posts as well as edit all basic profile information. They may also visit other member's profiles. 
 
 ### Live Site: [WiredIn](https://w-in.herokuapp.com/#/)
 
