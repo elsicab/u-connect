@@ -1,23 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { closeModal } from '../../actions/modal_actions'; 
+import { closeModal } from '../../actions/modal_actions';
 import { AiOutlineClose } from 'react-icons/ai';
 import { AiFillMinusCircle } from 'react-icons/ai';
 import { editProfile, clearProfileErrors } from '../../actions/profile_actions';
 import { editUser } from '../../actions/user_actions';
 
-class EditBasic extends React.Component{
-    constructor(props){
+class EditBasic extends React.Component {
+    constructor(props) {
         super(props)
         this.state = {
-            first_name: this.props.currentUser.first_name, 
+            first_name: this.props.currentUser.first_name,
             last_name: this.props.currentUser.last_name,
             pronouns: this.props.profile.pronouns,
             headline: this.props.profile.headline,
             country: this.props.profile.country,
             industry: this.props.profile.industry,
             location: this.props.profile.location,
-            postal_code: this.props.profile.postal_code, 
+            postal_code: this.props.profile.postal_code,
             id: this.props.profile.id
         }
 
@@ -32,48 +32,48 @@ class EditBasic extends React.Component{
     }
 
     renderErrors() {
-        return(
-        <ul className="errors">
-            {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`} className="error. profile-errors">
-                <AiFillMinusCircle/> {error}
-            </li>
-            ))}
-        </ul>
+        return (
+            <ul className="errors">
+                {this.props.errors.map((error, i) => (
+                    <li key={`error-${i}`} className="error. profile-errors">
+                        <AiFillMinusCircle /> {error}
+                    </li>
+                ))}
+            </ul>
         );
     }
 
-    handleModal(e){
+    handleModal(e) {
         e.preventDefault();
         this.props.closeModal();
     }
 
-    handleInput(type){
+    handleInput(type) {
         return (e) => {
             this.setState({ [type]: e.target.value })
         };
     }
 
-    handleSubmit(e){
+    handleSubmit(e) {
         e.preventDefault();
-        if(this.state.first_name != this.props.currentUser.first_name 
-            || this.state.last_name != this.props.currentUser.last_name ){
-                const formData = new FormData();
-                formData.append('user[id]', this.props.currentUser.id);
-                formData.append('user[first_name]', this.state.first_name);
-                formData.append('user[last_name]', this.state.last_name);
-                this.props.editUser(formData)
-            }
+        if (this.state.first_name != this.props.currentUser.first_name
+            || this.state.last_name != this.props.currentUser.last_name) {
+            const formData = new FormData();
+            formData.append('user[id]', this.props.currentUser.id);
+            formData.append('user[first_name]', this.state.first_name);
+            formData.append('user[last_name]', this.state.last_name);
+            this.props.editUser(formData)
+        }
         this.props.editProfile(this.state)
             .then(() => this.props.closeModal())
     }
 
-    render(){
+    render() {
         return (
             <div className="edit-modal">
                 <div className="edit-header">
                     <h2>Edit intro</h2>
-                    <p className="exit-edit" onClick={this.handleModal}><AiOutlineClose/></p>
+                    <p className="exit-edit" onClick={this.handleModal}><AiOutlineClose /></p>
                 </div>
                 <div className="name-input">
                     <div className="first-name-input">
@@ -88,7 +88,7 @@ class EditBasic extends React.Component{
                 <div className="pronouns">
                     <label>Pronouns</label>
                     <select value={this.state.pronouns} onChange={this.handleInput('pronouns')}>
-                         <option>Please Select</option>
+                        <option>Please Select</option>
                         <option value="She/Her">She/Her</option>
                         <option value="He/Him">He/Him</option>
                         <option value="They/Them" >They/Them</option>
@@ -101,7 +101,7 @@ class EditBasic extends React.Component{
                 </div>
                 <div className="country">
                     <label>Country/Region *</label>
-                    <input value={this.state.country} onChange={this.handleInput('country')}type="text" />
+                    <input value={this.state.country} onChange={this.handleInput('country')} type="text" />
                 </div>
                 <div className="postal-sec">
                     <div className="postal_code">
@@ -118,16 +118,16 @@ class EditBasic extends React.Component{
                     <input value={this.state.industry} onChange={this.handleInput('industry')} type="text" />
 
                 </div>
-                <button className="save-button" onClick={this.handleSubmit}>Save</button>  
-                {this.renderErrors()}     
+                <button className="save-button" onClick={this.handleSubmit}>Save</button>
+                {this.renderErrors()}
             </div>
         )
     }
 }
 
 const mSTP = (state, ownProps) => ({
-    currentUser: state.entities.users[state.session.currentUser], 
-    profileId: ownProps.profileId, 
+    currentUser: state.entities.users[state.session.currentUser],
+    profileId: ownProps.profileId,
     profile: state.entities.profiles[ownProps.profileId],
     errors: state.errors.profile
 });
@@ -135,7 +135,7 @@ const mSTP = (state, ownProps) => ({
 const mDTP = dispatch => ({
     editProfile: profile => dispatch(editProfile(profile)),
     closeModal: () => dispatch(closeModal()),
-    clearProfileErrors: () => dispatch(clearProfileErrors()), 
+    clearProfileErrors: () => dispatch(clearProfileErrors()),
     editUser: user => dispatch(editUser(user))
 })
 
