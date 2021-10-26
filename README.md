@@ -103,3 +103,9 @@ function Modal({modal, closeModal, id}){
             .then(() => this.props.closeModal())
     }
 ```
+
+## Future Directions 
+This was the first time that I tacked a full-stack project. I would like to continue it by implementing more of the core functionality of what makes LinkedIn stand out from other social sites. Features that will be implemented in the future include: 
+* Search functionality 
+* Job posting/ board
+* Post sharing
