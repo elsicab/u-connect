@@ -76,9 +76,6 @@ class EditForm extends React.Component{
                                     <input id = "file_input" onChange={this.handleFile} type="file"/>
                                 </label>
                             </li>
-                            <li className="attach_icon"><AiFillPlaySquare/></li>
-                            <li className="attach_icon"><RiCalendarEventFill/></li>
-                            <li className="attach_icon"><RiArticleLine/></li>
                         </ul>
                         <button onClick={this.handleSubmit} className="post_button">Save</button>
                     </div>
